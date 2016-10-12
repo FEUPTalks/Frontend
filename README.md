@@ -1,5 +1,3 @@
-# LESTeamB
-
 # Sistema de Gerenciamento de Palestras
 
 ## Atores
