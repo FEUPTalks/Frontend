@@ -4,7 +4,7 @@
 
 ### 1. Clone the project
 ```
-$ git clone https://github.com/start-angular/sb-admin-angular.git
+$ git clone https://github.com/RAyres23/LESTeamB.git
 ```
 
 ### 2. Install npm and Grunt
