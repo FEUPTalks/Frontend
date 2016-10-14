@@ -2,14 +2,14 @@
 
 ## Atores
 
-* **Preponente**: Propõe a palestra
+* **Proponente**: Propõe a palestra
 * **Administrador**: Aprova a palestra
 * **Funcionário**: Arranja as salas (mas não faz parte do sistema)
 * **Palestrante**: Faz a palestra (mas não faz parte do sistema)
 * **Attendee**: Regista-se nas palestras disponíveis (e Coffee Break/Lanche)
 * **Moderador**: Modera as palestras
 
-## Requerimentos
+## Requesitos
 
 * Registo de palestra através de um formulário
 * Criação de uma "wiki" própria para uma palestra
