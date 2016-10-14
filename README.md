@@ -9,7 +9,7 @@
 * **Attendee**: Regista-se nas palestras disponíveis (e Coffee Break/Lanche)
 * **Moderador**: Modera as palestras
 
-## Requesitos
+## Requisitos
 
 * Registo de palestra através de um formulário
 * Criação de uma "wiki" própria para uma palestra
