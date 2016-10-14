@@ -1,4 +1,23 @@
-# Sistema de Gerenciamento de Palestras
+# FEUP Talks Management
+
+## Installation
+
+### 1. Clone the project
+```
+$ git clone https://github.com/start-angular/sb-admin-angular.git
+```
+
+### 2. Install npm and Grunt
+```
+$ sudo apt-get install npm
+$ sudo npm install -g grunt-cli
+```
+
+### 3. Start the server
+
+```
+$ npm start
+```
 
 ## Atores
 
