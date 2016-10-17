@@ -1,4 +1,7 @@
 # FEUP Talks Management
+![Build](https://camo.githubusercontent.com/c80b945464b8a2f461df63caf4125154896b93b0/68747470733a2f2f7472617669732d63692e6f72672f616e67756c61722f717569636b73746172742e7376673f6272616e63683d6d6173746572)
+
+Using Angular 2.
 
 ## Installation
 
@@ -22,7 +25,7 @@ $ npm start
 > 
 > `npm run typings -- install`
 
-> Code changes are automatically updated.  Process can be stoped using CTRL+C.
+Code changes are automatically updated.  Process can be stoped using CTRL+C.
 
 ## Folder Structure
 
@@ -81,7 +84,6 @@ Pedido - (Aceitar: **AD**) -> Aguarda Recursos - (Sala: **FC**) -> A Divulgar: *
 Na etapa de aguarda recursos, o Preponente, Administrador e Funcionário deveriam poder alterar o pedido.
 ```
 
-
-Links Úteis:
+Links:
 
 [Product Vision - Roman Pichler](https://www.scrumalliance.org/community/articles/2009/january/the-product-vision)
