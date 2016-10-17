@@ -1,15 +1,34 @@
-# Sistema de Gerenciamento de Palestras
+# FEUP Talks Management
+
+## Installation
+
+### 1. Clone the project
+```
+$ git clone https://github.com/RAyres23/LESTeamB.git
+```
+
+### 2. Install npm and Grunt
+```
+$ sudo apt-get install npm
+$ sudo npm install -g grunt-cli
+```
+
+### 3. Start the server
+
+```
+$ npm start
+```
 
 ## Atores
 
-* **Preponente**: Propõe a palestra
+* **Proponente**: Propõe a palestra
 * **Administrador**: Aprova a palestra
 * **Funcionário**: Arranja as salas (mas não faz parte do sistema)
 * **Palestrante**: Faz a palestra (mas não faz parte do sistema)
 * **Attendee**: Regista-se nas palestras disponíveis (e Coffee Break/Lanche)
 * **Moderador**: Modera as palestras
 
-## Requerimentos
+## Requisitos
 
 * Registo de palestra através de um formulário
 * Criação de uma "wiki" própria para uma palestra
