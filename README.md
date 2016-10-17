@@ -7,16 +7,49 @@
 $ git clone https://github.com/RAyres23/LESTeamB.git
 ```
 
-### 2. Install npm and Grunt
+### 2. Go to the project folder
 ```
-$ sudo apt-get install npm
-$ sudo npm install -g grunt-cli
+$ cd LESTeamB
 ```
 
-### 3. Start the server
+### 3. Install npm packages
 
 ```
+$ npm install
 $ npm start
+```
+> If the typings folder doesn't show up after npm install please install them manually with:
+> 
+> `npm run typings -- install`
+
+> Code changes are automatically updated.  Process can be stoped using CTRL+C.
+
+## Folder Structure
+
+```
+app/
+----- components/
+---------- home/
+--------------- home.component.ts
+--------------- home.component.html
+---------- other/
+--------------- other.component.ts
+--------------- other.component.html (optional)
+----- assets/
+---------- js/
+--------------- bootstrap.js
+--------------- jquery.js
+---------- styles/
+--------------- bootstrap.css
+--------------- jquery.css
+----- shared/
+---------- sidebar
+--------------- sidebar.component.ts
+--------------- sidebar.component.html
+----- main.ts
+----- app.component.ts
+test/
+----- something
 ```
 
 ## Atores
