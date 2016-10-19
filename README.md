@@ -5,17 +5,17 @@ Using Angular 2.
 
 ## Installation
 
-### 1. Clone the project
+#### 1. Clone the project
 ```
 $ git clone https://github.com/RAyres23/LESTeamB.git
 ```
 
-### 2. Go to the project folder
+#### 2. Go to the project folder
 ```
 $ cd LESTeamB
 ```
 
-### 3. Install npm packages
+#### 3. Install npm packages
 
 ```
 $ npm install
@@ -30,30 +30,35 @@ Code changes are automatically updated.  Process can be stoped using CTRL+C.
 ## Start Coding
 
 If you want to start developing, first create a new branch:
-
+```
 May branch off from:
 develop
 Must merge back into:
 develop
+```
 
-1. Always use develop branch to start branching off. Branching names convention must follow: `develop/name`
+1 - Always use develop branch to start branching off. Branching names convention must follow: `develop/name`
 
 ```
 $ git checkout -b myfeature develop
 Switched to a new branch "myfeature"
 ```
 
-2. When finished developing the feature, ***merge back*** to develop. Then to master.
-The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature.
+2 - When finished developing the feature, ***merge back*** to develop. Then to master.
+
+> The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature.
 
 ```
 $ git checkout develop
 Switched to branch 'develop'
+
 $ git merge --no-ff myfeature
 Updating ea1b82a..05e9557
 (Summary of changes)
+
 $ git branch -d myfeature
 Deleted branch myfeature (was 05e9557).
+
 $ git push origin develop
 ```
 
