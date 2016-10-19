@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,16 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var HomeComponent = (function () {
-    function HomeComponent() {
+var router_1 = require('@angular/router');
+var AppComponent = (function () {
+    function AppComponent() {
     }
-    HomeComponent = __decorate([
+    AppComponent = __decorate([
         core_1.Component({
-            template: '<p class="title">Angular</p>',
+            selector: 'app',
+            template: '<router-outlet></router-outlet>',
+            directives: [router_1.ROUTER_DIRECTIVES] //here
         }), 
         __metadata('design:paramtypes', [])
-    ], HomeComponent);
-    return HomeComponent;
-})();
-exports.HomeComponent = HomeComponent;
-//# sourceMappingURL=home.component.js.map
+    ], AppComponent);
+    return AppComponent;
+}());
+exports.AppComponent = AppComponent;
+//# sourceMappingURL=app.component.js.map
