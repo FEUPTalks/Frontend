@@ -7,3 +7,4 @@ npm-debug.log
 typings
 app/**/*.js
 app/**/*.map
+.idea/uiDesigner.xml
