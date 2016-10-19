@@ -27,6 +27,38 @@ $ npm start
 
 Code changes are automatically updated.  Process can be stoped using CTRL+C.
 
+## Start Coding
+
+If you want to start developing, first create a new branch:
+
+May branch off from:
+develop
+Must merge back into:
+develop
+
+1. Always use develop branch to start branching off. Branching names convention must follow: `develop/name`
+
+```
+$ git checkout -b myfeature develop
+Switched to a new branch "myfeature"
+```
+
+2. When finished developing the feature, ***merge back*** to develop. Then to master.
+The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature.
+
+```
+$ git checkout develop
+Switched to branch 'develop'
+$ git merge --no-ff myfeature
+Updating ea1b82a..05e9557
+(Summary of changes)
+$ git branch -d myfeature
+Deleted branch myfeature (was 05e9557).
+$ git push origin develop
+```
+
+As for release branch, we will later use that for Jenkins purpose.
+
 ## Folder Structure
 
 ```
