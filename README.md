@@ -128,11 +128,11 @@ Links:
 ## User Stories
 
 #### [1. I, as a proponent, want to be able to submit a talk proposition.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT1.md)
-#### 2. I, as a system administrator, want to be able to reject a talk proposition.
-#### 3. I, as a system administrator, want to able to accept a talk proposition.
-#### 4. I, as a system administrator, want to be able to reject a talk, so that the proponent edits it.
-#### 5. I, as a proponent, want to be able to edit a talk, in order to complete the talk.
-#### 6. I, as system administrator, want to be able to edit a talk, in order to complete it.
+#### [2. I, as a system administrator, want to be able to reject a talk proposition.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT2.md)
+#### [3. I, as a system administrator, want to able to accept a talk proposition.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT3.md)
+#### [4. I, as a system administrator, want to be able to reject a talk, so that the proponent edits it.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT4.md)
+#### [5. I, as a proponent, want to be able to edit a talk, in order to complete the talk.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT5.md)
+#### [6. I, as system administrator, want to be able to edit a talk, in order to complete it.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT6.md)
 #### 7. I, as an employee, want to be able to choose the room for the talk, in order to complete the talk.
 #### 8. I, as system administrator, want to be able to accept a talk, in order to publish it.
 #### 9. I, as a user, want to be able to register in a talk, in order to attend it.
