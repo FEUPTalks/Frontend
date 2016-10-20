@@ -92,38 +92,47 @@ test/
 ----- something
 ```
 
-## Atores
+## Actors
 
-* **Proponente**: Propõe a palestra
-* **Administrador**: Aprova a palestra
-* **Funcionário**: Arranja as salas (mas não faz parte do sistema)
-* **Palestrante**: Faz a palestra (mas não faz parte do sistema)
-* **Attendee**: Regista-se nas palestras disponíveis (e Coffee Break/Lanche)
-* **Moderador**: Modera as palestras
+* **Proponent**: Proposes the talk
+* **Administrator**: Approves the talk
+* **Employee**: Sorts the rooms (but doesn't take part in the system)
+* **Palestrante**: Hosts the talk (but doesn't take part in the system)
+* **Attendee**: Registers in the avaiable talks (and Coffee Break/Lanche)
+* **Moderator**: Moderates the talks
 
-## Requisitos
+## Requirements
 
-* Registo de palestra através de um formulário
-* Criação de uma "wiki" própria para uma palestra
-* Envio de aviso para mailing list
-* Número máximo de inscrições para Coffee Break (não quebrar orçamento?)
+* Register the talk through a form
+* Create a own wiki/website or bio for the talk
+* Send notifications through a mail list
+* Limit the sign ups for the coffee break (budget overflow?)
 * User Roles
-* Validar inscrições com o email de fe.up.pt (e talvez captcha)
-* Inscrição: Nome, Mail, AFiliação, checkbox: vai ao almoço - desabilita ao chegar ao limite de pessoas para almoço (e pode mostrar quantas vagas tem)
-* Confirmar com o e-mail cada vez que quiser fazer uma alteração da conta (Queue de alterações - confirmadas por email: LINK)
- * Usuários acedem a um link que ativa um pedido da API e confirma um pedido em cache. O link vai ter de expirar passado algum tempo
+* Validate registrations by having fe.up.pt email (and maybe captcha)
+* Registration: Name, Mail, Filiation, checkbox: goes to lunch - disables when reaching max-amount (can even show how much slots are left)
+* Confirm with email each time they want to make an account change (Change queue or key - confirmed by email: LINK)
+ * Users access a link that activates an API request and confirms a request in cache. The link will have to expire eventually.
 
-## Máquina de estados
+## States
 ```
-Pedido - (Aceitar: **AD**) -> Aguarda Recursos - (Sala: **FC**) -> A Divulgar: **AD** - (Divulgar - Criar página, notificar) -> Palestra -> Arquivo
-       - (Rejeitar) -> Notificação com razão
+Request - (Accept: **AD**) -> Awaiting Resources - (Room: **EMP**) -> Sharing: **AD** - (Sharing - Create Page, Notify) -> Talk -> Archives
+       - (Reject) -> Notification with reason
 
-Na etapa de aguarda recursos, o Preponente, Administrador e Funcionário deveriam poder alterar o pedido.
+In the resources stage, the Proponent, Administrator and Employee should change the request.
 ```
 
-Links:
+## Techs
 
-[Product Vision - Roman Pichler](https://www.scrumalliance.org/community/articles/2009/january/the-product-vision)
+#### Angular 2
+
+Angular turns your templates into code that's highly optimized for today's JavaScript virtual machines giving you all the benefits of hand-written code with the productivity of a framework.
+Serve the first view of your application on node.js, .NET, PHP and other servers for near-instant rendering in just HTML and CSS. Also paves the way for sites that optimize for SEO.
+We like dynamic content, so we choosed this!
+
+#### Go
+
+Go and C# both have asynchronous operation built into the language at a low level, making it easy for large groups of people to write asynchronous code. The MongoDB Go driver is probably the best MongoDB driver in existence, and complex interaction with MongoDB is core to Parse. Goroutines were much more lightweight than threads. And frankly we were most excited about writing Go code. We thought it would be a lot easier to recruit great engineers to write Go code than any of the other solid async languages.
+And also, we've heard cool stuff about this language!
 
 ## User Stories
 
