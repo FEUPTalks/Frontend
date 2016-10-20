@@ -22,7 +22,7 @@ $ npm install
 $ npm start
 ```
 > If the typings folder doesn't show up after npm install please install them manually with:
-> 
+>
 > `npm run typings -- install`
 
 Code changes are automatically updated.  Process can be stoped using CTRL+C.
@@ -124,3 +124,22 @@ Na etapa de aguarda recursos, o Preponente, Administrador e Funcionário deveria
 Links:
 
 [Product Vision - Roman Pichler](https://www.scrumalliance.org/community/articles/2009/january/the-product-vision)
+
+## User Stories
+
+[#### 1. I, as a proponent, want to be able to submit a talk proposition.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT1.md)
+#### 2. I, as a system administrator, want to be able to reject a talk proposition.
+#### 3. I, as a system administrator, want to able to accept a talk proposition.
+#### 4. I, as a system administrator, want to be able to reject a talk, so that the proponent edits it.
+#### 5. I, as a proponent, want to be able to edit a talk, in order to complete the talk.
+#### 6. I, as system administrator, want to be able to edit a talk, in order to complete it.
+#### 7. I, as an employee, want to be able to choose the room for the talk, in order to complete the talk.
+#### 8. I, as system administrator, want to be able to accept a talk, in order to publish it.
+#### 9. I, as a user, want to be able to register in a talk, in order to attend it.
+#### 10. I, as attendee, want to be able to re-register in a talk, in order to replace information.
+#### 11. I, as a user, want to be able to search for available talks.
+#### 12. I, as a user, want to be able to search for previous talks.
+#### 13. I, as an attendee, want to be able to delete my registration in the talk.
+#### 14. I, as an attendee, want to be able to choose to receive (or not) notifications.
+#### 15. I, as an attendee, want to be able to leave feedback (reviews).
+#### 16. I, as a user, want to be able to see the other feedback (reviews).
