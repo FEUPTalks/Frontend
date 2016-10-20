@@ -127,7 +127,7 @@ Links:
 
 ## User Stories
 
-[#### 1. I, as a proponent, want to be able to submit a talk proposition.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT1.md)
+#### [1. I, as a proponent, want to be able to submit a talk proposition.](https://github.com/RAyres23/LESTeamB/blob/master/acceptanceTests/AT1.md)
 #### 2. I, as a system administrator, want to be able to reject a talk proposition.
 #### 3. I, as a system administrator, want to able to accept a talk proposition.
 #### 4. I, as a system administrator, want to be able to reject a talk, so that the proponent edits it.
