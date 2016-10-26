@@ -1,3 +1,6 @@
+##User Story
+I, as system administrator, want to be able to edit a talk, in order to complete it.
+
 ##Acceptance Test
 
 * The proponent proposes a talk.

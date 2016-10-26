@@ -1,3 +1,6 @@
+##User Story
+I, as a proponent, want to be able to edit a talk, in order to complete the talk.
+
 ##Acceptance Test
 
 * The proponent proposes a talk.

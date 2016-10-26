@@ -1,3 +1,6 @@
+##User Story
+I, as a system administrator, want to be able to reject a talk, so that the proponent edits it.
+
 ##Acceptance Test
 
 * The proponent proposes a talk.

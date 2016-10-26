@@ -1,3 +1,6 @@
+##User Story
+I, as a system administrator, want to able to accept a talk proposition.
+
 ##Acceptance Test
 
 * The proponent proposes a talk.
