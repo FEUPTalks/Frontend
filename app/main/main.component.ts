@@ -13,7 +13,8 @@ declare var componentHandler: any;
 })
 
 export class MainComponent implements AfterViewChecked {
-    ngAfterViewChecked() {
+    /* We need because Angular makes content dynamic, and material design needs to update injected content */
+    static ngAfterViewChecked() {
         componentHandler.upgradeAllRegistered();
     }
 }

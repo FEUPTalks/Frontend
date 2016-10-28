@@ -2,13 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'db-home-cmp',
-    templateUrl: 'home.component.html',
+    selector: 'db-test-cmp',
+    templateUrl: 'test.component.html',
 })
 
-export class HomeComponent {
-
-    ngOnInit() {
-
-    }
+export class TestComponent {
 }

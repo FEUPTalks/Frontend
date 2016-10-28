@@ -1,1 +1,50 @@
-<router-outlet></router-outlet>
+<style>
+    .md-card {
+        height: 64px;
+        background-color: rgb(33,150,243);
+    }
+    .side-avatar {
+        background: url(../assets/img/useravatar.svg), none;
+    }
+
+    .mdl-navigation__link {
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 10px;
+        color: #616161 !important;
+    }
+
+    .mdl-navigation-bar {
+        height: 30px;
+        margin-left: 10px;
+        text-transform: uppercase;
+        color: gray;
+        font-size: 10px;
+    }
+
+</style>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header sidebar-cmp class="mdl-layout__header"></header>
+    <div class="mdl-layout__drawer">
+        <div class="md-card mdl-shadow--2dp">
+            <div class="side-avatar"></div>
+        </div>
+        <nav class="mdl-navigation">
+            <div class="mdl-navigation-bar">Explore</div>
+            <a class="mdl-navigation__link" href=""><i class="fa fa-home fa-lg"></i> Dashboard</a>
+            <a class="mdl-navigation__link" href=""><i class="fa fa-flag-o fa-lg"></i> Pending</a>
+            <div class="mdl-navigation-bar">Moderate</div>
+            <a class="mdl-navigation__link" href=""><i class="fa fa-user fa-lg"></i> Users</a>
+            <a class="mdl-navigation__link" href=""><i class="fa fa-comments fa-lg"></i> Comments</a>
+            <div class="mdl-navigation-bar">Configure</div>
+            <a class="mdl-navigation__link" href=""><i class="fa fa-file fa-lg"></i> Archives</a>
+            <a class="mdl-navigation__link" href=""><i class="fa fa-cog fa-lg"></i> Options</a>
+            <a class="mdl-navigation__link" href=""><i class="fa fa-gavel fa-lg"></i> Logs</a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>

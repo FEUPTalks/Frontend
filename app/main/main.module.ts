@@ -1,23 +1,17 @@
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { HomeModule } from './home/home.module';
-import { TestModule } from './test/test.module';
-import { ProjectsModule } from './projects/projects.module';
+import { NgModule }         from '@angular/core';
+import { RouterModule }     from '@angular/router';
+import { HomeModule }       from './home/home.module';
 
-import { routes } from './main.routes';
-
-import { MainComponent } from './index';
-import { TopNavCleanComponent } from '../shared/index';
+import { MainComponent }    from './index';
+import { routes }           from './main.routes';
 
 @NgModule({
     imports: [
-        HomeModule,
-        TestModule,
-        ProjectsModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        HomeModule
     ],
-    declarations: [MainComponent, TopNavCleanComponent],
-    exports: [MainComponent, TopNavCleanComponent]
+    declarations: [MainComponent],
+    exports: [MainComponent]
 })
 
 export class MainModule { }

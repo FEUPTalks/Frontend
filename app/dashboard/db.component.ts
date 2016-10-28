@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 /**
- *	This class represents the main website
+ *	This class represents the dashboard
  */
 
 @Component({
     moduleId: module.id,
     selector: 'dashboard-cmp',
-    templateUrl: 'dashboard.component.html'
+    templateUrl: 'db.component.html'
 })
 
 export class DashboardComponent { }
