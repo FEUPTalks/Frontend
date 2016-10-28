@@ -1,17 +1,58 @@
 <style>
-    .md-card {
-        height: 64px;
-        background-color: rgb(33,150,243);
-    }
+
     .side-avatar {
-        background: url(../assets/img/useravatar.svg), none;
+        height: 70px;
+        padding-top: 20px;
+        padding-left: 20px;
     }
 
-    .mdl-navigation__link {
+    .side-avatar > img {
+        height: 64px;
+        border-radius: 50%;
+        position: relative;
+        display: inline;
+    }
+
+    .side-avatar > .info {
+        padding-left: 10px;
+        padding-top: 10px;
+        position: absolute;
+        display: inline;
+    }
+
+    .side-avatar > .info > .role {
+        line-height: 1px;
+        color: lightgray;
+        font-size: 10px;
         font-weight: 300;
+    }
+
+    .mdl-navigation_link {
         font-size: 13px;
-        line-height: 10px;
-        color: #616161 !important;
+        line-height: 40px;
+        color: #616161;
+        text-decoration: none;
+    }
+
+    .mdl-navigation_link:hover {
+        background-color: #f5f5f5;
+        color: #212121;
+    }
+
+    .mdl-navigation_link > span {
+        padding-left: 20px;
+    }
+
+    .mdl-navigation_link > i {
+        padding-left: 20px;
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .mdl-navigation_link > .mdl-badge {
+        position: absolute;
+        left: 5px;
+        margin-top: 5px;
     }
 
     .mdl-navigation-bar {
@@ -26,20 +67,47 @@
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
     <header sidebar-cmp class="mdl-layout__header"></header>
     <div class="mdl-layout__drawer">
-        <div class="md-card mdl-shadow--2dp">
-            <div class="side-avatar"></div>
+        <div class="side-avatar">
+            <img class="img-responsive" src="http://image.prntscr.com/image/21a071456b6446aa89644340857c35c4.png">
+            <div class="info">
+                <p class="name">Nuno Flores</p>
+                <p class="role">System Administrator</p>
+            </div>
         </div>
         <nav class="mdl-navigation">
             <div class="mdl-navigation-bar">Explore</div>
-            <a class="mdl-navigation__link" href=""><i class="fa fa-home fa-lg"></i> Dashboard</a>
-            <a class="mdl-navigation__link" href=""><i class="fa fa-flag-o fa-lg"></i> Pending</a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti ti-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-check-box"></i>
+                <span>Pending</span>
+                <span class="material-icons mdl-badge" data-badge="34"></span>
+            </a>
             <div class="mdl-navigation-bar">Moderate</div>
-            <a class="mdl-navigation__link" href=""><i class="fa fa-user fa-lg"></i> Users</a>
-            <a class="mdl-navigation__link" href=""><i class="fa fa-comments fa-lg"></i> Comments</a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-user"></i>
+                <span>Users</span>
+            </a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-comment"></i>
+                <span>Comments</span>
+                <span class="material-icons mdl-badge" data-badge="7"></span>
+            </a>
             <div class="mdl-navigation-bar">Configure</div>
-            <a class="mdl-navigation__link" href=""><i class="fa fa-file fa-lg"></i> Archives</a>
-            <a class="mdl-navigation__link" href=""><i class="fa fa-cog fa-lg"></i> Options</a>
-            <a class="mdl-navigation__link" href=""><i class="fa fa-gavel fa-lg"></i> Logs</a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-files"></i>
+                <span>Archives</span>
+            </a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-settings"></i>
+                <span>Options</span>
+            </a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-harddrives"></i>
+                <span>Logs</span>
+            </a>
         </nav>
     </div>
     <main class="mdl-layout__content">
