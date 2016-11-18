@@ -29,4 +29,4 @@ $ npm start
 Code changes are automatically updated.  Process can be stoped using CTRL+C.
 
 ### Backend code:
-https://github.com/RAyres23/LESTeamB-backend
+https://github.com/FEUPTalks/Backend
