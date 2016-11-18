@@ -1,65 +1,41 @@
 module.exports = function(config) {
     config.set({
-
-        basePath: '.',
-
+        basePath: '',
         frameworks: ['jasmine'],
-
-        files: [
-            // paths loaded by Karma
-            {pattern: 'node_modules/@angular/bundles/angular2-polyfills.js', included: true, watched: true},
-            {pattern: 'node_modules/systemjs/dist/system.src.js', included: true, watched: true},
-            {pattern: 'node_modules/rxjs/bundles/Rx.js', included: true, watched: true},
-            {pattern: 'node_modules/@angular/bundles/angular2.dev.js', included: true, watched: true},
-            {pattern: 'node_modules/@angular/bundles/testing.dev.js', included: true, watched: true},
-            {pattern: 'karma-test-shim.js', included: true, watched: true},
-
-            // paths loaded via module imports
-            {pattern: 'dist/**/*.js', included: false, watched: true},
-
-            // paths to support debugging with source maps in dev tools
-            {pattern: 'src/**/*.ts', included: false, watched: false},
-            {pattern: 'dist/**/*.js.map', included: false, watched: false}
-        ],
-
-        // proxied base paths
-        proxies: {
-            // required for component assests fetched by Angular's compiler
-            '/src/': '/base/src/'
-        },
-
-        port: 9876,
-
-        logLevel: config.LOG_INFO,
-
-        colors: true,
-
-        autoWatch: true,
-
-        browsers: ['Chrome'],
-
-        // Karma plugins loaded
-        plugins: [
+        plugins : [
             'karma-jasmine',
-            'karma-coverage',
-            'karma-chrome-launcher'
+            'karma-html-reporter',
+            'karma-phantomjs-launcher',
+            'karma-junit-reporter',
         ],
+        files: [
+            './test/components/dashboard.spec.js'
+        ],
+        exclude: [],
+        preprocessors: {},
+        reporters: ['progress', 'junit', 'html'],
+        htmlReporter: {
+            outputDir: 'test', // where to put the reports
+            templatePath: null, // set if you moved jasmine_template.html
+            focusOnFailures: true, // reports show failures on start
+            namedFiles: false, // name files instead of creating sub-directories
+            pageTitle: null, // page title for reports; browser info by default
+            urlFriendlyName: false, // simply replaces spaces with _ for files/dirs
+            reportName: 'html', // report summary filename; browser info by default
 
-        // Coverage reporter generates the coverage
-        reporters: ['progress', 'dots', 'coverage'],
-
-        // Source files that you wanna generate coverage for.
-        // Do not include tests or libraries (these files will be instrumented by Istanbul)
-        preprocessors: {
-            'dist/**/!(*spec).js': ['coverage']
+            // experimental
+            preserveDescribeNesting: false, // folded suites stay folded
+            foldAll: false // reports start folded (only with preserveDescribeNesting)
         },
-
-        coverageReporter: {
-            reporters:[
-                {type: 'json', subdir: '.', file: 'coverage-final.json'}
-            ]
+        junitReporter: {
+            outputDir: 'test/xml-reports/'
         },
-
-        singleRun: true
+        port: 9876,
+        colors: true,
+        logLevel: config.LOG_INFO,
+        autoWatch: false,
+        browsers: ['PhantomJS'],
+        singleRun: true,
+        concurrency: Infinity
     })
-};
+}

@@ -10,4 +10,6 @@ import { Component } from '@angular/core';
     templateUrl: 'db.component.html'
 })
 
-export class DashboardComponent { }
+export class DashboardComponent {
+    test = "testing";
+}

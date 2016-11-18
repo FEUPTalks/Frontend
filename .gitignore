@@ -8,3 +8,5 @@ typings
 app/**/*.js
 app/**/*.map
 .idea/uiDesigner.xml
+test/xml-reports/
+test/html/
