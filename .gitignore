@@ -6,7 +6,7 @@ node_modules
 npm-debug.log
 typings
 app/**/*.js
-!app/assets/js/
+!app/assets/js/*
 app/**/*.map
 .idea/uiDesigner.xml
 test/xml-reports/
