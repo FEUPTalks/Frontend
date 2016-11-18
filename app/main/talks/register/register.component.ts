@@ -12,8 +12,6 @@ import 'rxjs/Rx';
 
 export class RegisterComponent {
 
-    title: str;
-
     constructor(private http:Http) {
 
     }
@@ -22,13 +20,13 @@ export class RegisterComponent {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         var req = {};
-        req.title = title.value;
+        req['title'] = "test";
 
         this.http.post('http://les16b.fe.up.pt/talks', JSON.stringify(req), options).map(res => res.json())
             .subscribe(
-                data => this.result = data,
+                data => req['response'] = "not sure how to get response yet",
                 err => console.log('ERROR!!!'),
-                () => console.log('Got response from API', this.result)
+                () => console.log('Got response from API', req['response'])
             );
     }
 }
