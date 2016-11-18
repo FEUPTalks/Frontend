@@ -8,7 +8,7 @@ import { routes }           from './main.routes';
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes, { useHash: true }),
+        RouterModule.forRoot(routes),
         HomeModule,
         TalksModule
     ],

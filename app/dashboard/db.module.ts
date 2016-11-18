@@ -8,7 +8,7 @@ import { routes }             from './db.routes';
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(routes, { useHash: true }),
+        RouterModule.forRoot(routes),
         HomeModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],

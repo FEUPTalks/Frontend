@@ -12,7 +12,7 @@ import { routes }          from './app.routes';
     imports: [
         BrowserModule,
         FormsModule,
-        RouterModule.forRoot(routes, { useHash: true }),
+        RouterModule.forRoot(routes),
         MainModule,
         DashboardModule
     ],
