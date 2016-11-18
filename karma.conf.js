@@ -28,7 +28,7 @@ module.exports = function(config) {
             foldAll: false // reports start folded (only with preserveDescribeNesting)
         },
         junitReporter: {
-            outputDir: 'test/xml-reports/TESTS-*.xml'
+            outputDir: 'test/xml-reports/'
         },
         port: 9876,
         colors: true,
