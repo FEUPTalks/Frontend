@@ -27,3 +27,6 @@ $ npm start
 > `npm run typings -- install`
 
 Code changes are automatically updated.  Process can be stoped using CTRL+C.
+
+### Backend code:
+https://github.com/FEUPTalks/Backend

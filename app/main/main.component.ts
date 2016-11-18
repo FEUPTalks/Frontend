@@ -1,10 +1,8 @@
-import { Component, AfterViewChecked } from '@angular/core';
+import { Component } from '@angular/core';
 
 /**
  *	This class represents the main website
  */
-
-declare var componentHandler: any;
 
 @Component({
     moduleId: module.id,
@@ -12,9 +10,4 @@ declare var componentHandler: any;
     templateUrl: './main.component.html',
 })
 
-export class MainComponent implements AfterViewChecked {
-    /* We need because Angular makes content dynamic, and material design needs to update injected content */
-    static ngAfterViewChecked() {
-        componentHandler.upgradeAllRegistered();
-    }
-}
+export class MainComponent { }

@@ -6,10 +6,8 @@ import { Component } from '@angular/core';
 
 @Component({
     moduleId: module.id,
-    selector: 'dashboard-cmp',
-    templateUrl: 'db.component.html'
+    selector: 'talks-cmp',
+    templateUrl: 'talks.component.html'
 })
 
-export class DashboardComponent {
-    test = "testing";
-}
+export class TalksComponent { }
