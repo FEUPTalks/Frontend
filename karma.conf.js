@@ -6,7 +6,7 @@ module.exports = function(config) {
             'karma-jasmine',
             'karma-html-reporter',
             'karma-phantomjs-launcher',
-            'karma-junit-reporter',
+            'karma-junit-reporter'
         ],
         files: [
             './test/components/dashboard.spec.js'
@@ -28,7 +28,7 @@ module.exports = function(config) {
             foldAll: false // reports start folded (only with preserveDescribeNesting)
         },
         junitReporter: {
-            outputDir: 'test/xml-reports/'
+            outputDir: 'test/xml-reports/TEST-*.xml'
         },
         port: 9876,
         colors: true,
@@ -38,4 +38,4 @@ module.exports = function(config) {
         singleRun: true,
         concurrency: Infinity
     })
-}
+};
