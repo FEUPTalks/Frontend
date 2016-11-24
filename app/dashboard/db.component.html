@@ -1,0 +1,118 @@
+<style>
+
+    .side-avatar {
+        height: 70px;
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+
+    .side-avatar > img {
+        height: 64px;
+        border-radius: 50%;
+        position: relative;
+        display: inline;
+    }
+
+    .side-avatar > .info {
+        padding-left: 10px;
+        padding-top: 10px;
+        position: absolute;
+        display: inline;
+    }
+
+    .side-avatar > .info > .role {
+        line-height: 1px;
+        color: lightgray;
+        font-size: 10px;
+        font-weight: 300;
+    }
+
+    .mdl-navigation_link {
+        font-size: 13px;
+        line-height: 40px;
+        color: #616161;
+        text-decoration: none;
+    }
+
+    .mdl-navigation_link:hover {
+        background-color: #f5f5f5;
+        color: #212121;
+    }
+
+    .mdl-navigation_link > span {
+        padding-left: 20px;
+    }
+
+    .mdl-navigation_link > i {
+        padding-left: 20px;
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .mdl-navigation_link > .mdl-badge {
+        position: absolute;
+        left: 5px;
+        margin-top: 5px;
+    }
+
+    .mdl-navigation-bar {
+        height: 30px;
+        margin-left: 10px;
+        text-transform: uppercase;
+        color: gray;
+        font-size: 10px;
+    }
+
+</style>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header sidebar-cmp class="mdl-layout__header"></header>
+    <div class="mdl-layout__drawer">
+        <div class="side-avatar">
+            <img class="img-responsive" src="http://image.prntscr.com/image/21a071456b6446aa89644340857c35c4.png">
+            <div class="info">
+                <p class="name">Nuno Flores</p>
+                <p class="role">System Administrator</p>
+            </div>
+        </div>
+        <nav class="mdl-navigation">
+            <div class="mdl-navigation-bar">Explore</div>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti ti-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-check-box"></i>
+                <span>Pending</span>
+                <span class="material-icons mdl-badge" data-badge="34"></span>
+            </a>
+            <div class="mdl-navigation-bar">Moderate</div>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-user"></i>
+                <span>Users</span>
+            </a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-comment"></i>
+                <span>Comments</span>
+                <span class="material-icons mdl-badge" data-badge="7"></span>
+            </a>
+            <div class="mdl-navigation-bar">Configure</div>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-files"></i>
+                <span>Archives</span>
+            </a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-settings"></i>
+                <span>Options</span>
+            </a>
+            <a class="mdl-navigation_link" href="">
+                <i class="ti-harddrives"></i>
+                <span>Logs</span>
+            </a>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <div class="page-content">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>
