@@ -2,14 +2,14 @@ import { NgModule }     from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule }   from '@angular/http';
 
-import { RegisterComponent } from './register.component';
+import { List_EditComponent } from './list_edit.component';
 
 import { MDL }       from '../../../shared/index';
 
 @NgModule({
     imports: [ HttpModule ],
-    declarations: [RegisterComponent],
-    exports: [RegisterComponent]
+    declarations: [List_EditComponent, MDL],
+    exports: [List_EditComponent]
 })
 
-export class RegisterModule { }
+export class List_EditModule { }

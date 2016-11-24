@@ -1,25 +1,121 @@
-<style>
-    .demo-card-square.mdl-card {
-        width: 320px;
-        height: 320px;
-    }
-    .demo-card-square > .mdl-card__title {
-        color: #fff;
-        background:
-                url('../../assets/img/dog.png') bottom right 15% no-repeat #46B6AC;
-    }
-</style>
+<div class="row row-flex row-flex-wrap">
+    <div class="col s12 m6 l3">
+        <div class="card box blue">
+            <div class="w-40 blue darken-4 rounded">
+                <i class="fa fa-facebook white-text valign"></i>
+            </div>
+            <div class="box-content box-content-right align-right valign">
+                <span class="md stronger blue-text text-lighten-5">{{ talks?.length }} <span class="ms">Pending Talk</span></span>
+                <p class="sm blue-text text-lighten-4">Awaiting approval</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m6 l3">
+        <div class="card box white">
+            <div class="w-40 green rounded">
+                <i class="fa fa-comment white-text valign"></i>
+            </div>
+            <div class="box-content box-content-right align-right valign">
+                <span class="md stronger">0 <span class="ms">Comments</span></span>
+                <p class="sm grey-text text-darker-3">Awaiting approval</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m6 l3">
+        <div class="card box white">
+            <div class="w-40 yellow darken-4 rounded">
+                <i class="fa fa-facebook white-text valign"></i>
+            </div>
+            <div class="box-content box-content-right align-right valign">
+                <span class="md stronger">0 <span class="ms">Talks Completed</span></span>
+                <p class="sm grey-text text-darker-3">In the current month</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m6 l3">
+        <div class="card box white">
+            <div class="w-40 indigo lighten-2 rounded">
+                <i class="fa fa-user white-text valign"></i>
+            </div>
+            <div class="box-content box-content-right align-right valign">
+                <span class="md stronger">0 <span class="ms">Users</span></span>
+                <p class="sm grey-text text-darker-3">Attending talks this month</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-flex row-flex-wrap">
+    <div class="col s12 m12 l8">
+        <div class="card box white">
+            <div class="box-header">
+                <span class="md stronger">Pending Overview</span>
+                <p class="sm grey-text text-darker-3">Overview of Talks waiting to be checked</p>
+            </div>
+            <div class="box-content">
+                <div *ngIf="!talks" class="spinner">
+                    <div class="double-bounce1"></div>
+                    <div class="double-bounce2"></div>
+                </div>
+                <table *ngIf="talks" class="ms highlight">
+                    <thead>
+                    <tr>
+                        <th data-field="title">Title</th>
+                        <th data-field="date">Date</th>
+                        <th data-field="proponent">Speaker</th>
+                        <th data-field="speaker">Room</th>
+                        <th data-field="speaker">Controls</th>
+                    </tr>
+                    </thead>
 
-<div class="demo-card-square mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title mdl-card--expand">
-        <h2 class="mdl-card__title-text">Update</h2>
+                    <tbody>
+                    <tr *ngFor="let talk of talks | slice:0:9; let i = index">
+                        <ng-container *ngIf="talk?.state == 1">
+                            <td>{{ talk?.title }}</td>
+                            <td>{{ parse(talk?.proposedInitialDate).toUTCString()
+                                .split(' ').slice(0, 4).join(' ') }}</td>
+                            <!--
+                            - This split slice join is to remove the time, because without it the result would be:
+                                 Mon, 07 Nov 2016 00:00:00 GMT, and we want to cut the hours, minutes and seconds
+
+                            - The '?' in angular means a null check. This is, talk.title would give error if talk
+                            was null, however talk?.title checks if null before.
+
+                            - All talks are null before results from API are fetched.
+                            -->
+                            <td>{{ talk?.speakerBrief }}</td>
+                            <td>{{ talk?.room }}</td>
+                            <td class="center">
+                                <a class="waves-effect waves-light btn btn-small lighten-2">Approve</a>
+                                <a class="waves-effect waves-light btn btn-small deep-orange lighten-1">Decline</a>
+                            </td>
+                        </ng-container>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="box-footer right-align">
+                <a class="waves-effect waves-light btn blue">View more</a>
+            </div>
+        </div>
     </div>
-    <div class="mdl-card__supporting-text">
-        Who let the dog out?
+    <div class="col s12 m12 l4">
+        <div class="card box white center-align">
+            <div class="box-header">
+                <span class="md stronger">Approved Overview</span>
+                <p class="sm grey-text text-darker-3">Approved talks over total submitted</p>
+            </div>
+            <pending-chart></pending-chart>
+        </div>
     </div>
-    <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-            View Updates
-        </a>
+</div>
+<div class="row row-flex">
+    <div class="col s12 m12 l12">
+        <div class="card box white center-align">
+            <div class="box-header">
+                <span class="md stronger">Attendees Growth</span>
+                <p class="sm grey-text text-darker-3">Overview of attendees throughout the months</p>
+            </div>
+            <attendees-chart></attendees-chart>
+        </div>
     </div>
 </div>

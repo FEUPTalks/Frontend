@@ -3,3 +3,112 @@
     height: auto;
     display: block;
 }
+
+body {
+    background-color: #f0f0f0;
+}
+
+.box {
+    width: 100%;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1),0 -1px 0 rgba(0,0,0,.02);
+    overflow: auto;
+    line-height: 1;
+    margin-left: -0.75rem;
+}
+
+.box > .box-header {
+    margin-bottom: 20px;
+}
+
+.box > .box-content {
+    font-weight: 300;
+    font-size: 25px;
+    text-align: left;
+    display: block;
+}
+
+.box > .box-footer {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.box-content-right {
+    margin-left: 50px;
+}
+
+.box .rounded > i {
+    padding: 15px;
+    color: white;
+}
+
+.sm {
+    font-size: 11px !important;
+}
+
+.ms {
+    font-size: 14px !important;
+}
+
+.md {
+    font-size: 18px !important;
+}
+
+.lg {
+    font-size: 24px !important;
+}
+
+.w-40 {
+    width: 40px !important;
+    height: 40px !important;
+    position: absolute;
+    line-height: 40px;
+}
+
+.rounded {
+    border-radius: 500px;
+}
+
+.btn-small {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 0.5rem;
+}
+
+.row-flex, .row-flex > div[class*='col '] {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex:1 1 auto;
+}
+
+.row-flex-wrap {
+    -webkit-flex-flow: row wrap;
+    align-content: flex-start;
+    flex:0;
+}
+
+.row-flex > div[class*='col '], .container-flex > div[class*='col '] {
+    margin:-.2px; /* hack adjust for wrapping */
+}
+
+.container-flex > div[class*='col '] div,.row-flex > div[class*='col '] div {
+    width:100%;
+}
+
+
+.flex-col {
+    display: flex;
+    display: -webkit-flex;
+    flex: 1 100%;
+    flex-flow: column nowrap;
+}
+
+.flex-grow {
+    display: flex;
+    -webkit-flex: 2;
+    flex: 2;
+}

@@ -15,7 +15,6 @@
 
     .side-avatar > .info {
         padding-left: 10px;
-        padding-top: 10px;
         position: absolute;
         display: inline;
     }
@@ -27,35 +26,35 @@
         font-weight: 300;
     }
 
-    .mdl-navigation_link {
+    .navigation-link {
         font-size: 13px;
         line-height: 40px;
         color: #616161;
         text-decoration: none;
     }
 
-    .mdl-navigation_link:hover {
+    .navigation-link:hover {
         background-color: #f5f5f5;
         color: #212121;
     }
 
-    .mdl-navigation_link > span {
+    .navigation-link > .link {
         padding-left: 20px;
     }
 
-    .mdl-navigation_link > i {
+    .navigation-link > i {
         padding-left: 20px;
         font-size: 17px;
         text-align: center;
     }
 
-    .mdl-navigation_link > .mdl-badge {
+    .navigation-link > .badge {
         position: absolute;
-        left: 5px;
-        margin-top: 5px;
+        left: 170px;
+        margin-top: 2px;
     }
 
-    .mdl-navigation-bar {
+    .navigation-bar {
         height: 30px;
         margin-left: 10px;
         text-transform: uppercase;
@@ -63,56 +62,101 @@
         font-size: 10px;
     }
 
+    .navigation {
+        padding-top: 50px;
+    }
+
+    @media (min-width: 991px) {
+        .wrapper {
+            padding-left: 268px;
+            padding-top: 18px;
+        }
+
+        .top-nav {
+            padding-left: 268px;
+        }
+    }
+    @media (max-width: 990px) {
+        .wrapper {
+            padding-left: 18px;
+            padding-top: 18px;
+        }
+    }
+
+    .top-nav-title {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .side-nav {
+        width: 250px;
+        height: 100%;
+        background-color: #fff;
+    }
+
+    .side-nav a {
+        padding: 0;
+    }
+
 </style>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <header sidebar-cmp class="mdl-layout__header"></header>
-    <div class="mdl-layout__drawer">
-        <div class="side-avatar">
-            <img class="img-responsive" src="http://image.prntscr.com/image/21a071456b6446aa89644340857c35c4.png">
-            <div class="info">
-                <p class="name">Nuno Flores</p>
-                <p class="role">System Administrator</p>
+<!-- Navbar goes here -->
+<div class="layout">
+    <header>
+        <nav class="top-nav blue">
+            <div class="nav-wrapper">
+                <span class="top-nav-title left">Dashboard</span>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="side-nav fixed">
+            <div class="side-avatar">
+                <img class="img-responsive" src="http://image.prntscr.com/image/21a071456b6446aa89644340857c35c4.png">
+                <div class="info">
+                    <p class="name">Nuno Flores</p>
+                    <p class="role">System Administrator</p>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="navigation-bar">Explore</div>
+                <a class="navigation-link">
+                    <i class="ti ti-home"></i>
+                    <span class="link">Dashboard</span>
+                </a>
+                <a class="navigation-link">
+                    <i class="ti ti-check-box"></i>
+                    <span class="link">Pending</span>
+                    <span class="new badge">4</span>
+                </a>
+                <div class="navigation-bar">Moderate</div>
+                <a class="navigation-link">
+                    <i class="ti ti-user"></i>
+                    <span class="link">Users</span>
+                </a>
+                <a class="navigation-link">
+                    <i class="ti ti-comment"></i>
+                    <span class="link">Comments</span>
+                    <span class="new badge">20</span>
+                </a>
+                <div class="navigation-bar">Configure</div>
+                <a class="navigation-link">
+                    <i class="ti ti-files"></i>
+                    <span class="link">Archives</span>
+                </a>
+                <a class="navigation-link">
+                    <i class="ti ti-settings"></i>
+                    <span class="link">Options</span>
+                </a>
+                <a class="navigation-link">
+                    <i class="ti ti-harddrives"></i>
+                    <span class="link">Users</span>
+                </a>
             </div>
         </div>
-        <nav class="mdl-navigation">
-            <div class="mdl-navigation-bar">Explore</div>
-            <a class="mdl-navigation_link" href="">
-                <i class="ti ti-home"></i>
-                <span>Dashboard</span>
-            </a>
-            <a class="mdl-navigation_link" href="">
-                <i class="ti-check-box"></i>
-                <span>Pending</span>
-                <span class="material-icons mdl-badge" data-badge="34"></span>
-            </a>
-            <div class="mdl-navigation-bar">Moderate</div>
-            <a class="mdl-navigation_link" href="">
-                <i class="ti-user"></i>
-                <span>Users</span>
-            </a>
-            <a class="mdl-navigation_link" href="">
-                <i class="ti-comment"></i>
-                <span>Comments</span>
-                <span class="material-icons mdl-badge" data-badge="7"></span>
-            </a>
-            <div class="mdl-navigation-bar">Configure</div>
-            <a class="mdl-navigation_link" href="">
-                <i class="ti-files"></i>
-                <span>Archives</span>
-            </a>
-            <a class="mdl-navigation_link" href="">
-                <i class="ti-settings"></i>
-                <span>Options</span>
-            </a>
-            <a class="mdl-navigation_link" href="">
-                <i class="ti-harddrives"></i>
-                <span>Logs</span>
-            </a>
-        </nav>
+    </header>
+    <div class="wrapper">
+        <router-outlet></router-outlet>
     </div>
-    <main class="mdl-layout__content">
-        <div class="page-content">
-            <router-outlet></router-outlet>
-        </div>
-    </main>
 </div>
