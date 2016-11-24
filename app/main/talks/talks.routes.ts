@@ -1,6 +1,6 @@
 import { Routes, Route } from '@angular/router';
 
-import { TalksComponent, RegisterComponent } from './index';
+import { TalksComponent, RegisterComponent, List_EditComponent } from './index';
 
 export const routes: Routes = [
     {
@@ -8,6 +8,7 @@ export const routes: Routes = [
         component: <any>TalksComponent,
         children: [
             { path: 'register', component: <any>RegisterComponent },
+            { path: 'list_edit', component: <any>List_EditComponent },
         ]
     }
 ];
