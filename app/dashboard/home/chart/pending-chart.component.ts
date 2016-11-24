@@ -13,7 +13,7 @@ export class PendingChartComponent implements AfterViewInit {
 
     ngAfterViewInit() {
         //this.renderChart();
-        $('.dial').knob({
+        (<any>$('.dial')).knob({
             thickness: 0.1,
             angleOffset: 180,
             fgColor: "#7986CB",
@@ -21,7 +21,7 @@ export class PendingChartComponent implements AfterViewInit {
             readOnly: true,
             val: 50,
             max: 100,
-            format : function (value) {
+            format : function (value : number) {
                 return value + '%';
             }
         });
