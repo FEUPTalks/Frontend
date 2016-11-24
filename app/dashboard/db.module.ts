@@ -11,8 +11,8 @@ import { routes }             from './db.routes';
         RouterModule.forRoot(routes),
         HomeModule,
     ],
-    declarations: [DashboardComponent, SidebarComponent],
-    exports: [DashboardComponent, SidebarComponent]
+    declarations: [DashboardComponent],
+    exports: [DashboardComponent]
 })
 
 export class DashboardModule { }

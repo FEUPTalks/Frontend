@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Talk} from "../services/talk";
+import {TalkService} from "../services/talk.service";
 
 /**
  *	This class represents the dashboard
@@ -10,6 +12,19 @@ import { Component } from '@angular/core';
     templateUrl: 'db.component.html'
 })
 
-export class DashboardComponent {
-    test = "testing";
+export class DashboardComponent implements OnInit {
+
+    public talks : Talk[] = null;
+
+    constructor(private talkService: TalkService) {}
+
+    ngOnInit() {
+        this.talkService.getTalks("talks").subscribe(
+            data => {
+                this.talks = data;
+            },
+            err => {
+                console.log(err);
+            });
+    }
 }
