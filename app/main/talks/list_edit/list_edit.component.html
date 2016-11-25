@@ -7,7 +7,30 @@
                 <h2 class="mdl-card__title-text">List Table </h2>
             </div>
             <div class="mdl-card__supporting-text">
-
+<table id="mdlTable" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                    <thead>
+                        <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Title </th>
+                        <th>Summary </th>
+                        <th>DefinitiveDate</th>
+                        <th>ProponentName  </th>
+                        <th>ProponentEmail </th>
+                        <th>ProponentAffiliation </th>
+                        <th>Room </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td class="mdl-data-table__cell--non-numeric" id ="title" (ngModel)="title" ng-repeat='talk? in talkss'>{{talk?.title}}</td>
+                        <td>{{talk?.summary}}</td>
+                        <td>{{talk?.definitiveDate}}</td>
+                        <td>{{talk?.proponentName}}</td>
+                        <td>{{talk?.proponentEmail}}</td>
+                        <td>{{talk?.proponentAffiliatio}}</td>
+                        <td>{{talk?.room}}</td>
+                        </tr>                    
+                    </tbody>
+                 </table> 
           
 
 
