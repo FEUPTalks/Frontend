@@ -1,14 +1,15 @@
 import { NgModule }     from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { HttpModule }   from '@angular/http';
 
 import { List_EditComponent } from './list_edit.component';
-
-import { MDL }       from '../../../shared/index';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
-    imports: [ HttpModule ],
-    declarations: [List_EditComponent, MDL],
+    imports: [
+        HttpModule,
+        CommonModule
+    ],
+    declarations: [List_EditComponent],
     exports: [List_EditComponent]
 })
 

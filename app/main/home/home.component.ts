@@ -9,14 +9,14 @@ import {Talk} from "../../services/talk";
     styleUrls: ['home.component.css']
 })
 
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
 
     public talks : Talk[] = null;
 
     constructor(private talkService: TalkService) {}
 
     ngOnInit() {
-        this.talkService.getTalks("talks").subscribe(
+        this.talkService.get("talks").subscribe(
             data => {
                 this.talks = data;
             },

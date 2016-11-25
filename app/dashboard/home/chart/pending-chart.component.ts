@@ -12,7 +12,6 @@ declare var jQuery: any;
 export class PendingChartComponent implements AfterViewInit {
 
     ngAfterViewInit() {
-        //this.renderChart();
         (<any>$('.dial')).knob({
             thickness: 0.1,
             angleOffset: 180,
