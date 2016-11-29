@@ -63,12 +63,12 @@
                         <th data-field="date">Date</th>
                         <th data-field="proponent">Speaker</th>
                         <th data-field="speaker">Room</th>
-                        <th data-field="speaker">Controls</th>
+                        <th data-field="speaker">Approval</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr *ngFor="let talk of talks | slice:0:9; let i = index">
+                    <tr *ngFor="let talk of talks | slice:0:3; let i = index">
                         <ng-container *ngIf="talk?.state == 1">
                             <td>{{ talk?.title }}</td>
                             <td>{{ parse(talk?.date).toUTCString()
@@ -85,8 +85,8 @@
                             <td>{{ talk?.speakerBrief }}</td>
                             <td>{{ talk?.room }}</td>
                             <td class="center">
-                                <a class="waves-effect waves-light btn btn-small lighten-2">Approve</a>
-                                <a class="waves-effect waves-light btn btn-small deep-orange lighten-1">Decline</a>
+                                <a class="waves-effect waves-light btn btn-small lighten-2">Yes</a>
+                                <a class="waves-effect waves-light btn btn-small deep-orange lighten-1">No</a>
                             </td>
                         </ng-container>
                     </tr>

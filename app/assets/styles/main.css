@@ -29,6 +29,10 @@ body {
 }
 
 .box > .box-footer {
+    height: 50px;
+}
+
+.box > .box-footer > * {
     position: absolute;
     bottom: 15px;
     right: 15px;
