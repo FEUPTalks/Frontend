@@ -7,7 +7,7 @@ import { Talk }                           from './talk';
 
 @Injectable()
 export class TalkService {
-    private baseUrl: string = 'http://les16b.fe.up.pt:8144/';
+    private baseUrl: string = 'http://localhost:8144/';
     private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
     private options: RequestOptions = new RequestOptions({ headers: this.headers });
 
@@ -21,10 +21,9 @@ export class TalkService {
             .catch((error:any) => Observable.throw(error || 'Server error'));
     }
 
-    post(path : string, vals : string) : Observable<Talk[]> {
-        console.log(JSON.stringify(vals));
+    post(path : string, vals : string) : Observable<Response> {
         return this.http.post(this.baseUrl + path, JSON.stringify(vals))
-            .map((res:Response) => res.json())
+            .map((res:Response) => res)
             .catch((error:any) => Observable.throw(error || 'Server error'));
     }
 }
