@@ -1,11 +1,9 @@
-import {Injectable}    from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { Component }                      from '@angular/core';
-import { Http, Response }                 from '@angular/http';
-import { Headers, RequestOptions }        from '@angular/http';
-
-import {Observable} from 'rxjs/Rx';
 import "rxjs/add/operator/map";
+
+import {Talk} from "../../../services/talk";
+import {TalkService} from "../../../services/talk.service";
 
 @Component({
     moduleId: module.id,
@@ -14,47 +12,25 @@ import "rxjs/add/operator/map";
     styleUrls: ['list_edit.component.css']
 })
 
-@Injectable()
-export class List_EditComponent {
+export class List_EditComponent implements OnInit {
 
- constructor(private http:Http) {
+    public talks : Talk[] = null;
 
+    constructor(private talkService: TalkService) {
+
+    }
+
+    ngOnInit() {
+        this.getTalks();
     }
 
     getTalks() {
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-        var req = {};
-        req['title'] = "test";
-        let body = JSON.stringify(req);     
-        return this.http.get('http://les16b.fe.up.pt/talks').map(res => res.json())
-        .subscribe(
-                data => req['response'] = "not sure how to get response yet",
-                err => console.log('ERROR!!!'),
-                () => console.log("Finished")
-
-             );
-          }
-
-     editTalks(){
-
-     }  
-
-     updateTalks() {
-         let headers = new Headers({'Content-Type': 'application/json'});
-         let options = new RequestOptions({headers: headers});
-         var req = {};
-         req['title'] = "test";
-         let body = JSON.stringify(req);
-         return this.http.put('http://les16b.fe.up.pt/talks' + body, headers).map((res:Response) => res.json());
-       
-     }
-
-
-      deleteTalks(
-
-      ) {
-         return this.http.delete('http://les16b.fe.up.pt/talks');
-        }
-
+        this.talkService.get("talks").subscribe(
+            data => {
+                this.talks = data;
+            },
+            err => {
+                console.log(err);
+            });
     }
+}
