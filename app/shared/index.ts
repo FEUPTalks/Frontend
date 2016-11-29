@@ -1,2 +1,2 @@
 export * from './sidebar/index';
-export * from './mdl/index';
+export * from './materialize/index';

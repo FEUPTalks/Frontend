@@ -1,65 +1,71 @@
-<div class="mdl-grid">
-    <div class="mdl-layout-spacer"></div>
-    <div class="mdl-cell mdl-cell--10-col">
-        <div mdl class="mdl-card mdl-form-card mdl-shadow--6dp">
-            <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-                <h2 class="mdl-card__title-text">Register a Talk</h2>
+<div class="row">
+    <form materialize class="col s12" #f="ngForm" (ngSubmit)="submit(f.value)">
+        <div class="row">
+            <div class="input-field col s12 m6 l3">
+                <input materialize="characterCounter" id="title" type="text" class="validate" length="50"
+                       name="title" (ngModel)="title" required="">
+                <label for="title">Title</label>
             </div>
-            <div class="mdl-card__supporting-text">
-                <form>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="title" (ngModel)="title"/>
-                        <label class="mdl-textfield__label" for="title">Title</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="summary" />
-                        <label class="mdl-textfield__label" for="summary">Summary</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="date" id="start" value="2001-01-01"/>
-                        <label class="mdl-textfield__label" for="summary">Start</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="date" id="end" value="2001-01-01" />
-                        <label class="mdl-textfield__label" for="summary">End</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" pattern="[A-Z,a-z]*" id="username" />
-                        <label class="mdl-textfield__label" for="username">Proponent</label>
-                        <span class="mdl-textfield__error">Only alphabet and no spaces, please!</span>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" pattern="(.+)@(.+){2,}\.(.+){2,}"
-                               id="email" />
-                        <label class="mdl-textfield__label" for="username">Email</label>
-                        <span class="mdl-textfield__error">Please enter a valid email!</span>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="affiliation" value="feup" />
-                        <label class="mdl-textfield__label" for="title">Affiliation</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="speakername" />
-                        <label class="mdl-textfield__label" for="title">Speaker Name</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="speakerbrief" />
-                        <label class="mdl-textfield__label" for="title">Speaker Brief</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="speakeraffilition" />
-                        <label class="mdl-textfield__label" for="title">Speaker Affiliation</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="hostname" />
-                        <label class="mdl-textfield__label" for="title">Hostname</label>
-                    </div>
-                </form>
+            <div class="input-field col s12 m6 l3">
+                <input materialize="characterCounter" id="proponent" type="text" class="validate" length="20"
+                       name="proponent" (ngModel)="proponent" required="">
+                <label for="proponent">Proponent</label>
             </div>
-            <div class="mdl-card__actions mdl-card--border">
-                <button (click)="submit()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Submit</button>
+            <div class="input-field col s12 m6 l3">
+                <input id="email" type="email" class="validate" name="email" (ngModel)="email" required="">
+                <label for="email" data-error="Please insert a valid email" data-success="Email seems valid">Email</label>
+            </div>
+            <div class="input-field col s12 m6 l3">
+                <input materialize="characterCounter" id="aff" placeholder="feup" type="text" class="validate" length="30"
+                       name="aff" (ngModel)="aff" required="">
+                <label for="aff">Affiliation</label>
+            </div>
+            <div class="input-field col s12 m6 l3">
+                <input materialize="characterCounter" id="speaker-name" type="text" class="validate" length="50"
+                       name="speaker-name" (ngModel)="speakerName" required="">
+                <label for="speaker-name">Speaker Name</label>
+            </div>
+            <div class="input-field col s12 m6 l3">
+                <input materialize="characterCounter" id="speaker-brief" type="text" class="validate" length="300"
+                       name="speaker-brief" (ngModel)="speakerBrief" required="">
+                <label for="title">Speaker Brief</label>
+            </div>
+            <div class="input-field col s12 m6 l3">
+                <input materialize="characterCounter" id="speaker-aff" type="text" class="validate" length="30"
+                       name="speaker-aff" (ngModel)="speakerAff" required="">
+                <label for="title">Speaker Affiliation</label>
+            </div>
+            <div class="input-field col s12 m6 l3">
+                <input materialize="characterCounter" id="hostname" type="text" class="validate" length="50"
+                       name="hostname" (ngModel)="hostname" required="">
+                <label for="hostname">Hostname</label>
+            </div>
+            <div class="input-field col s12 m12 l12">
+                <textarea materialize="characterCounter" id="summary" class="materialize-textarea" length="500"
+                          name="summary" (ngModel)="summary" required=""></textarea>
+                <label for="summary">Summary</label>
+            </div>
+            <div class="col s10 m9 l8">
+                <label for="start-date">Start Date</label>
+                <input id="start-date" materialize="pickadate" name="startDate" (ngModel)="startDate"
+                       [materializeParams]="[{selectMonths: true, selectYears: 1}]" type="text" required>
+            </div>
+            <div class="input-field col s2 m3 l4">
+                <label for="startTime">Start Time</label>
+                <input id="startTime" class="timepicker" type="time" required="">
+            </div>
+            <div class="col s10 m9 l8">
+                <label for="end-date">End Date</label>
+                <input id="end-date" materialize="pickadate" name="endDate" (ngModel)="endDate"
+                       [materializeParams]="[{selectMonths: true, selectYears: 1}]" type="text" required>
+            </div>
+            <div class="input-field col s2 m3 l4">
+                <label for="endTime">End Time</label>
+                <input id="endTime" class="timepicker" type="time" required="" >
             </div>
         </div>
-    </div>
-    <div class="mdl-layout-spacer"></div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="fa fa-send"></i>
+        </button>
+    </form>
 </div>

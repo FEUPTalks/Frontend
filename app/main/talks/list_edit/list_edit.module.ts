@@ -4,11 +4,9 @@ import { HttpModule }   from '@angular/http';
 
 import { List_EditComponent } from './list_edit.component';
 
-import { MDL }       from '../../../shared/index';
-
 @NgModule({
     imports: [ HttpModule ],
-    declarations: [List_EditComponent, MDL],
+    declarations: [List_EditComponent],
     exports: [List_EditComponent]
 })
 
