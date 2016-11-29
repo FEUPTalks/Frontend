@@ -71,7 +71,7 @@
                     <tr *ngFor="let talk of talks | slice:0:9; let i = index">
                         <ng-container *ngIf="talk?.state == 1">
                             <td>{{ talk?.title }}</td>
-                            <td>{{ parse(talk?.proposedInitialDate).toUTCString()
+                            <td>{{ parse(talk?.date).toUTCString()
                                 .split(' ').slice(0, 4).join(' ') }}</td>
                             <!--
                             - This split slice join is to remove the time, because without it the result would be:

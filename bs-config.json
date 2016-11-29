@@ -1,3 +1,4 @@
 {
-  "notify": false
+  "notify": false,
+  "files": ["./app/**/*.{html,htm,css,js}", "./*.{html,css,js,json}"]
 }
