@@ -3,6 +3,7 @@ import { HttpModule }   from '@angular/http';
 
 import { List_EditComponent } from './list_edit.component';
 import {CommonModule} from "@angular/common";
+import { TalkService }           from "../../services/talk.service";
 
 @NgModule({
     imports: [
@@ -10,6 +11,7 @@ import {CommonModule} from "@angular/common";
         CommonModule
     ],
     declarations: [List_EditComponent],
+    providers: [TalkService],
     exports: [List_EditComponent]
 })
 
