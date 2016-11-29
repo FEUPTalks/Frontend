@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit{
     constructor(private talkService: TalkService) {}
 
     ngOnInit() {
-        this.talkService.getTalks("talks").subscribe(
+        this.talkService.get("talks").subscribe(
             data => {
                 this.talks = data;
             },

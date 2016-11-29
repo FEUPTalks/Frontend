@@ -8,16 +8,16 @@
             </div>
             <div class="input-field col s12 m6 l3">
                 <input materialize="characterCounter" id="proponent" type="text" class="validate" length="20"
-                       name="proponent" (ngModel)="proponent" required="">
+                       name="proponent" (ngModel)="proponentName" required="">
                 <label for="proponent">Proponent</label>
             </div>
             <div class="input-field col s12 m6 l3">
-                <input id="email" type="email" class="validate" name="email" (ngModel)="email" required="">
+                <input id="email" type="email" class="validate" name="email" (ngModel)="proponentEmail" required="">
                 <label for="email" data-error="Please insert a valid email" data-success="Email seems valid">Email</label>
             </div>
             <div class="input-field col s12 m6 l3">
                 <input materialize="characterCounter" id="aff" placeholder="feup" type="text" class="validate" length="30"
-                       name="aff" (ngModel)="aff" required="">
+                       name="aff" (ngModel)="proponentAffiliation" required="">
                 <label for="aff">Affiliation</label>
             </div>
             <div class="input-field col s12 m6 l3">
@@ -32,12 +32,12 @@
             </div>
             <div class="input-field col s12 m6 l3">
                 <input materialize="characterCounter" id="speaker-aff" type="text" class="validate" length="30"
-                       name="speaker-aff" (ngModel)="speakerAff" required="">
+                       name="speaker-aff" (ngModel)="speakerAffiliation" required="">
                 <label for="title">Speaker Affiliation</label>
             </div>
             <div class="input-field col s12 m6 l3">
                 <input materialize="characterCounter" id="hostname" type="text" class="validate" length="50"
-                       name="hostname" (ngModel)="hostname" required="">
+                       name="hostname" (ngModel)="hostName" required="">
                 <label for="hostname">Hostname</label>
             </div>
             <div class="input-field col s12 m12 l12">
@@ -47,7 +47,7 @@
             </div>
             <div class="col s10 m9 l8">
                 <label for="start-date">Start Date</label>
-                <input id="start-date" materialize="pickadate" name="startDate" (ngModel)="startDate"
+                <input id="start-date" materialize="pickadate" name="startDate" (ngModel)="proposedInitialDate"
                        [materializeParams]="[{selectMonths: true, selectYears: 1}]" type="text" required>
             </div>
             <div class="input-field col s2 m3 l4">
@@ -56,7 +56,7 @@
             </div>
             <div class="col s10 m9 l8">
                 <label for="end-date">End Date</label>
-                <input id="end-date" materialize="pickadate" name="endDate" (ngModel)="endDate"
+                <input id="end-date" materialize="pickadate" name="endDate" (ngModel)="proposedEndDate"
                        [materializeParams]="[{selectMonths: true, selectYears: 1}]" type="text" required>
             </div>
             <div class="input-field col s2 m3 l4">
