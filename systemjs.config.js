@@ -29,7 +29,8 @@
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'angular2-highcharts':       'npm:angular2-highcharts/dist',
       'highcharts/highstock.src':  'npm:highcharts/highstock.js',
-      'highcharts':                'npm:highcharts/highcharts.js'
+      'highcharts':                'npm:highcharts/highcharts.js',
+      'angular2-data-table':       'npm:angular2-data-table/release'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -45,6 +46,10 @@
         defaultExtension: 'js'
       },
       'angular2-highcharts': {
+        main: './index.js',
+        defaultExtension: 'js'
+      },
+      'angular2-data-table': {
         main: './index.js',
         defaultExtension: 'js'
       }
