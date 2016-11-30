@@ -3,19 +3,17 @@ import { HttpModule }   from '@angular/http';
 
 import { RegisterComponent } from './register.component';
 
-import {MaterializeDirective} from "../../../shared/index";
-import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {SharedModule} from "../../../shared/shared/shared.module";
 
 @NgModule({
     imports: [
+        SharedModule,
         HttpModule,
-        CommonModule,
-        FormsModule
+        FormsModule,
     ],
     declarations: [
-        RegisterComponent,
-        MaterializeDirective
+        RegisterComponent
     ],
     exports: [RegisterComponent]
 })

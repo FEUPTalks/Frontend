@@ -5,9 +5,11 @@ import { TalksModule }      from './talks/talks.module';
 
 import { MainComponent }    from './index';
 import { routes }           from './main.routes';
+import {SharedModule} from "../shared/shared/shared.module";
 
 @NgModule({
     imports: [
+        SharedModule,
         RouterModule.forRoot(routes),
         HomeModule,
         TalksModule

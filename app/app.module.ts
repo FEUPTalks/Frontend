@@ -14,10 +14,10 @@ import { routes }          from './app.routes';
         FormsModule,
         RouterModule.forRoot(routes),
         MainModule,
-        DashboardModule
+        DashboardModule,
     ],
     declarations: [
-        AppComponent,
+        AppComponent
     ],
     bootstrap:    [ AppComponent ]
 })
