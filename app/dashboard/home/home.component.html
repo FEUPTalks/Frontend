@@ -89,13 +89,15 @@
                                 <!-- Modal Trigger -->
                                 <a class="modal-trigger waves-effect waves-light btn btn-small deep-orange lighten-1 modal-trigger" (click)="openModal()">No</a>
                                 <!-- Modal Structure -->
-                                <div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+                                <div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
                                     <div class="modal-content">
                                         <h4>Reject a Talk</h4>
-                                        <p>A bunch of text</p>
+                                        <p>Are you sure you want to reject this talk?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                        <a href="dashboard" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+                                        <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
+
                                     </div>
                                 </div>
                             </td>
