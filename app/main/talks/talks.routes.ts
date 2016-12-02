@@ -1,6 +1,6 @@
 import { Routes, Route } from '@angular/router';
 
-import { TalksComponent, RegisterComponent } from './index';
+import { TalksComponent, RegisterComponent, List_EditComponent } from './index';
 
 export const routes: Routes = [
     {

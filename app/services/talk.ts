@@ -3,13 +3,11 @@ export class Talk {
         public talkID: number,
         public title: string,
         public summary: string,
-        public proposedInitialDate: string,
-        public proposedEndDate: string,
-        public definitiveDate: string,
+        public date: string,
+        public dateflex: number,
         public duration: number,
         public proponentName: string,
         public proponentEmail: string,
-        public proponentAffiliation: string,
         public speakerName: string,
         public speakerBrief: string,
         public speakerAffiliation: string,
@@ -18,6 +16,7 @@ export class Talk {
         public hostEmail: string,
         public snack: string,
         public room: string,
+        public other: string,
         public state: string
     ){}
 }
