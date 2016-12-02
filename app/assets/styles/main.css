@@ -80,6 +80,69 @@ body {
     padding: 0 0.5rem;
 }
 
+/* Template */
+
+.wrapper {
+    padding: 50px;
+    padding-left: 65px;
+    padding-top: 40px;
+}
+
+.box-content > talk-list_edit-cmp {
+    font-size: 15px;
+}
+
+.layout-header {
+    margin-top: -25px;
+    height: 200px;
+    background: url('../img/cover_image2.jpg');
+    background-size: cover;
+    background-position: 100% 60%;
+}
+
+.layout-header > span {
+    margin-top: 100px;
+    margin-left: 50px;
+    font-weight: 400;
+    font-size: 35px;
+    font-family: 'Lato', sans-serif;
+    position: absolute;
+    color: #ececec;
+}
+
+.layout-header-low {
+    height: 60px;
+    background-color: #3d70da;
+}
+
+.layout-header-low > a {
+    height: 60px;
+    margin-left: 5px;
+    font-weight: 400;
+    background-color: #3d70da;
+    color: #dfdfdf;
+    text-transform: uppercase;
+    position: relative;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.layout-header-low > a.active {
+    color: white;
+    border-bottom: 3px solid white;
+}
+
+.layout-header-low > a:hover {
+    color: white;
+    background-color: #3f7de9;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Flex */
+
 .row-flex, .row-flex > div[class*='col '] {
     display: -webkit-box;
     display: -moz-box;
