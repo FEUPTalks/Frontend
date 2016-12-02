@@ -40,4 +40,3 @@ export class HomeComponent implements OnInit {
         this.modalActions.emit({action:"modal",params:['close']});
     }
 }
-
