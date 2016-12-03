@@ -4,31 +4,28 @@ import "rxjs/add/operator/map";
 
 import {Talk} from "../../../services/talk";
 import {TalkService} from "../../../services/talk.service";
+import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
     moduleId: module.id,
-    selector: 'talk-list_edit-cmp',
-    templateUrl: 'list_edit.component.html',
+    selector: 'talk-get-cmp',
+    templateUrl: 'get.component.html',
 })
 
-export class List_EditComponent implements OnInit {
+export class TalkGetComponent implements OnInit {
 
     public talks : Talk[] = null;
-    rows : any[] = [];
-    temp : any[] = [];
+    public id : number = 0;
 
-    columns = [
-        { prop: 'title' },
-        { prop: 'date' },
-        { prop: 'speakerName' },
-        { prop: 'room' }
-    ];
-
-    constructor(private talkService: TalkService) {
+    constructor(private talkService: TalkService,
+                private route: ActivatedRoute,
+                private router: Router) {
 
     }
 
     ngOnInit() {
+        // (+) converts string 'id' to a number
+        this.id = +this.route.snapshot.params['id'];
         this.getTalks();
     }
 
@@ -36,32 +33,9 @@ export class List_EditComponent implements OnInit {
         this.talkService.get("talks").subscribe(
             data => {
                 this.talks = data;
-                for(var i = 0; i<this.talks.length; i++) {
-                    this.rows.push(
-                        {
-                            title: this.talks[i].title,
-                            date: this.talks[i].date,
-                            speakerName: this.talks[i].speakerName,
-                            room: this.talks[i].room
-                        }
-                    );
-                }
-                this.temp = [...this.rows];
             },
             err => {
                 console.log(err);
             });
-    }
-
-    updateFilter(event) {
-        let val = event.target.value;
-
-        // filter our data
-        let temp = this.temp.filter(function(d) {
-            return d.title.toLowerCase().indexOf(val) !== -1 || !val;
-        });
-
-        // update the rows
-        this.rows = temp;
     }
 }
