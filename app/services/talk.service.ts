@@ -7,7 +7,7 @@ import { Talk }                           from './talk';
 
 @Injectable()
 export class TalkService {
-    private baseUrl: string = 'http://les16b.fe.up.pt:8144/';
+    private baseUrl: string = 'http://localhost:8144/';
     private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
     private options: RequestOptions = new RequestOptions({ headers: this.headers });
 
