@@ -1,85 +1,106 @@
-<div class="row">
-    <form materialize class="col s12" #f="ngForm" (ngSubmit)="submit(f.value)">
-        <div class="row">
-            <div class="input-field col s12 m6 l3">
-                <input materialize="characterCounter" id="title" type="text" class="validate" length="50"
-                       name="title" (ngModel)="title" required="">
-                <label for="title">Title</label>
-            </div>
-            <div class="input-field col s12 m6 l3">
-                <input materialize="characterCounter" id="proponent" type="text" class="validate" length="20"
-                       name="proponent" (ngModel)="proponentName" required="">
-                <label for="proponent">Proponent</label>
-            </div>
-            <div class="input-field col s12 m6 l3">
-                <input id="email" type="email" class="validate" name="proponentEmail" (ngModel)="proponentEmail" required="">
-                <label for="email" data-error="Please insert a valid email" data-success="Email seems valid">Email</label>
-            </div>
-            <div class="input-field col s10 m9 l3">
-                <input type="checkbox" class="filled-in" id="snacks" checked="checked" (ngModel)="snacks" required/>
-                <label for="snacks">Snacks (Coffee Break)</label>
-            </div>
+<div class="wrapper">
+    <div class="card box white">
+        <div class="box-header">
+            <span class="md stronger">Register a new Talk ({{ talkTitle.value }})</span>
+            <p class="sm grey-text text-darker-3">Please fill the fields below to submit a talk proposition</p>
         </div>
-        <div class="row">
-            <div class="input-field col s12 m6 l3">
-                <input materialize="characterCounter" id="speaker-name" type="text" class="validate" length="50"
-                       name="speakerName" (ngModel)="speakerName" required="">
-                <label for="speaker-name">Speaker Name</label>
-            </div>
-            <div class="input-field col s12 m6 l3">
-                <input materialize="characterCounter" id="speaker-aff" type="text" class="validate" length="30"
-                       name="speakerAffiliation" (ngModel)="speakerAffiliation">
-                <label for="speaker-aff">Speaker Affiliation</label>
-            </div>
-            <div class="input-field col s12 m6 l3">
-                <input materialize="characterCounter" id="hostname" type="text" class="validate" length="50"
-                       name="hostName" (ngModel)="hostName">
-                <label for="hostname">Host Name</label>
-            </div>
-            <div class="input-field col s12 m6 l3">
-                <input materialize="characterCounter" id="hostemail" type="text" class="validate" length="50"
-                       name="hostemail" (ngModel)="hostEmail">
-                <label for="hostEmail">Host Email</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12 m12 l12">
+        <div class="box-content-clear">
+            <div class="row">
+                <form materialize class="col s12" #f="ngForm" (ngSubmit)="submit(f.value)">
+                    <div class="row">
+                        <div class="input-field col s12 m6 l3">
+                            <input materialize="characterCounter" id="title" type="text" class="validate" length="50"
+                                   name="title" (ngModel)="title" required="" #talkTitle>
+                            <label for="title">Title *</label>
+                        </div>
+                        <div class="input-field col s12 m6 l3">
+                            <input materialize="characterCounter" id="proponent" type="text" class="validate" length="20"
+                                   name="proponent" (ngModel)="proponentName" required="">
+                            <label for="proponent">Proponent *</label>
+                        </div>
+                        <div class="input-field col s12 m6 l3">
+                            <input id="email" type="email" class="validate" name="proponentEmail" (ngModel)="proponentEmail" required="">
+                            <label for="email" data-error="Please insert a valid email" data-success="Email seems valid">Email *</label>
+                        </div>
+                        <div class="input-field col s10 m9 l3">
+                            <input type="checkbox" class="filled-in" id="snacks" checked="checked" (ngModel)="snacks" required/>
+                            <label for="snacks">Coffee Break *
+                                <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
+                                   data-tooltip="Does the talk include an interval for snacks?">(?)</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6 l3">
+                            <input materialize="characterCounter" id="speaker-name" type="text" class="validate" length="50"
+                                   name="speakerName" (ngModel)="speakerName" required="">
+                            <label for="speaker-name">Speaker *</label>
+                        </div>
+                        <div class="input-field col s12 m6 l3">
+                            <input materialize="characterCounter" id="speaker-aff" type="text" class="validate" length="30"
+                                   name="speakerAffiliation" (ngModel)="speakerAffiliation">
+                            <label for="speaker-aff">Speaker Affiliation</label>
+                        </div>
+                        <div class="input-field col s12 m6 l3">
+                            <input materialize="characterCounter" id="hostname" type="text" class="validate" length="50"
+                                   name="hostName" (ngModel)="hostName">
+                            <label for="hostname">Moderator</label>
+                        </div>
+                        <div class="input-field col s12 m6 l3">
+                            <input materialize="characterCounter" id="hostemail" type="text" class="validate" length="50"
+                                   name="hostemail" (ngModel)="hostEmail">
+                            <label for="hostEmail">Moderator Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
                 <textarea materialize="characterCounter" id="summary" class="materialize-textarea" length="500"
                           name="summary" (ngModel)="summary"></textarea>
-                <label for="summary">Summary</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
+                            <label for="summary">Summary
+                                <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
+                                   data-tooltip="A brief summary of what the talk is about">(?)</a>
+                            </label>
+                        </div>
+                        <div class="input-field col s12 m12 l12">
                 <textarea materialize="characterCounter" id="speaker-brief" class="materialize-textarea" length="300"
-                       name="speakerBrief" (ngModel)="speakerBrief"></textarea>
-                <label for="speaker-brief">Short Speaker Bio</label>
-            </div>
-            <div class="input-field col s12 m12 l12">
+                          name="speakerBrief" (ngModel)="speakerBrief"></textarea>
+                            <label for="speaker-brief">Speaker Description</label>
+                        </div>
+                        <div class="input-field col s12 m12 l12">
                 <textarea materialize="characterCounter" id="addNeeds" type="text" class="materialize-textarea" length="300"
                           name="addNeeds" (ngModel)="addNeeds"></textarea>
-                <label for="title">Additional Needs</label>
+                            <label for="title">Additional Needs
+                                <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
+                                   data-tooltip="Date flexibility details (if days are before or after), lodging needs, food restrictions, etc">(?)</a>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l3">
+                            <label for="start-date">Start Date *</label>
+                            <input id="start-date" materialize="pickadate" name="startDate" (ngModel)="proposedInitialDate"
+                                   [materializeParams]="[formDateOptions]" type="text" required>
+                        </div>
+                        <div class="range-field col s12 m6 l3">
+                            <label for="date-flex">Date Flexibility (days) *</label>
+                            <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
+                               data-tooltip="The amount of days your date will be able to change">(?)</a>
+                            <input type="range" name="dateflex" id="date-flex" min="5" max="30" (ngModel)="dateflex" required/>
+                        </div>
+                        <div class="col s12 m6 l3">
+                            <label for="startTime">Start Time *</label>
+                            <input id="startTime" class="timepicker" type="time" required="">
+                        </div>
+                        <div class="range-field col s12 m6 l3">
+                            <label for="duration">Duration (hours) *</label>
+                            <input type="range" name="duration" id="duration" step="0.5" min="1" max="5" (ngModel)="duration" required/>
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="fa fa-send"></i>
+                    </button>
+                </form>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m6 l3">
-                <label for="start-date">Start Date</label>
-                <input id="start-date" materialize="pickadate" name="startDate" (ngModel)="proposedInitialDate"
-                       [materializeParams]="[{selectMonths: true, selectYears: 1}]" type="text" required>
-            </div>
-            <div class="col s12 m6 l3">
-                <label for="startTime">Start Time</label>
-                <input id="startTime" class="timepicker" type="time" required="">
-            </div>
-            <div class="range-field col s12 m6 l3">
-                <label for="date-flex">Date Flexibility</label>
-                <input type="range" name="dateflex" id="date-flex" min="5" max="30" (ngModel)="dateflex" required/>
-            </div>
-            <div class="range-field col s12 m6 l3">
-                <label for="duration">Duration (Hours)</label>
-                <input type="range" name="duration" id="duration" min="1" max="5" (ngModel)="duration" required/>
-            </div>
-        </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="fa fa-send"></i>
-        </button>
-    </form>
+    </div>
 </div>

@@ -4,6 +4,7 @@ import "rxjs/add/operator/map";
 
 import {Talk} from "../../../services/talk";
 import {TalkService} from "../../../services/talk.service";
+import {Router} from "@angular/router";
 
 @Component({
     moduleId: module.id,
@@ -21,7 +22,8 @@ export class List_EditComponent implements OnInit {
         { prop: 'title' },
         { prop: 'date' },
         { prop: 'speakerName' },
-        { prop: 'room' }
+        { prop: 'room' },
+        { prop: 'controls' }
     ];
 
     constructor(private talkService: TalkService) {
@@ -42,7 +44,8 @@ export class List_EditComponent implements OnInit {
                             title: this.talks[i].title,
                             date: this.talks[i].date,
                             speakerName: this.talks[i].speakerName,
-                            room: this.talks[i].room
+                            room: this.talks[i].room,
+                            controls: this.talks[i].talkID
                         }
                     );
                 }

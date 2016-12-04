@@ -1,0 +1,48 @@
+<div class="wrapper">
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="card box white">
+                <div class="box-header cols">
+                    <p class="grey-text"><i class="fa fa-arrow-left"></i>
+                        <a routerLink="/home" href="">Back to Home</a></p>
+                    <h5 class="stronger">{{ talk?.title }}</h5>
+                    <p class="sm grey-text text-darker-3">by {{ talk?.speakerName}}</p>
+                </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col s12 m12 l12 talk-details">
+                            <p class="value">{{ talk?.summary }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l2">
+                            <span class="talk-avatar"></span>
+                            <p></p>
+                        </div>
+                        <div class="col s12 m6 l6 talk-details">
+                            <span class="title">About the Host</span>
+                            <p class="value">{{ talk?.speakerName }} ({{ talk?.speakerAffiliation }})</p>
+                            <p class="value">{{ talk?.speakerBrief }}</p>
+                        </div>
+                        <div class="col s12 m12 l4 talk-details">
+                            <span class="title">Date</span>
+                            <p class="value">{{ talk?.date }}</p>
+                            <span class="title">Duration</span>
+                            <p class="value">{{ talk?.duration }} Hours</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l6 offset-l2 talk-details">
+                            <span class="title">Room</span>
+                            <p class="value">{{ talk?.room }}</p>
+                        </div>
+                        <div class="col s12 m4 l4 talk-details">
+                            <span class="title">Moderator</span>
+                            <p class="value">{{ talk?.hostName }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
