@@ -15,7 +15,14 @@ declare var Materialize : any;
 
 export class RegisterComponent implements OnInit {
 
+    breadcumb : Object[] = [];
     globalActions = new EventEmitter<string|MaterializeAction>();
+    today = new Date();
+    formDateOptions = {
+        selectMonths: true,
+        selectYears: 1,
+        min: new Date((this.today.getMonth()+1) + "-" + (this.today.getDate()+5) + "-" + this.today.getFullYear())
+    };
 
     constructor(private talkService : TalkService) {
 
@@ -26,6 +33,12 @@ export class RegisterComponent implements OnInit {
             autoclose: false,
             twelvehour: false,
         });
+        this.breadcumb.push({ name: 'Home', routerLink: '/home'});
+        this.breadcumb.push({ name: 'Register', routerLink: '/talks/register'});
+    }
+
+    getPaths() {
+        return this.breadcumb;
     }
 
     submit(data? : any) {

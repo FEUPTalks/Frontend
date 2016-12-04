@@ -21,6 +21,12 @@ export class TalkService {
             .catch((error:any) => Observable.throw(error || 'Server error'));
     }
 
+    getOne(path : string) : Observable<Talk> {
+        return this.http.get(this.baseUrl + path)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error || 'Server error'));
+    }
+
     post(path : string, vals : string) : Observable<Response> {
         return this.http.post(this.baseUrl + path, JSON.stringify(vals))
             .map((res:Response) => res)

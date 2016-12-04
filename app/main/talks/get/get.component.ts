@@ -10,11 +10,12 @@ import {Router, ActivatedRoute} from "@angular/router";
     moduleId: module.id,
     selector: 'talk-get-cmp',
     templateUrl: 'get.component.html',
+    styleUrls: ['get.component.css']
 })
 
 export class TalkGetComponent implements OnInit {
 
-    public talks : Talk[] = null;
+    public talk : Talk = null;
     public id : number = 0;
 
     constructor(private talkService: TalkService,
@@ -30,9 +31,10 @@ export class TalkGetComponent implements OnInit {
     }
 
     getTalks() {
-        this.talkService.get("talks").subscribe(
+        this.talkService.getOne("talks/" + this.id).subscribe(
             data => {
-                this.talks = data;
+                this.talk = data;
+                console.log(this.talk);
             },
             err => {
                 console.log(err);

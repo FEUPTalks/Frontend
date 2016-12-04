@@ -13,7 +13,7 @@ export const routes: Routes = [
             { path: 'home', component: <any>HomeComponent },
             { path: 'talks', component: <any>TalksComponent },
             { path: 'login', component: <any>LoginComponent },
-            { path: '', redirectTo: 'home' }
+            { path: '', redirectTo: 'home' },
         ]
     }
 ];

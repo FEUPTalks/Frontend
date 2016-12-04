@@ -15,7 +15,7 @@ import {SharedModule} from "../../../shared/shared/shared.module";
     declarations: [
         RegisterComponent
     ],
-    exports: [RegisterComponent]
+    exports: [RegisterComponent],
 })
 
 export class RegisterModule { }

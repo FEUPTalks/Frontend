@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {BreadcrumbService} from 'ng2-breadcrumb';
 
 /**
  *	This class represents the main website
@@ -10,4 +11,9 @@ import { Component } from '@angular/core';
     templateUrl: './main.component.html',
 })
 
-export class MainComponent { }
+export class MainComponent {
+
+    constructor(private breadcrumbService: BreadcrumbService) {
+        breadcrumbService.addFriendlyNameForRoute('/talks', 'home');
+    }
+}

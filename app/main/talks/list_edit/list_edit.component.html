@@ -8,4 +8,17 @@
         [rowHeight]="'auto'"
         [limit]="10"
         [sortType]="'multi'">
+    <datatable-column prop="title" name="Title">
+        <template let-row="row" let-value="value" swui-datatable-cell-template>
+            {{ value }}
+        </template>
+    </datatable-column>
+    <datatable-column prop="date"></datatable-column>
+    <datatable-column prop="speakerName"></datatable-column>
+    <datatable-column prop="room"></datatable-column>
+    <datatable-column prop="controls" name="Controls">
+        <template let-row="row" let-value="value" swui-datatable-cell-template>
+            <a [routerLink]="['/talks/' + value]" class="waves-effect waves-light btn btn-small blue" href="">More Info</a>
+        </template>
+    </datatable-column>
 </datatable>
