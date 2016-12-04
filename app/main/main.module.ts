@@ -7,7 +7,7 @@ import { LoginModule }      from './login/login.module';
 import { MainComponent }    from './index';
 import { routes }           from './main.routes';
 import {SharedModule} from "../shared/shared/shared.module";
-import {Ng2BreadcrumbModule, BreadcrumbService} from 'ng2-breadcrumb';
+import {Ng2BreadcrumbModule, BreadcrumbService} from '../../node_modules/ng2-breadcrumb/ng2-breadcrumb';
 
 @NgModule({
     imports: [

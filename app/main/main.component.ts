@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {BreadcrumbService} from 'ng2-breadcrumb';
+import {BreadcrumbService} from '../../node_modules/ng2-breadcrumb/ng2-breadcrumb';
 
 /**
  *	This class represents the main website
