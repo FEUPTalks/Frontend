@@ -47,6 +47,10 @@ export class RegisterComponent implements OnInit {
         var time = (<any>$("#startTime")).val();
         date.setHours(time.split(":")[0]);
         date.setMinutes(time.split(":")[1]);
+        if(!data['dateflex']) data['dateflex'] = 3;
+        if(!data['duration']) data['duration'] = 3;
+        data['dateflex'] = parseInt(data['dateflex']);
+        data['duration'] = parseInt(data['duration']);
         data['date'] = date.toISOString();
         data['speakerPicture'] = 1;
         data['room'] = "";
