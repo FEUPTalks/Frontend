@@ -1,16 +1,14 @@
 import { NgModule }      from '@angular/core';
 
-import { HomeComponent } from './home.component';
+import { CalendarComponent } from './calendar.component';
 import {SharedModule} from "../../shared/shared/shared.module";
-import {List_EditModule} from "../talks/list_edit/list_edit.module";
 
 @NgModule({
     imports: [
         SharedModule,
-        List_EditModule
     ],
-    declarations: [HomeComponent],
-    exports: [HomeComponent]
+    declarations: [CalendarComponent],
+    exports: [CalendarComponent]
 })
 
-export class HomeModule { }
+export class CalendarModule { }

@@ -101,10 +101,6 @@ body {
     padding: 50px 20px 50px 50px;
 }
 
-.box-content > talk-list_edit-cmp {
-    font-size: 15px;
-}
-
 .layout-header {
     margin-top: -25px;
     height: 200px;
@@ -113,9 +109,9 @@ body {
     background-position: 100% 60%;
 }
 
-.layout-header > span {
-    margin-top: 100px;
-    margin-left: 50px;
+.layout-header > img {
+    margin-top: 60px;
+    margin-left: 20px;
     font-weight: 400;
     font-size: 35px;
     font-family: 'Lato', sans-serif;
@@ -128,7 +124,7 @@ body {
     background-color: #3d70da;
 }
 
-.layout-header-low > a {
+.layout-header-low > * > a {
     height: 60px;
     margin-left: 5px;
     font-weight: 400;
@@ -141,12 +137,12 @@ body {
     box-shadow: none;
 }
 
-.layout-header-low > a.active {
+.layout-header-low > * > a.active {
     color: white;
     border-bottom: 3px solid white;
 }
 
-.layout-header-low > a:hover {
+.layout-header-low > * > a:hover {
     color: white;
     background-color: #3f7de9 !important;
     -webkit-box-shadow: none;
@@ -154,22 +150,17 @@ body {
     box-shadow: none;
 }
 
-.breadcrumb {
-    margin-bottom: -50px !important;
-    margin-left: 50px;
-    margin-right: 42px;
-    font-size: 12px;
-    font-weight: 300;
+.layout-header-low > .button-collapse {
+    position: relative;
+    top: 15px;
+    left: 15px;
 }
 
-.breadcrumb li:after {
-    content: ' » ';
+.layout-header-plus > a {
+    position: absolute;
+    top: 150px;
+    right: 30px;
 }
-
-.breadcrumb li:last-child:after {
-    content: none;
-}
-
 
 /* Flex */
 
@@ -208,4 +199,30 @@ body {
     display: flex;
     -webkit-flex: 2;
     flex: 2;
+}
+
+/* Fixes for external components */
+
+.fc-center > h2 {
+    font-size: 14px;
+}
+
+.box-content > talk-list_edit-cmp {
+    font-size: 15px;
+}
+
+.breadcrumb {
+    margin-bottom: -50px !important;
+    margin-left: 50px;
+    margin-right: 42px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.breadcrumb li:after {
+    content: ' » ';
+}
+
+.breadcrumb li:last-child:after {
+    content: none;
 }

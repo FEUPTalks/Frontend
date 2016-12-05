@@ -8,6 +8,8 @@ import { MainComponent }    from './index';
 import { routes }           from './main.routes';
 import {SharedModule} from "../shared/shared/shared.module";
 import {Ng2BreadcrumbModule, BreadcrumbService} from '../../node_modules/ng2-breadcrumb/ng2-breadcrumb';
+import {CalendarModule} from "./calendar/calendar.module";
+import {AboutModule} from "./about/about.module";
 
 @NgModule({
     imports: [
@@ -17,6 +19,8 @@ import {Ng2BreadcrumbModule, BreadcrumbService} from '../../node_modules/ng2-bre
         HomeModule,
         TalksModule,
         LoginModule,
+        CalendarModule,
+        AboutModule
     ],
     declarations: [MainComponent],
     exports: [MainComponent],

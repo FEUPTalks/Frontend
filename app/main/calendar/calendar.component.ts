@@ -1,19 +1,16 @@
 import {Component, AfterViewInit, ViewChild} from '@angular/core';
 import {TalkService} from "../../services/talk.service";
 import {Talk} from "../../services/talk";
-import {List_EditComponent} from "../talks/list_edit/list_edit.component";
 
 @Component({
     moduleId: module.id,
-    selector: 'home',
-    templateUrl: 'home.component.html',
+    selector: 'calendar',
+    templateUrl: 'calendar.component.html',
 })
 
-export class HomeComponent implements AfterViewInit {
+export class CalendarComponent implements AfterViewInit {
 
     public talks : Talk[] = null;
-    @ViewChild(List_EditComponent)
-    listEdit : List_EditComponent;
 
     constructor(private talkService: TalkService) {}
 
@@ -21,17 +18,31 @@ export class HomeComponent implements AfterViewInit {
         this.talkService.get("talks").subscribe(
             data => {
                 this.talks = data;
+                let events = [];
+                for(let i=0; i<this.talks.length; i++) {
+                    let date = new Date(Date.parse(this.talks[i].date));
+                    events.push({
+                        title: this.talks[i].title,
+                        start: new Date(Date.parse(this.talks[i].date)),
+                        end: new Date(date.getFullYear(), date.getMonth(), date.getDate(),
+                            date.getHours()+this.talks[i].duration, date.getMinutes()),
+                        allDay: false
+                    });
+                }
+                (<any>$('#calendar')).fullCalendar({
+                    editable: false,
+                    weekMode: 'liquid',
+                    url: '#',
+                    events: events,
+                    header: {
+                        left: 'prev,next',
+                        center: 'title',
+                        right: 'month'
+                    }
+                });
             },
             err => {
                 console.log(err);
             });
-    }
-
-    public parse(date : string) {
-        return new Date(Date.parse(date));
-    }
-
-    updateFilter(event) {
-        this.listEdit.updateFilter(event);
     }
 }

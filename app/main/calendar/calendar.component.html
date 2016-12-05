@@ -3,13 +3,11 @@
         <div class="col s12 m12 l12">
             <div class="card box white">
                 <div class="box-header">
-                    <span class="md stronger">Available Talks</span>
-                    <p class="sm grey-text text-darker-3">Scheduled talks available for sign up</p>
-                    <input type='text' class="right-align" placeholder='Type to search or filter an entry...'
-                            (keyup)='updateFilter($event)'/>
+                    <span class="md stronger">Calendar</span>
+                    <p class="sm grey-text text-darker-3">Overview of what's happening in the following weeks</p>
                 </div>
-                <div class="box-content">
-                    <talk-list_edit-cmp></talk-list_edit-cmp>
+                <div class="box-content-clear">
+                    <div id="calendar"></div>
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@
         [sortType]="'multi'">
     <datatable-column prop="title" name="Title">
         <template let-row="row" let-value="value" swui-datatable-cell-template>
-            {{ value }}
+            <a class="black-text lighten-1" [routerLink]="['/talks/' + row.controls]" href="">{{ value }}</a>
         </template>
     </datatable-column>
     <datatable-column prop="date"></datatable-column>

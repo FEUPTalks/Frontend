@@ -31,7 +31,7 @@
       'highcharts/highstock.src':  'npm:highcharts/highstock.js',
       'highcharts':                'npm:highcharts/highcharts.js',
       'angular2-data-table':       'npm:angular2-data-table/release',
-      'ng2-breadcrumb':            'npm:ng2-breadcrumb'
+      'ng2-breadcrumb':            'npm:ng2-breadcrumb',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

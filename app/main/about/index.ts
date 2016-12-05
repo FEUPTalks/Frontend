@@ -1,1 +1,1 @@
-export * from './calendar.component';
+export * from './about.component';

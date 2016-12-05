@@ -1,14 +1,14 @@
 import { NgModule }      from '@angular/core';
 
-import { CalendarComponent } from './calendar.component';
+import { AboutComponent } from './about.component';
 import {SharedModule} from "../../shared/shared/shared.module";
 
 @NgModule({
     imports: [
         SharedModule,
     ],
-    declarations: [CalendarComponent],
-    exports: [CalendarComponent]
+    declarations: [AboutComponent],
+    exports: [AboutComponent]
 })
 
-export class CalendarModule { }
+export class AboutModule { }
