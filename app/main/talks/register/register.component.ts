@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
         selectYears: 1,
         min: new Date((this.today.getMonth()+1) + "-" + (this.today.getDate()+5) + "-" + this.today.getFullYear())
     };
+    picture : string[] = [];
 
     constructor(private talkService : TalkService) {
 
@@ -54,11 +55,12 @@ export class RegisterComponent implements OnInit {
         data['date'] = date.toISOString();
         data['speakerPicture'] = 1;
         data['room'] = "";
+        this.picture['speakerName'] = data['speakerName'];
         /* End of form params */
 
         console.log("Sending: " + JSON.stringify(data));
 
-        this.talkService.post("talks", data).subscribe(
+        /*this.talkService.post("talks", data).subscribe(
             (res) => {
                 if(res.status === 201 || res.status === 200) {
                     document.querySelectorAll("button[type=submit]")[0].setAttribute("disabled", "true");
@@ -68,6 +70,36 @@ export class RegisterComponent implements OnInit {
             (err) => {
                 console.log("Error: " + err);
                 Materialize.toast('Error! Not possible to submit a new talk.', 4000);
+            });*/
+
+        this.talkService.postImg("picture", this.picture).subscribe(
+            (res) => {
+                if(res.status === 201 || res.status === 200) {
+                    console.log("Image sent!")
+                }
+            },
+            (err) => {
+                console.log("Error: " + err);
             });
+    }
+
+    readFile(file, callback) {
+        var reader = new FileReader();
+        reader.onload = () => {
+            callback(reader.result);
+        };
+        reader.onerror = () => {
+            callback(null);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    fileChange(input) {
+        var submit = document.querySelectorAll("button[type=submit]")[0];
+        submit.setAttribute("disabled", "true");
+        this.readFile(input.files[0], (base64) => {
+            this.picture['picture'] = base64;
+            submit.removeAttribute("disabled");
+        });
     }
 }

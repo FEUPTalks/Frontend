@@ -77,22 +77,22 @@
                     </div>
                     <div class="row">
                         <div class="col s12 m6 l3">
-                            <label for="start-date">Start Date <font color="red">*</font></label>
+                            <label for="start-date">Start Date *</label>
                             <input id="start-date" materialize="pickadate" name="startDate" (ngModel)="proposedInitialDate"
                                    [materializeParams]="[formDateOptions]" type="text" required>
                         </div>
                         <div class="range-field col s12 m6 l3">
-                            <label for="date-flex">Date Flexibility (days) <font color="red">*</font></label>
+                            <label for="date-flex">Date Flexibility (days) *</label>
                             <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
                                data-tooltip="The amount of days your date will be able to change">(?)</a>
                             <input type="range" name="dateflex" id="date-flex" value="1" min="0" max="5" (ngModel)="dateflex" required/>
                         </div>
                         <div class="col s12 m6 l3">
-                            <label for="startTime">Start Time <font color="red">*</font></label>
+                            <label for="startTime">Start Time *</label>
                             <input id="startTime" class="timepicker" type="time" required="">
                         </div>
                         <div class="range-field col s12 m6 l3">
-                            <label for="duration">Duration (hours) <font color="red">*</font></label>
+                            <label for="duration">Duration (hours) *</label>
                             <input type="range" name="duration" id="duration" step="0.5" min="1" max="5" value="1" (ngModel)="duration" required/>
                         </div>
                     </div>
@@ -100,8 +100,8 @@
                         <div class="col s12 m12 l12">
                             <div class="file-field input-field">
                                 <div class="btn">
-                                    <span>Speaker Picture </span>
-                                    <input type="file">
+                                    <span>Speaker Picture</span>
+                                    <input type="file" (change)="fileChange(input)" accept=".jpg, .png, .jpeg" #input>
                                 </div>
                                 <div class="file-path-wrapper">
                                    <font color="red">*</font> <input class="file-path validate" type="text">
@@ -111,9 +111,9 @@
                     </div>
                     <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                         <i class="fa fa-send"></i>
-                    </button><br/> <br/>               
-                            
-                              <div class="box-content-clear">            
+                    </button><br/> <br/>
+
+                              <div class="box-content-clear">
                             <p class="sm grey-text text-darker-3"><b>Note:</b> All fields marked with <font color="red">*</font> must be completed. </p>
                               </div>
                 </form>

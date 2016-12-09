@@ -32,6 +32,7 @@
       'highcharts':                'npm:highcharts/highcharts.js',
       'angular2-data-table':       'npm:angular2-data-table/release',
       'ng2-breadcrumb':            'npm:ng2-breadcrumb',
+      'angular2-jwt':              'npm:angular2-jwt/angular2-jwt.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
