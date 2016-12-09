@@ -3,9 +3,9 @@
 # compiled output
 /dist
 /tmp
-app/**/*.map
-!app/assets/js/*
-app/**/*.map
+src/app/**/*.map
+!src/app/assets/js/*
+src/app/**/*.map
 
 # dependencies
 /node_modules
