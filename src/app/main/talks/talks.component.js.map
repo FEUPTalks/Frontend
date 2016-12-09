@@ -1,1 +1,0 @@
-{"version":3,"file":"talks.component.js","sourceRoot":"","sources":["talks.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,qBAA0B,eAAe,CAAC,CAAA;AAE1C;;GAEG;AAQH;IAAA;IAA8B,CAAC;IAN/B;QAAC,gBAAS,CAAC;YACP,QAAQ,EAAE,MAAM,CAAC,EAAE;YACnB,QAAQ,EAAE,WAAW;YACrB,WAAW,EAAE,sBAAsB;SACtC,CAAC;;sBAAA;IAE4B,qBAAC;AAAD,CAAC,AAA/B,IAA+B;AAAlB,sBAAc,iBAAI,CAAA"}
