@@ -27,13 +27,13 @@ export class TalkService {
             .catch((error:any) => Observable.throw(error || 'Server error'));
     }
 
-    post(path : string, vals : string) : Observable<Response> {
+    post(path : string, vals : any) : Observable<Response> {
         return this.http.post(this.baseUrl + path, JSON.stringify(vals))
             .map((res:Response) => res)
             .catch((error:any) => Observable.throw(error || 'Server error'));
     }
 
-    postImg(path : string, vals : string) : Observable<Response> {
+    postImg(path : string, vals : any) : Observable<Response> {
         return this.http.post(this.baseUrl + path, JSON.stringify(vals))
             .map((res:Response) => res)
             .catch((error:any) => Observable.throw(error || 'Server error'));

@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
 
         console.log("Sending: " + JSON.stringify(data));
 
-        this.talkService.post("talks", data).subscribe(
+        /*this.talkService.post("talks", data).subscribe(
             (res) => {
                 if(res.status === 201 || res.status === 200) {
                     document.querySelectorAll("button[type=submit]")[0].setAttribute("disabled", "true");
@@ -70,9 +70,9 @@ export class RegisterComponent implements OnInit {
             (err) => {
                 console.log("Error: " + err);
                 Materialize.toast('Error! Not possible to submit a new talk.', 4000);
-            });
+            });*/
 
-        this.talkService.post("picture", this.picture).subscribe(
+        this.talkService.postImg("picture", this.picture).subscribe(
             (res) => {
                 if(res.status === 201 || res.status === 200) {
                     console.log("Image sent!")
@@ -95,8 +95,11 @@ export class RegisterComponent implements OnInit {
     }
 
     fileChange(input) {
+        var submit = document.querySelectorAll("button[type=submit]")[0];
+        submit.setAttribute("disabled", "true");
         this.readFile(input.files[0], (base64) => {
             this.picture['picture'] = base64;
+            submit.removeAttribute("disabled");
         });
     }
 }
