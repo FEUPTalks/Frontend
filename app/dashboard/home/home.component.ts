@@ -57,8 +57,6 @@ export class HomeComponent implements OnInit {
         data['state'] = 2;           
         this.talkService.post("talks/" + id, data).subscribe(
             data => {
-                 /* Heare must be implement method for change state of talk from 1(default) => 2(accept)*/
-
                  Materialize.toast('Success! The talk was accept.', 4000);
                  console.log(data);
             },
@@ -74,8 +72,6 @@ export class HomeComponent implements OnInit {
         data['state'] = 3;           
         this.talkService.post("talks/" + id, data).subscribe(
             data => {
-                 /* Heare must be implement method for change state of talk from 1(default) => 3(reject)*/
-
                  Materialize.toast('Success! The talk was reject.', 4000);
                  console.log(data);
             },

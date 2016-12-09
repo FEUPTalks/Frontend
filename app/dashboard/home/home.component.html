@@ -99,7 +99,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <a  class="waves-effect waves-green btn-flat" (click)="closeModal1()">No</a>
-                                        <a class="waves-effect waves-green btn-flat" (click)="rejectTalk()">Yes</a>
+                                        <a class="waves-effect waves-green btn-flat" (click)="rejectTalk(talk?.talkID)">Yes</a>
 
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                             </div>
                                             <div class="modal-footer">
                                             <a class="waves-effect waves-green btn-flat" (click)="closeModal2()">No</a>
-                                            <a class="waves-effect waves-green btn-flat" (click)="acceptTalk()">Yes</a>
+                                            <a class="waves-effect waves-green btn-flat" (click)="acceptTalk(talk?.talkID)">Yes</a>
 
                                     </div>
                                 </div>
