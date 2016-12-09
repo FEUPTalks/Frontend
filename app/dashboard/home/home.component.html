@@ -85,21 +85,38 @@
                             <td>{{ talk?.speakerBrief }}</td>
                             <td>{{ talk?.room }}</td>
                             <td class="center">
-                                <a class="waves-effect waves-light btn btn-small lighten-2">Yes</a>
+                                
                                 <!-- Modal Trigger -->
-                                <a class="modal-trigger waves-effect waves-light btn btn-small deep-orange lighten-1 modal-trigger" (click)="openModal()">No</a>
+                                <a class="waves-effect waves-light btn btn-small lighten-2r" (click)="openModal2()">Yes</a>
+                                <a class="modal-trigger waves-effect waves-light btn btn-small deep-orange lighten-1 modal-trigger" (click)="openModal1()">No</a>
+                            
+                                
                                 <!-- Modal Structure -->
-                                <div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+                                <div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions1                                ">
                                     <div class="modal-content">
-                                        <h4>Reject a Talk</h4>
+                                        <h4>Reject a Talk</h4>                                     
                                         <p>Are you sure you want to reject this talk?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="dashboard" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
-                                        <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
+                                        <a  class="waves-effect waves-green btn-flat" (click)="closeModal1()">No</a>
+                                        <a class="waves-effect waves-green btn-flat" (click)="rejectTalk()">Yes</a>
 
                                     </div>
                                 </div>
+               
+                                <!-- Modal2 Structure -->
+                                <div id="modal2" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions2">
+                                    <div class="modal-content">
+                                            <h4>Accept a Talk</h4>
+                                            <p>Are you sure you want to accept this talk?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <a class="waves-effect waves-green btn-flat" (click)="closeModal2()">No</a>
+                                            <a class="waves-effect waves-green btn-flat" (click)="acceptTalk()">Yes</a>
+
+                                    </div>
+                                </div>
+
                             </td>
                         </ng-container>
                     </tr>
