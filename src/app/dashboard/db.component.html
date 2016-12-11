@@ -106,8 +106,7 @@
             <div class="nav-wrapper">
                 <span class="top-nav-title left">Dashboard</span>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Log In</a></li>
-                    <li><a href="#">Sign Up</a></li>
+                    <li><a (click)="auth.logout()">Log Out</a></li>
                 </ul>
             </div>
         </nav>
@@ -115,7 +114,7 @@
             <div class="side-avatar">
                 <img class="img-responsive" src="http://image.prntscr.com/image/21a071456b6446aa89644340857c35c4.png">
                 <div class="info">
-                    <p class="name">Nuno Flores</p>
+                    <p class="name">{{ auth.getProfile()['Name'] }}</p>
                     <p class="role">System Administrator</p>
                 </div>
             </div>

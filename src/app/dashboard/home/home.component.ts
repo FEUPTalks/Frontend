@@ -1,10 +1,10 @@
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import {Component, OnInit, EventEmitter} from '@angular/core';
 import {MaterializeAction} from '../../shared/materialize';
 
-import { TalkService }       from '../../services/talk.service';
-import { Talk }              from '../../services/talk';
+import {TalkService}       from '../../services/api/talk.service';
+import {Talk}              from '../../services/api/talk';
 
-declare var Materialize : any;
+declare var Materialize: any;
 
 @Component({
     selector: 'db-home-cmp',
@@ -13,12 +13,13 @@ declare var Materialize : any;
 
 export class HomeComponent implements OnInit {
 
-    public talks : Talk[] = null;
+    public talks: Talk[] = null;
     modalActions1 = new EventEmitter<string|MaterializeAction>();
     modalActions2 = new EventEmitter<string|MaterializeAction>();
     globalActions = new EventEmitter<string|MaterializeAction>();
 
-    constructor(private talkService: TalkService) {}
+    constructor(private talkService: TalkService) {
+    }
 
     ngOnInit() {
         this.talkService.get("talks").subscribe(
@@ -30,55 +31,55 @@ export class HomeComponent implements OnInit {
             });
     }
 
-    public parse(date : string) {
+    public parse(date: string) {
         return new Date(Date.parse(date));
     }
 
     openModal1() {
-      this.modalActions1.emit({action:"modal",params:['open']});
-      console.log("hey");
+        this.modalActions1.emit({action: "modal", params: ['open']});
+        console.log("hey");
     }
 
     closeModal1() {
-      this.modalActions1.emit({action:"modal",params:['close']});
+        this.modalActions1.emit({action: "modal", params: ['close']});
     }
 
     openModal2() {
-      this.modalActions2.emit({action:"modal",params:['open']});
-      console.log("hey");
+        this.modalActions2.emit({action: "modal", params: ['open']});
+        console.log("hey");
     }
 
     closeModal2() {
-      this.modalActions2.emit({action:"modal",params:['close']});
+        this.modalActions2.emit({action: "modal", params: ['close']});
     }
 
-    acceptTalk(id : number) {
-      var data = {};
-      data['talkID'] = id;
-      data['state'] = 2;
-      this.talkService.post("talks/" + id, data).subscribe(
-        data => {
-          Materialize.toast('Success! The talk was accept.', 4000);
-          console.log(data);
-        },
-        err => {
-          console.log("Error: " + err);
-          Materialize.toast('Error! Not possible to accept this talk.', 4000);
-        });
+    acceptTalk(id: number) {
+        var data = {};
+        data['talkID'] = id;
+        data['state'] = 2;
+        this.talkService.post("talks/" + id, data).subscribe(
+            data => {
+                Materialize.toast('Success! The talk was accept.', 4000);
+                console.log(data);
+            },
+            err => {
+                console.log("Error: " + err);
+                Materialize.toast('Error! Not possible to accept this talk.', 4000);
+            });
     }
 
-    rejectTalk(id : number) {
-      var data = {};
-      data['talkID'] = id;
-      data['state'] = 3;
-      this.talkService.post("talks/" + id, data).subscribe(
-        data => {
-          Materialize.toast('Success! The talk was reject.', 4000);
-          console.log(data);
-        },
-        err => {
-          console.log("Error: " + err);
-          Materialize.toast('Error! Not possible to reject this talk.', 4000);
-        });
+    rejectTalk(id: number) {
+        var data = {};
+        data['talkID'] = id;
+        data['state'] = 3;
+        this.talkService.post("talks/" + id, data).subscribe(
+            data => {
+                Materialize.toast('Success! The talk was reject.', 4000);
+                console.log(data);
+            },
+            err => {
+                console.log("Error: " + err);
+                Materialize.toast('Error! Not possible to reject this talk.', 4000);
+            });
     }
 }

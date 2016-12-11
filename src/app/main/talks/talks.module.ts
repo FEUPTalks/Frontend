@@ -5,7 +5,7 @@ import { RegisterModule }     from './register/register.module';
 import { TalksComponent }     from './index';
 import { routes }             from './talks.routes';
 import {SharedModule} from "../../shared/shared/shared.module";
-import {TalkService} from "../../services/talk.service";
+import {TalkService} from "../../services/api/talk.service";
 import {TalkGetModule} from "./get/get.module";
 
 @NgModule({

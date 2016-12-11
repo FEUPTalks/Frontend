@@ -95,6 +95,35 @@ body {
     padding: 0 0.5rem;
 }
 
+.card-alert button {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 10px !important;
+    height: 10px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px;
+}
+
+.card-alert {
+    border-radius: 2px;
+}
+
+.show {
+    height: auto !important;
+    margin: 0.5rem 0 1rem 0 !important;
+    opacity: 1 !important;
+}
+
+.step {
+    opacity: 0;
+    height: 0;
+    margin: 0;
+    transition: .5s ease-in-out all;
+}
+
 /* Template */
 
 .wrapper {

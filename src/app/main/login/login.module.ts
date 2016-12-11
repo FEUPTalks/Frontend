@@ -1,14 +1,13 @@
-/**
- * Created by Bill on 12/2/2016.
- */
 import { NgModule }      from '@angular/core';
 
 import { LoginComponent } from './login.component';
 import {SharedModule} from "../../shared/shared/shared.module";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     imports: [
-        SharedModule
+        SharedModule,
+        FormsModule
     ],
     declarations: [LoginComponent],
     exports: [LoginComponent]
