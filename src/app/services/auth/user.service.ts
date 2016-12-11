@@ -57,4 +57,24 @@ export class UserService {
     getProfile() {
         return JSON.parse(localStorage.getItem("profile"));
     }
+
+    /**
+     * Convert a role to string value
+     * @param role
+     * @returns {any}
+     */
+    roleToString(role : number) {
+        switch(role) {
+            case 1: return "System Administrator";
+            case 2: return "Employee";
+        }
+    }
+
+    /**
+     * Return the token from localStorage
+     * @returns {any}
+     */
+    getToken() {
+        return localStorage.getItem("id_token");
+    }
 }

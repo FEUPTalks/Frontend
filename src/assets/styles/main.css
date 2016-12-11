@@ -32,10 +32,15 @@ body {
 }
 
 .box > .box-content {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 25px;
     text-align: left;
     display: block;
+}
+
+.box > .box-content .spinner {
+    text-align: center;
+    color: #b0b0b0;
 }
 
 .box > .box-content-clear {

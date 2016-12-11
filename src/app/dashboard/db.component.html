@@ -115,7 +115,7 @@
                 <img class="img-responsive" src="http://image.prntscr.com/image/21a071456b6446aa89644340857c35c4.png">
                 <div class="info">
                     <p class="name">{{ auth.getProfile()['Name'] }}</p>
-                    <p class="role">System Administrator</p>
+                    <p class="role">{{ auth.roleToString(auth.getProfile()['Role']) }}</p>
                 </div>
             </div>
             <div class="navigation">
