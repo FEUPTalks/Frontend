@@ -32,23 +32,24 @@ This system is designed for users responsible for organization and management of
 The technologies chosen to develop this product are:
 
 <strong>Angular 2</strong>
-Angular turns your templates into code that's highly optimized for today's JavaScript virtual machines giving you all the benefits of hand-written code with the productivity of a framework. Serve the first view of your application on node.js, .NET, PHP and other servers for near-instant rendering in just HTML and CSS. Also paves the way for sites that optimize for SEO. We like dynamic content, so we chose this!
+<p>Angular turns your templates into code that's highly optimized for today's JavaScript virtual machines giving you all the benefits of hand-written code with the productivity of a framework. Serve the first view of your application on node.js, .NET, PHP and other servers for near-instant rendering in just HTML and CSS. Also paves the way for sites that optimize for SEO. We like dynamic content, so we chose this!</p>
 
 <strong>Go</strong>
-Go and C# both have asynchronous operation built into the language at a low level, making it easy for large groups of people to write asynchronous code. The MongoDB Go driver is probably the best MongoDB driver in existence, and complex interaction with MongoDB is core to Parse. Goroutines were much more lightweight than threads. And frankly we were most excited about writing Go code. We thought it would be a lot easier to recruit great engineers to write Go code than any of the other solid async languages. And also, we've heard cool stuff about this language!
+<p>Angular turns your templates into code that's highly optimized for today's JavaScript virtual machines giving you all the benefits of hand-written code with the productivity of a framework. Serve the first view of your application on node.js, .NET, PHP and other servers for near-instant rendering in just HTML and CSS. Also paves the way for sites that optimize for SEO. We like dynamic content, so we chose this!</p>
+<p>Go and C# both have asynchronous operation built into the language at a low level, making it easy for large groups of people to write asynchronous code. The MongoDB Go driver is probably the best MongoDB driver in existence, and complex interaction with MongoDB is core to Parse. Goroutines were much more lightweight than threads. And frankly we were most excited about writing Go code. We thought it would be a lot easier to recruit great engineers to write Go code than any of the other solid async languages. And also, we've heard cool stuff about this language!</p>
 
 <strong>Jenkins</strong>
-Jenkins is an award-winning, cross-platform, continuous integration and continuous delivery application that increases our productivity. Using Jenkins to build and test our software projects continuously will make it easier for us as developers to integrate changes to our project. It also allows us to continuously deliver our software by providing powerful ways to define our build pipelines and integrating with a large number of testing and deployment technologies.
+<p>Jenkins is an award-winning, cross-platform, continuous integration and continuous delivery application that increases our productivity. Using Jenkins to build and test our software projects continuously will make it easier for us as developers to integrate changes to our project. It also allows us to continuously deliver our software by providing powerful ways to define our build pipelines and integrating with a large number of testing and deployment technologies.</p>
 
 <strong>MySQL</strong>
-MySQL is a freely available open source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL).
-SQL is the most popular language for adding, accessing and managing content in a database. It is most noted for its quick processing, proven reliability, ease and flexibility of use.
+<p>MySQL is a freely available open source Relational Database Management System (RDBMS) that uses Structured Query Language (SQL).
+SQL is the most popular language for adding, accessing and managing content in a database. It is most noted for its quick processing, proven reliability, ease and flexibility of use.</p>
 
 <strong>Karma</strong>
-The main goal for Karma is to bring a productive testing environment. The environment being one where we don't have to set up loads of configurations, but rather a place where we can just write the code and get instant feedback from our tests. Because getting quick feedback is what makes us productive and creative.
+<p>The main goal for Karma is to bring a productive testing environment. The environment being one where we don't have to set up loads of configurations, but rather a place where we can just write the code and get instant feedback from our tests. Because getting quick feedback is what makes us productive and creative.</p>
 
 <strong>Protractor</strong>
-It is our end-to-end test framework that usually used for AngularJS applications. Protractor runs tests against our application running in a real browser, interacting with it as a user would.
+<p>It is our end-to-end test framework that usually used for AngularJS applications. Protractor runs tests against our application running in a real browser, interacting with it as a user would.</p>
 
 ### Business Goals
 
