@@ -1,0 +1,69 @@
+<div class="row row-flex row-flex-wrap">
+    <div class="col s12 m6 l6">
+        <div class="card box blue">
+            <div class="w-40 blue darken-4 rounded">
+                <i class="fa fa-facebook white-text valign"></i>
+            </div>
+            <div class="box-content box-content-right align-right valign">
+                <span class="md stronger blue-text text-lighten-5">{{ talksApproved ? talksApproved.length : 0 }}
+                    <span class="ms">Approved Talks</span></span>
+                <p class="sm blue-text text-lighten-4">But currently waiting for room</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m6 l6">
+        <div class="card box white">
+            <div class="w-40 indigo lighten-2 rounded">
+                <i class="fa fa-user white-text valign"></i>
+            </div>
+            <div class="box-content box-content-right align-right valign">
+                <span class="md stronger">0 <span class="ms">Live Talks</span></span>
+                <p class="sm grey-text text-darker-3">Talks already published</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-flex row-flex-wrap">
+    <div class="col s12 m12 l8">
+        <div class="card box white">
+            <div class="box-header">
+                <span class="md stronger">Approved Talks</span>
+                <p class="sm grey-text text-darker-3">Overview of Talks waiting for room</p>
+            </div>
+            <div class="box-content">
+                <div *ngIf="!talksApproved" class="spinner">
+                    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                </div>
+                <table *ngIf="talksApproved" class="ms highlight">
+                    <thead>
+                    <tr>
+                        <th data-field="title">Title</th>
+                        <th data-field="date">Date</th>
+                        <th data-field="proponent">Speaker</th>
+                        <th class="center" data-field="speaker">Room</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr *ngFor="let talk of talksApproved | slice:0:3; let i = index">
+                        <td>{{ talk?.title }}</td>
+                        <td>{{ parse(talk?.date).toUTCString()
+                            .split(' ').slice(0, 4).join(' ') }}</td>
+                        <td>{{ talk?.speakerName }}</td>
+                        <td class="center">
+                            <input materialize="characterCounter" id="{{ talk?.talkID }}" type="text" class="validate" length="10"
+                                   name="room" (ngModel)="room" required="">
+                            <button class="btn waves-effect waves-light" type="submit" name="action">Confirm
+                                <i class="fa fa-send"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="box-footer right-align">
+                <a class="waves-effect waves-light btn blue">View more</a>
+            </div>
+        </div>
+    </div>
+</div>
