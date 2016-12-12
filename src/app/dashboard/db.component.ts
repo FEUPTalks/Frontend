@@ -7,7 +7,8 @@ import {UserService} from "../services/auth/user.service";
 
 @Component({
     selector: 'dashboard-cmp',
-    templateUrl: './db.component.html'
+    templateUrl: './db.component.html',
+    styleUrls: ['./db.component.css']
 })
 
 export class DashboardComponent {

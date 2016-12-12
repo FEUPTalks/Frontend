@@ -1,0 +1,40 @@
+<div class="row row-flex row-flex-wrap">
+    <div class="col s12 m12 l8">
+        <div class="card box white">
+            <div class="box-header">
+                <span class="md stronger">Pending Overview</span>
+                <p class="sm grey-text text-darker-3">Overview of Talks waiting to be checked</p>
+            </div>
+            <div class="box-content-clear">
+                <div *ngIf="!talks" class="spinner">
+                    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                </div>
+                <datatable *ngIf="talks"
+                        class="material"
+                        [rows]="rows"
+                        [columns]="columns"
+                        [columnMode]="'force'"
+                        [headerHeight]="50"
+                        [footerHeight]="50"
+                        [rowHeight]="'auto'"
+                        [limit]="10"
+                        [sortType]="'multi'">
+                    <datatable-column prop="title" name="Title">
+                        <template let-row="row" let-value="value" swui-datatable-cell-template>
+                            <a class="black-text lighten-1" [routerLink]="['/talks/' + row.controls]" href="">{{ value }}</a>
+                        </template>
+                    </datatable-column>
+                    <datatable-column prop="date"></datatable-column>
+                    <datatable-column prop="speakerName"></datatable-column>
+                    <datatable-column prop="room"></datatable-column>
+                    <datatable-column prop="controls" name="Approval">
+                        <template let-row="row" let-value="value" swui-datatable-cell-template>
+                            <a class="waves-effect waves-light btn btn-small lighten-2r">Yes</a>
+                            <a class="modal-trigger waves-effect waves-light btn btn-small deep-orange lighten-1 modal-trigger">No</a>
+                        </template>
+                    </datatable-column>
+                </datatable>
+            </div>
+        </div>
+    </div>
+</div>

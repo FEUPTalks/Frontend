@@ -1,25 +1,31 @@
-import {Component, OnInit, EventEmitter, ViewChild} from '@angular/core';
+import {Component, AfterViewInit, EventEmitter} from '@angular/core';
 import {MaterializeAction} from '../../shared/materialize';
 
 import {TalkService}       from '../../services/api/talk.service';
 import {Talk}              from '../../services/api/talk';
 import {UserService} from "../../services/auth/user.service";
-import {PendingChartComponent} from "./chart/pending-chart.component";
 
 declare var Materialize: any;
 
 @Component({
-    selector: 'db-home-cmp',
-    templateUrl: './home.component.html',
+    selector: 'db-pending-cmp',
+    templateUrl: './pending.component.html',
 })
 
-export class HomeComponent implements OnInit {
+export class PendingComponent implements AfterViewInit {
 
     public talks: Talk[] = null;
-    public talksApproved: Talk[] = null;
 
-    /* Get the child component -> pendingChart, in order to update the pecentage */
-    @ViewChild(PendingChartComponent) pendingChart : PendingChartComponent;
+    rows : any[] = [];
+    temp : any[] = [];
+
+    columns = [
+        { prop: 'title' },
+        { prop: 'date' },
+        { prop: 'speakerName' },
+        { prop: 'room' },
+        { prop: 'controls' }
+    ];
 
     /* These actions belong to materializeCSS and allow us to call modals & stuff */
     modalActions1 = new EventEmitter<string|MaterializeAction>();
@@ -28,23 +34,23 @@ export class HomeComponent implements OnInit {
 
     constructor(private auth: UserService, private talkService: TalkService) { }
 
-    ngOnInit() {
+    ngAfterViewInit() {
         let send = { state : 1 };
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
             data => {
                 this.talks = data;
-                send['state'] = 4;
-                this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
-                    data => {
-                        this.talksApproved = data;
-                        /* Update the chart percentage -> Approved talks over Total Talks */
-                        let percentage = 0;
-                        let total = this.talks.length + this.talksApproved.length;
-                        if(this.talksApproved && this.talks)
-                            percentage = this.talksApproved.length / (total == 0 ? 1 : total);
-
-                        this.pendingChart.updateChart(percentage*100);
-                    });
+                for(var i = 0; i<this.talks.length; i++) {
+                    this.rows.push(
+                        {
+                            title: this.talks[i].title,
+                            date: this.talks[i].date,
+                            speakerName: this.talks[i].speakerName,
+                            room: this.talks[i].room,
+                            controls: this.talks[i].talkID
+                        }
+                    );
+                }
+                this.temp = [...this.rows];
             },
             err => {
                 console.log("Error: " + err);

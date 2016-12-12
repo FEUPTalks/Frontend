@@ -38,7 +38,7 @@ body {
     display: block;
 }
 
-.box > .box-content .spinner {
+.box > .box-content .spinner, .box-content-clear .spinner {
     text-align: center;
     color: #b0b0b0;
 }
