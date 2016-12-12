@@ -7,13 +7,15 @@ import { routes }             from './talks.routes';
 import {SharedModule} from "../../shared/shared/shared.module";
 import {TalkService} from "../../services/api/talk.service";
 import {TalkGetModule} from "./get/get.module";
+import {Edit_TalkModule} from "./edit_talk/edit_talk.module";
 
 @NgModule({
     imports: [
         SharedModule,
         RouterModule.forRoot(routes),
         RegisterModule,
-        TalkGetModule
+        TalkGetModule,
+        Edit_TalkModule
     ],
     declarations: [TalksComponent],
     exports: [TalksComponent],

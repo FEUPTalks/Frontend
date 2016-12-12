@@ -10,7 +10,7 @@ export const routes = [
         children: [
             { path: 'home', component: <any>HomeComponent, canActivate: [AuthGuard], data: { role: 2 } },
             { path: 'pending', component: <any>PendingComponent, canActivate: [AuthGuard], data: { role: 1 } },
-            { path: '', redirectTo: 'home' }           
+            { path: '', redirectTo: 'home' }        
         ]
     }
 ];

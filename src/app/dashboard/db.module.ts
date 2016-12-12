@@ -7,11 +7,13 @@ import { UserService } from "../services/auth/user.service";
 import {AuthGuard} from "../services/auth/guard.service";
 import {PendingModule} from "./pending/pending.module";
 
+
 @NgModule({
     imports: [
         RouterModule.forRoot(routes),
         HomeModule,
-        PendingModule
+        PendingModule,
+        
     ],
     declarations: [DashboardComponent],
     exports: [DashboardComponent],
