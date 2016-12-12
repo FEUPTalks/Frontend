@@ -55,6 +55,20 @@ SQL is the most popular language for adding, accessing and managing content in a
 
 "FEUP Talks" is a unique system that helps organizing and managing events. It provides an integrated solution that takes care of several aspects of event organization, such as registration, scheduling, communication. In this way, the system allows event organizers run their events smoothly, while saving time and energy, and making events more enjoyable for both organizers and attendees.
 
+## Development flow
+
+<strong>GitFlow<strong> is a branching model for Git, created by Vincent Driessen. It is very well suited to collaboration and scaling the development team. One of the great things about GitFlow is that it makes parallel development very easy, by isolating new development from finished work. <br/>
+<img src="https://namethattech.files.wordpress.com/2014/11/git-flow-updated.png" alt="Drawing" width="350px"/>
+<p> <strong>How It Works:</strong>
+- New development (new features, non-emergency bug fixes) are built in feature branches;
+- Feature branches are branched off of the <strong>develop branch</strong>, and finished features and fixes are merged back into the <strong>develop branch</strong> when they’re ready for release;
+- When it is time to make a release, a <strong>release branch</strong> is created off of **develop**;
+- The code in the **release branch** is deployed onto a suitable test environment, tested, and any problems are fixed directly in the release branch. This <strong>deploy -> test -> fix -> redeploy -> retest</strong> cycle continues until you’re happy that the release is good enough to release to customers;
+- When the release is finished, the **release branch** is merged into **master** and into **develop** too, to make sure that any changes made in the **release branch** aren’t accidentally lost by new development;
+- The **master branch** tracks released code only. The only commits to **master** are merges from **release branches** and **hotfix branches**.
+- **Hotfix branches** are used to create emergency fixes;
+- They are branched directly from a tagged release in the master branch, and when finished are merged back into both **master** and **develop** to make sure that the hotfix isn’t accidentally lost when the next regular release occurs.</p>
+
 ## Installation
 
 #### 1. Clone the project
