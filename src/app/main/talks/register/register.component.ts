@@ -1,7 +1,7 @@
 import {Component, OnInit, EventEmitter} from '@angular/core';
 import {MaterializeAction} from '../../../shared/index';
 import 'rxjs/Rx';
-import {TalkService} from "../../../services/talk.service";
+import {TalkService} from "../../../services/api/talk.service";
 
 declare var Materialize: any;
 declare var $: any;

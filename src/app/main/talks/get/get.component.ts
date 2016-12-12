@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import "rxjs/add/operator/map";
 
-import {Talk} from "../../../services/talk";
-import {TalkService} from "../../../services/talk.service";
+import {Talk} from "../../../services/api/talk";
+import {TalkService} from "../../../services/api/talk.service";
 import {Router, ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -24,7 +24,7 @@ export class TalkGetComponent implements OnInit {
     }
 
     ngOnInit() {
-        // (+) converts string 'id' to a number
+        // + converts string 'id' to a number
         this.id = +this.route.snapshot.params['id'];
         this.getTalks();
     }

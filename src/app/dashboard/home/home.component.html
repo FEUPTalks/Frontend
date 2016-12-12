@@ -5,7 +5,8 @@
                 <i class="fa fa-facebook white-text valign"></i>
             </div>
             <div class="box-content box-content-right align-right valign">
-                <span class="md stronger blue-text text-lighten-5">{{ talks?.length }} <span class="ms">Pending Talk</span></span>
+                <span class="md stronger blue-text text-lighten-5">{{ talks ? talks.length : 0 }}
+                    <span class="ms">Pending Talk</span></span>
                 <p class="sm blue-text text-lighten-4">Awaiting approval</p>
             </div>
         </div>
@@ -27,7 +28,8 @@
                 <i class="fa fa-facebook white-text valign"></i>
             </div>
             <div class="box-content box-content-right align-right valign">
-                <span class="md stronger">0 <span class="ms">Talks Completed</span></span>
+                <span class="md stronger">{{ talksApproved ? talksApproved.length : 0 }}
+                    <span class="ms">Talks Completed</span></span>
                 <p class="sm grey-text text-darker-3">In the current month</p>
             </div>
         </div>
@@ -53,8 +55,7 @@
             </div>
             <div class="box-content">
                 <div *ngIf="!talks" class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
+                    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                 </div>
                 <table *ngIf="talks" class="ms highlight">
                     <thead>
@@ -62,14 +63,12 @@
                         <th data-field="title">Title</th>
                         <th data-field="date">Date</th>
                         <th data-field="proponent">Speaker</th>
-                        <th data-field="speaker">Room</th>
                         <th data-field="speaker">Approval</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    <tr *ngFor="let talk of talks | slice:0:3; let i = index">
-                        <ng-container *ngIf="talk?.state == 1">
+                        <tr *ngFor="let talk of talks | slice:0:3; let i = index">
                             <td>{{ talk?.title }}</td>
                             <td>{{ parse(talk?.date).toUTCString()
                                 .split(' ').slice(0, 4).join(' ') }}</td>
@@ -82,8 +81,7 @@
 
                             - All talks are null before results from API are fetched.
                             -->
-                            <td>{{ talk?.speakerBrief }}</td>
-                            <td>{{ talk?.room }}</td>
+                            <td>{{ talk?.speakerName }}</td>
                             <td class="center">
                               <!-- Modal Trigger -->
                               <a class="waves-effect waves-light btn btn-small lighten-2r" (click)="openModal2()">Yes</a>
@@ -111,8 +109,7 @@
                                 </div>
                               </div>
                             </td>
-                        </ng-container>
-                    </tr>
+                        </tr>
                     </tbody>
                 </table>
             </div>
