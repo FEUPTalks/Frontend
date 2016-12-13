@@ -1,6 +1,6 @@
 import {Component, AfterViewInit, ViewChild} from '@angular/core';
-import {TalkService} from "../../services/talk.service";
-import {Talk} from "../../services/talk";
+import {TalkService} from "../../services/api/talk.service";
+import {Talk} from "../../services/api/talk";
 import {List_EditComponent} from "../talks/list_edit/list_edit.component";
 
 @Component({

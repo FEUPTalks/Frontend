@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import "rxjs/add/operator/map";
 
-import {Talk} from "../../../services/talk";
-import {TalkService} from "../../../services/talk.service";
+import {Talk} from "../../../services/api/talk";
+import {TalkService} from "../../../services/api/talk.service";
 import {Router} from "@angular/router";
 
 @Component({

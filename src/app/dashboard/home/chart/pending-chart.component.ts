@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import {Component, AfterViewInit, Input} from '@angular/core';
 
 declare var jQuery: any;
 declare var $: any;
@@ -6,7 +6,7 @@ declare var $: any;
 @Component({
     selector: 'pending-chart',
     template: `
-        <input type="text" value="50" class="dial">
+        <input id="pending-chart" type="text" value="50" class="dial">
     `
 })
 
@@ -19,11 +19,15 @@ export class PendingChartComponent implements AfterViewInit {
             fgColor: "#7986CB",
             skin: "tron",
             readOnly: true,
-            val: 50,
             max: 100,
             format : function (value : number) {
                 return value + '%';
             }
         });
+    }
+
+    updateChart(newValue : number) {
+        (<any>$('#pending-chart')).val(newValue);
+        (<any>$('#pending-chart')).trigger("change");
     }
 }

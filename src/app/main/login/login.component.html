@@ -1,6 +1,24 @@
-<form>
-    <h1>Admin Login</h1>
-    <input placeholder="Username" type="text" required="">
-    <input placeholder="Password" type="password" required="">
-    <button>Submit</button>
-</form>
+<div class="row">
+    <div class="col s12 m8 l4 offset-m2 offset-l4">
+        <div [class.show]="alert" class="card card-alert red lighten-1 step">
+            <div class="card-content white-text">
+                <p>{{ alertText }}</p>
+            </div>
+            <button type="button" class="close white-text" (click)="close()">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <form role="form" #f="ngForm" (ngSubmit)="login($event, username.value, password.value)">
+            <h4 class="blue"><b>A</b>gent <b>L</b>ogin</h4>
+            <div class="input-field">
+                <i class="material-icons grey-text">email</i>
+                <input id="username" placeholder="Username" type="text" required="" #username>
+            </div>
+            <div class="input-field">
+                <i class="material-icons grey-text">lock</i>
+                <input id="password" placeholder="Password" type="password" required="" #password>
+            </div>
+            <button type="submit" class="btn waves-effect waves-light blue">Submit</button>
+        </form>
+    </div>
+</div>
