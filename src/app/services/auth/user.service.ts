@@ -23,7 +23,7 @@ export class UserService {
             (res) => {
                 console.log(res);
                 let json = JSON.parse(res['_body']);
-                localStorage.setItem('id_token', json['Token']);
+                localStorage.setItem('id_token', json['token']);
                 localStorage.setItem('profile', JSON.stringify(json));
                 this.router.navigate(['dashboard']);
             });
