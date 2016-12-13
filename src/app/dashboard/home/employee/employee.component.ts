@@ -18,11 +18,10 @@ export class EmployeeComponent implements OnInit {
     constructor(private auth: UserService, private talkService: TalkService) { }
 
     ngOnInit() {
-        let send = { state : 4 };
+        let send = { state : 3 };
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
             data => {
                 this.talksApproved = data;
-                send['state'] = 3;
             },
             err => {
                 console.log("Error: " + err);
@@ -54,7 +53,7 @@ export class EmployeeComponent implements OnInit {
             return;
         }
         var data = {};
-        data['state'] = 6;
+        data['state'] = 4;
         this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
                 Materialize.toast('Success! The talk was forwarded.', 4000);
