@@ -1,7 +1,7 @@
 import {Component, AfterViewInit, ViewChild} from '@angular/core';
 import {TalkService} from "../../services/api/talk.service";
 import {Talk} from "../../services/api/talk";
-import {List_EditComponent} from "../talks/list_edit/list_edit.component";
+import {TalkListComponent} from "../talks/list/list.component";
 
 @Component({
     selector: 'home',
@@ -11,8 +11,8 @@ import {List_EditComponent} from "../talks/list_edit/list_edit.component";
 export class HomeComponent implements AfterViewInit {
 
     public talks : Talk[] = null;
-    @ViewChild(List_EditComponent)
-    listEdit : List_EditComponent;
+    @ViewChild(TalkListComponent)
+    listEdit : TalkListComponent;
 
     constructor(private talkService: TalkService) {}
 
