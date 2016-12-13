@@ -54,9 +54,12 @@ export class TalkService {
     put(path : string, token : string, vals : any) : Observable<Response> {
         /* Set headers and query params */
         let headers : Headers = new Headers();
+        let params: URLSearchParams = new URLSearchParams();
         if(token)
             headers.append("Authorization", "Bearer " + token);
-        return this.http.put(this.baseUrl + path, JSON.stringify(vals), { headers : headers })
+        for(let key in vals)
+            params.set(key, vals[key]);
+        return this.http.put(this.baseUrl + path, JSON.stringify(vals), { headers : headers, search: params })
             .map((res:Response) => res)
             .catch((error:any) => Observable.throw(error || 'Server error'));
     }

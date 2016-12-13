@@ -32,4 +32,46 @@ export class EmployeeComponent implements OnInit {
     public parse(date: string) {
         return new Date(Date.parse(date));
     }
+
+    public submitRoom(id : number, room : string) {
+        if(!room)
+            return;
+        var data = {};
+        data['room'] = room;
+        this.talkService.put("talks/" + id + "/SetRoom", this.auth.getToken(), data).subscribe(
+            data => {
+                Materialize.toast('Success! The room was changed.', 4000);
+            },
+            err => {
+                console.log("Error: " + err);
+                Materialize.toast('Error! Not possible to change the room.', 4000);
+            });
+    }
+
+    public changeState(id : number, room : string) {
+        if(!room) {
+            Materialize.toast('Error! There is no room set.', 4000);
+            return;
+        }
+        var data = {};
+        data['state'] = 6;
+        this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
+            data => {
+                Materialize.toast('Success! The talk was forwarded.', 4000);
+                this.removeTalk(id);
+            },
+            err => {
+                console.log("Error: " + err);
+                Materialize.toast('Error! The talk was not forwarded.', 4000);
+            });
+    }
+
+    removeTalk(id : number) {
+        for(let i=0; i<this.talksApproved.length; i++) {
+            if(this.talksApproved[i]['talkID'] == id) {
+                this.talksApproved.splice(i, 1);
+                return;
+            }
+        }
+    }
 }

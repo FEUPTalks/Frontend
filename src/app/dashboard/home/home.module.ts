@@ -8,11 +8,13 @@ import { AttendeesChartComponent } from "./chart/attendees-chart.component";
 import { SharedModule } from "../../shared/shared/shared.module";
 import { AdminComponent } from "./admin/index";
 import { EmployeeComponent } from "./employee/index";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
         SharedModule,
-        ChartModule
+        ChartModule,
+        RouterModule
     ],
     declarations: [
         HomeComponent,

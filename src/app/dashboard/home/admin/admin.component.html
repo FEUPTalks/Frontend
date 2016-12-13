@@ -69,7 +69,7 @@
 
                     <tbody>
                     <tr *ngFor="let talk of talks | slice:0:3; let i = index">
-                        <td>{{ talk?.title }}</td>
+                        <td routerLink="/dashboard/talks/{{ talk?.talkID }}">{{ talk?.title }}</td>
                         <td>{{ parse(talk?.date).toUTCString()
                             .split(' ').slice(0, 4).join(' ') }}</td>
                         <!--
@@ -84,37 +84,15 @@
                         <td>{{ talk?.speakerName }}</td>
                         <td class="center">
                             <!-- Modal Trigger -->
-                            <a class="waves-effect waves-light btn btn-small lighten-2r" (click)="openModal2()">Yes</a>
-                            <a class="modal-trigger waves-effect waves-light btn btn-small deep-orange lighten-1 modal-trigger" (click)="openModal1()">No</a>
-                            <!-- Modal Structure -->
-                            <div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions1                                ">
-                                <div class="modal-content">
-                                    <h4>Reject a Talk</h4>
-                                    <p>Are you sure you want to reject this talk?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a  class="waves-effect waves-green btn-flat" (click)="closeModal1()">No</a>
-                                    <a class="waves-effect waves-green btn-flat" (click)="rejectTalk(talk?.talkID)">Yes</a>
-                                </div>
-                            </div>
-                            <!-- Modal2 Structure -->
-                            <div id="modal2" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions2">
-                                <div class="modal-content">
-                                    <h4>Accept a Talk</h4>
-                                    <p>Are you sure you want to accept this talk?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="waves-effect waves-green btn-flat" (click)="closeModal2()">No</a>
-                                    <a class="waves-effect waves-green btn-flat" (click)="acceptTalk(talk?.talkID)">Yes</a>
-                                </div>
-                            </div>
+                            <a class="waves-effect waves-light btn btn-small lighten-2r" (click)="openModal2(talk?.talkID)">Yes</a>
+                            <a class="modal-trigger waves-effect waves-light btn btn-small deep-orange lighten-1 modal-trigger" (click)="openModal1(talk?.talkID)">No</a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="box-footer right-align">
-                <a class="waves-effect waves-light btn blue">View more</a>
+                <a routerLink="/dashboard/pending" class="waves-effect waves-light btn blue">View more</a>
             </div>
         </div>
     </div>
@@ -137,6 +115,37 @@
                 <p class="sm grey-text text-darker-3">Overview of attendees throughout the months</p>
             </div>
             <attendees-chart></attendees-chart>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<div class="row">
+    <!-- Modal2 Structure -->
+    <div id="modal2" class="modal" materialize="modal"
+         [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions2" #accept>
+        <div class="modal-content">
+            <h4>Accept a Talk</h4>
+            <p>Are you sure you want to accept this talk?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="waves-effect waves-green btn-flat" (click)="closeModal2()">No</a>
+            <a class="waves-effect waves-green btn-flat" (click)="acceptTalk(accept.getAttribute('data-id'))">Yes</a>
+        </div>
+    </div>
+    <!-- Modal1 Structure -->
+    <div id="modal1" class="modal" materialize="modal"
+         [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions1" #reject>
+        <div class="modal-content">
+            <h4>Reject a Talk</h4>
+            <p>Please insert a reason below and confirm your action.</p>
+            <textarea id="reject-reason" materialize="characterCounter" type="text" class="materialize-textarea"
+                      length="100" name="reject-reason"></textarea>
+            <label for="reject-reason">Reason</label>
+        </div>
+        <div class="modal-footer">
+            <a class="waves-effect waves-green btn-flat" (click)="closeModal1()">Cancel</a>
+            <a class="waves-effect waves-green btn-flat" (click)="rejectTalk(reject.getAttribute('data-id'))">Continue</a>
         </div>
     </div>
 </div>

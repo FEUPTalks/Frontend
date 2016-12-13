@@ -1,3 +1,11 @@
+<style>
+    .alternate-option {
+        margin-left: 20px;
+        vertical-align: baseline;
+        position: relative;
+        top:-5px;
+    }
+</style>
 <div class="row row-flex row-flex-wrap">
     <div class="col s12 m6 l6">
         <div class="card box blue">
@@ -28,6 +36,9 @@
         <div class="card box white">
             <div class="box-header">
                 <span class="md stronger">Approved Talks</span>
+                <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
+                   data-tooltip="You can change the room using the field,
+                               without needing to click the button. Use the button to confirm your action.">(?)</a>
                 <p class="sm grey-text text-darker-3">Overview of Talks waiting for room</p>
             </div>
             <div class="box-content">
@@ -50,12 +61,14 @@
                         <td>{{ parse(talk?.date).toUTCString()
                             .split(' ').slice(0, 4).join(' ') }}</td>
                         <td>{{ talk?.speakerName }}</td>
-                        <td class="center">
-                            <input materialize="characterCounter" id="{{ talk?.talkID }}" type="text" class="validate" length="10"
-                                   name="room" (ngModel)="room" required="">
-                            <button class="btn waves-effect waves-light" type="submit" name="action">Confirm
-                                <i class="fa fa-send"></i>
-                            </button>
+                        <td class="center row">
+                            <input (blur)="submitRoom(talk?.talkID, room.value)" materialize="characterCounter"
+                                   type="text" #room class="validate col s12 m10 l10" length="10" id="room" name="room"
+                                   (ngModel)="room" value="{{ talk?.room }}" required="">
+                            <a class="btn-floating btn-large waves-effect waves-light blue"
+                               (click)="changeState(talk?.talkID, room.value)">
+                                <i class="material-icons">create</i>
+                            </a>
                         </td>
                     </tr>
                     </tbody>

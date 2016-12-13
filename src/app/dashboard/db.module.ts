@@ -6,12 +6,14 @@ import { routes }             from './db.routes';
 import { UserService } from "../services/auth/user.service";
 import {AuthGuard} from "../services/auth/guard.service";
 import {PendingModule} from "./pending/pending.module";
+import {TalkGetModule} from "./talks/get/index";
 
 @NgModule({
     imports: [
         RouterModule.forRoot(routes),
         HomeModule,
-        PendingModule
+        PendingModule,
+        TalkGetModule
     ],
     declarations: [DashboardComponent],
     exports: [DashboardComponent],

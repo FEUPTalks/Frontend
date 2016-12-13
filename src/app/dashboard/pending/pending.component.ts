@@ -23,7 +23,7 @@ export class PendingComponent implements AfterViewInit {
         { prop: 'title' },
         { prop: 'date' },
         { prop: 'speakerName' },
-        { prop: 'room' },
+        { prop: 'proponent' },
         { prop: 'controls' }
     ];
 
@@ -45,7 +45,7 @@ export class PendingComponent implements AfterViewInit {
                             title: this.talks[i].title,
                             date: this.talks[i].date,
                             speakerName: this.talks[i].speakerName,
-                            room: this.talks[i].room,
+                            proponent: this.talks[i].proponentName,
                             controls: this.talks[i].talkID
                         }
                     );
@@ -63,9 +63,8 @@ export class PendingComponent implements AfterViewInit {
 
     acceptTalk(id: number) {
         var data = {};
-        data['talkID'] = id;
-        data['state'] = 2;
-        this.talkService.put("talks/" + id, this.auth.getToken(), data).subscribe(
+        data['state'] = 3;
+        this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
                 Materialize.toast('Success! The talk was accept.', 4000);
                 this.removeTalk(id);
@@ -79,9 +78,8 @@ export class PendingComponent implements AfterViewInit {
 
     rejectTalk(id: number) {
         var data = {};
-        data['talkID'] = id;
-        data['state'] = 3;
-        this.talkService.put("talks/" + id, this.auth.getToken(), data).subscribe(
+        data['state'] = 2;
+        this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
                 Materialize.toast('Success! The talk was reject.', 4000);
                 this.removeTalk(id);
@@ -95,14 +93,15 @@ export class PendingComponent implements AfterViewInit {
 
     removeTalk(id : number) {
         for(let i=0; i<this.talks.length; i++) {
-            if(this.talks[i]['talkID'] === id) {
-                this.talks.slice(i, 1);
+            if(this.talks[i]['talkID'] == id) {
+                this.talks.splice(i, 1);
                 return;
             }
         }
     }
 
-    openModal1() {
+    openModal1(id : number) {
+        document.getElementById("modal1").setAttribute("data-id", id.toString());
         this.modalActions1.emit({action: "modal", params: ['open']});
     }
 
@@ -110,7 +109,8 @@ export class PendingComponent implements AfterViewInit {
         this.modalActions1.emit({action: "modal", params: ['close']});
     }
 
-    openModal2() {
+    openModal2(id : number) {
+        document.getElementById("modal2").setAttribute("data-id", id.toString());
         this.modalActions2.emit({action: "modal", params: ['open']});
     }
 
