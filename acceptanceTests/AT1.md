@@ -1,4 +1,7 @@
 ##User Story
+
+<img src="https://github.com/FEUPTalks/Frontend/blob/develop/prototype/imagens/register.jpg" alt="Drawing" width="430px"/><br/>
+
 I, as a proponent, want to be able to submit a talk proposition.
 
 ##Acceptance Test
