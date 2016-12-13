@@ -2,7 +2,7 @@
 
 import {TestBed, async} from '@angular/core/testing';
 import {HomeComponent} from './main/home/home.component';
-import {List_EditModule} from "./main/talks/list_edit/list_edit.module";
+import {List_EditModule} from "./main/talks/list/list_edit.module";
 import {SharedModule} from "./shared/shared/shared.module";
 
 describe('HomeComponent', () => {

@@ -1,21 +1,21 @@
-import {Component, OnInit, EventEmitter} from '@angular/core';
-import {MaterializeAction} from '../../../shared/index';
+import {Component, OnInit} from '@angular/core';
 import 'rxjs/Rx';
 import {TalkService} from "../../../services/api/talk.service";
+import {ActivatedRoute} from "@angular/router";
+import {Talk} from "../../../services/api/talk";
 
 declare var Materialize: any;
 declare var $: any;
 
 @Component({
-    selector: 'talk-edit_talk-cmp',
-    templateUrl: './edit_talk.component.html',
-    styleUrls: ['./edit_talk.component.css']
+    selector: 'talk-edit-cmp',
+    templateUrl: './edit.component.html',
+    styleUrls: ['./edit.component.css']
 })
 
-export class Edit_TalkComponent implements OnInit {
+export class TalkEditComponent implements OnInit {
 
-    breadcumb: Object[] = [];
-    globalActions = new EventEmitter<string|MaterializeAction>();
+    public talk : Talk = null;
     today = new Date();
     formDateOptions = {
         selectMonths: true,
@@ -24,7 +24,7 @@ export class Edit_TalkComponent implements OnInit {
     };
     picture: string[] = [];
 
-    constructor(private talkService: TalkService) {
+    constructor(private route : ActivatedRoute, private talkService: TalkService) {
 
     }
 
@@ -33,12 +33,7 @@ export class Edit_TalkComponent implements OnInit {
             autoclose: false,
             twelvehour: false,
         });
-        this.breadcumb.push({name: 'Home', routerLink: '/home'});
-        this.breadcumb.push({name: 'Register', routerLink: '/talks/register'});
-    }
-
-    getPaths() {
-        return this.breadcumb;
+        console.log("talk/" + this.route.snapshot.params['id']);
     }
 
     submit(data?: any) {

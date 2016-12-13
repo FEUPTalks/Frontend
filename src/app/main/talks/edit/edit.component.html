@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="input-field col s12 m6 l3">
                             <input materialize="characterCounter" id="title" type="text" class="validate" length="120"
-                                   name="title" (ngModel)="title" required="" #talkTitle>
+                                   name="title" (ngModel)="title" value="{{ talks?.title }}" #talkTitle>
                             <label for="title">Title <font color="red">*</font></label>
                         </div>
                         <div class="input-field col s12 m6 l3">

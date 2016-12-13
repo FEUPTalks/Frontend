@@ -1,7 +1,7 @@
 import { NgModule }     from '@angular/core';
 import { HttpModule }   from '@angular/http';
 
-import { Edit_TalkComponent } from './edit_talk.component';
+import { TalkEditComponent } from './edit.component';
 
 import {FormsModule} from "@angular/forms";
 import {SharedModule} from "../../../shared/shared/shared.module";
@@ -13,9 +13,9 @@ import {SharedModule} from "../../../shared/shared/shared.module";
         FormsModule
     ],
     declarations: [
-        Edit_TalkComponent
+        TalkEditComponent
     ],
-    exports: [Edit_TalkComponent],
+    exports: [TalkEditComponent],
 })
 
-export class Edit_TalkModule { }
+export class TalkEditModule { }

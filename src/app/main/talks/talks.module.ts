@@ -7,7 +7,8 @@ import { routes }             from './talks.routes';
 import {SharedModule} from "../../shared/shared/shared.module";
 import {TalkService} from "../../services/api/talk.service";
 import {TalkGetModule} from "./get/get.module";
-import {Edit_TalkModule} from "./edit_talk/edit_talk.module";
+import {TalkEditModule} from "./edit/edit.module";
+import {TalkListModule} from "./list/list.module";
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import {Edit_TalkModule} from "./edit_talk/edit_talk.module";
         RouterModule.forRoot(routes),
         RegisterModule,
         TalkGetModule,
-        Edit_TalkModule
+        TalkEditModule,
+        TalkListModule
     ],
     declarations: [TalksComponent],
     exports: [TalksComponent],
