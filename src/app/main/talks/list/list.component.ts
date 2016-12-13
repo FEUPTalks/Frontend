@@ -4,14 +4,13 @@ import "rxjs/add/operator/map";
 
 import {Talk} from "../../../services/api/talk";
 import {TalkService} from "../../../services/api/talk.service";
-import {Router} from "@angular/router";
 
 @Component({
-    selector: 'talk-list_edit-cmp',
-    templateUrl: './list_edit.component.html',
+    selector: 'talk-list-cmp',
+    templateUrl: './list.component.html',
 })
 
-export class List_EditComponent implements OnInit {
+export class TalkListComponent implements OnInit {
 
     public talks : Talk[] = null;
     rows : any[] = [];

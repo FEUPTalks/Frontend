@@ -12,7 +12,7 @@ export const routes = [
             { path: 'home', component: <any>HomeComponent, canActivate: [AuthGuard], data: { role: 2 } },
             { path: 'pending', component: <any>PendingComponent, canActivate: [AuthGuard], data: { role: 1 } },
             { path: 'talks/:id', component: <any>TalkGetComponent, canActivate: [AuthGuard], data: { role: 2 } },
-            { path: '', redirectTo: 'home' }           
+            { path: '', redirectTo: 'home' }
         ]
     }
 ];

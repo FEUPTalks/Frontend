@@ -1,8 +1,8 @@
-import { NgModule }     from '@angular/core';
-import { HttpModule }   from '@angular/http';
+import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
-import { List_EditComponent } from './list_edit.component';
-import { TalkService }           from "../../../services/api/talk.service";
+import { TalkListComponent } from './list.component';
+import { TalkService } from "../../../services/api/talk.service";
 import {SharedModule} from "../../../shared/shared/shared.module";
 import {Angular2DataTableModule} from "angular2-data-table";
 import {RouterModule} from "@angular/router";
@@ -14,9 +14,9 @@ import {RouterModule} from "@angular/router";
         HttpModule,
         Angular2DataTableModule
     ],
-    declarations: [List_EditComponent],
+    declarations: [TalkListComponent],
     providers: [TalkService],
-    exports: [List_EditComponent]
+    exports: [TalkListComponent]
 })
 
-export class List_EditModule { }
+export class TalkListModule { }
