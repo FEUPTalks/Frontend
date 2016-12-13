@@ -14,10 +14,11 @@ export class AuthGuard implements CanActivate {
      */
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : boolean {
         if (!this.auth.loggedIn()) {
+            console.log("Not logged in");
             this.router.navigate(['login']);
             return false;
         }
-        if (!this.auth.getProfile()['Role'] || this.auth.getProfile()['Role'] > route.data['role']) {
+        if (!this.auth.getProfile()['role'] || this.auth.getProfile()['role'] > route.data['role']) {
             this.router.navigate(['home']);
             return false;
         }
