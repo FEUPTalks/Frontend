@@ -21,20 +21,52 @@
                         [sortType]="'multi'">
                     <datatable-column prop="title" name="Title">
                         <template let-row="row" let-value="value" swui-datatable-cell-template>
-                            <a class="black-text lighten-1" [routerLink]="['/talks/' + row.controls]" href="">{{ value }}</a>
+                            <a class="black-text lighten-1" [routerLink]="['/dashboard/talks/' + row.controls]" href="">{{ value }}</a>
                         </template>
                     </datatable-column>
                     <datatable-column prop="date"></datatable-column>
                     <datatable-column prop="speakerName"></datatable-column>
-                    <datatable-column prop="room"></datatable-column>
+                    <datatable-column prop="proponent"></datatable-column>
                     <datatable-column prop="controls" name="Approval">
                         <template let-row="row" let-value="value" swui-datatable-cell-template>
-                            <a class="waves-effect waves-light btn btn-small lighten-2r">Yes</a>
-                            <a class="modal-trigger waves-effect waves-light btn btn-small deep-orange lighten-1 modal-trigger">No</a>
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn btn-small lighten-2r" (click)="openModal2(talk?.talkID)">Yes</a>
+                            <a class="modal-trigger waves-effect waves-light btn btn-small deep-orange lighten-1 modal-trigger" (click)="openModal1(talk?.talkID)">No</a>
                         </template>
                     </datatable-column>
                 </datatable>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals -->
+<div class="row">
+    <!-- Modal2 Structure -->
+    <div id="modal2" class="modal" materialize="modal"
+         [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions2" #accept>
+        <div class="modal-content">
+            <h4>Accept a Talk</h4>
+            <p>Are you sure you want to accept this talk?</p>
+        </div>
+        <div class="modal-footer">
+            <a class="waves-effect waves-green btn-flat" (click)="closeModal2()">No</a>
+            <a class="waves-effect waves-green btn-flat" (click)="acceptTalk(accept.getAttribute('data-id'))">Yes</a>
+        </div>
+    </div>
+    <!-- Modal1 Structure -->
+    <div id="modal1" class="modal" materialize="modal"
+         [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions1" #reject>
+        <div class="modal-content">
+            <h4>Reject a Talk</h4>
+            <p>Please insert a reason below and confirm your action.</p>
+            <textarea id="reject-reason" materialize="characterCounter" type="text" class="materialize-textarea"
+                      length="100" name="reject-reason"></textarea>
+            <label for="reject-reason">Reason</label>
+        </div>
+        <div class="modal-footer">
+            <a class="waves-effect waves-green btn-flat" (click)="closeModal1()">Cancel</a>
+            <a class="waves-effect waves-green btn-flat" (click)="rejectTalk(reject.getAttribute('data-id'))">Continue</a>
         </div>
     </div>
 </div>

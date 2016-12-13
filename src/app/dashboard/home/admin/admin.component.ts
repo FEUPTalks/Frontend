@@ -1,31 +1,25 @@
-import {Component, AfterViewInit, EventEmitter} from '@angular/core';
-import {MaterializeAction} from '../../shared/materialize';
+import {Component, OnInit, EventEmitter, ViewChild} from '@angular/core';
+import {MaterializeAction} from '../../../shared/materialize';
 
-import {TalkService}       from '../../services/api/talk.service';
-import {Talk}              from '../../services/api/talk';
-import {UserService} from "../../services/auth/user.service";
+import {TalkService}       from '../../../services/api/talk.service';
+import {Talk}              from '../../../services/api/talk';
+import {UserService} from "../../../services/auth/user.service";
+import {PendingChartComponent} from "../chart/pending-chart.component";
 
 declare var Materialize: any;
 
 @Component({
-    selector: 'db-pending-cmp',
-    templateUrl: './pending.component.html',
+    selector: 'db-home-admin-cmp',
+    templateUrl: './admin.component.html',
 })
 
-export class PendingComponent implements AfterViewInit {
+export class AdminComponent implements OnInit {
 
     public talks: Talk[] = null;
+    public talksApproved: Talk[] = null;
 
-    rows : any[] = [];
-    temp : any[] = [];
-
-    columns = [
-        { prop: 'title' },
-        { prop: 'date' },
-        { prop: 'speakerName' },
-        { prop: 'proponent' },
-        { prop: 'controls' }
-    ];
+    /* Get the child component -> pendingChart, in order to update the pecentage */
+    @ViewChild(PendingChartComponent) pendingChart : PendingChartComponent;
 
     /* These actions belong to materializeCSS and allow us to call modals & stuff */
     modalActions1 = new EventEmitter<string|MaterializeAction>();
@@ -34,23 +28,23 @@ export class PendingComponent implements AfterViewInit {
 
     constructor(private auth: UserService, private talkService: TalkService) { }
 
-    ngAfterViewInit() {
+    ngOnInit() {
         let send = { state : 1 };
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
             data => {
                 this.talks = data;
-                for(var i = 0; i<this.talks.length; i++) {
-                    this.rows.push(
-                        {
-                            title: this.talks[i].title,
-                            date: this.talks[i].date,
-                            speakerName: this.talks[i].speakerName,
-                            proponent: this.talks[i].proponentName,
-                            controls: this.talks[i].talkID
-                        }
-                    );
-                }
-                this.temp = [...this.rows];
+                send['state'] = 4;
+                this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
+                    data => {
+                        this.talksApproved = data;
+                        /* Update the chart percentage -> Approved talks over Total Talks */
+                        let percentage = 0;
+                        let total = this.talks.length + this.talksApproved.length;
+                        if(this.talksApproved && this.talks)
+                            percentage = this.talksApproved.length / (total == 0 ? 1 : total);
+
+                        this.pendingChart.updateChart(percentage*100);
+                    });
             },
             err => {
                 console.log("Error: " + err);
