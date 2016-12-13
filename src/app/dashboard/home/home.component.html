@@ -1,2 +1,2 @@
-<db-home-admin-cmp *ngIf="auth.getProfile()['Role'] == 1"></db-home-admin-cmp>
-<db-home-employee-cmp *ngIf="auth.getProfile()['Role'] == 2"></db-home-employee-cmp>
+<db-home-admin-cmp *ngIf="auth.getProfile()['role'] == 1"></db-home-admin-cmp>
+<db-home-employee-cmp *ngIf="auth.getProfile()['role'] == 2"></db-home-employee-cmp>
