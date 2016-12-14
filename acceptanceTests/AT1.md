@@ -1,12 +1,12 @@
-## User Story
-AT 1
+##User Story
+
+<img src="https://github.com/FEUPTalks/Frontend/blob/develop/prototype/imagens/register.jpg" alt="Drawing" width="430px"/><br/>
 
 I, as a proponent, want to be able to submit a talk proposition.
 
-## Acceptance Test
+##Acceptance Test
 
-|                Action               | Result                                                                   |
-|-------------------------------------|--------------------------------------------------------------------------|
-| Access the proposal submission page | The system displays the fields available to submit                       |
-| Fill in the proposal form           | The system validates the fields                                          |
-| Submit a proposal                   | The system saves the proposal and the system administrator gets notified |
+* The proponent accesses the proposal submission page.
+* The proponent fills in the proposal form.
+* The proponent submits the proposal.
+* The system administrator gets notifies.

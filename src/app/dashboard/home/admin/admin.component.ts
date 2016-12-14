@@ -33,7 +33,7 @@ export class AdminComponent implements OnInit {
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
             data => {
                 this.talks = data;
-                send['state'] = 4;
+                send['state'] = 3;
                 this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
                     data => {
                         this.talksApproved = data;
