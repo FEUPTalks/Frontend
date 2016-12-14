@@ -6,6 +6,7 @@ I, as a system administrator, want to able to accept a talk proposition.
 ##Acceptance Test
 
 * The proponent proposes a talk.
+* The system administrator is notified.
 * The system administrator accesses the dashboard.
 * The system administrator acepts the proposal.
 * The proposer is notified.
