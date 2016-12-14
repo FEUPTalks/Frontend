@@ -3,6 +3,7 @@ import {tokenNotExpired} from 'angular2-jwt';
 import {Router} from '@angular/router';
 import {TalkService} from "../api/talk.service";
 import {Observable} from "rxjs";
+import {Response} from "@angular/http";
 
 @Injectable()
 export class UserService {
@@ -15,7 +16,7 @@ export class UserService {
      * @param username
      * @param password
      */
-    login(username, password) {
+    login(username, password) : Observable<Response> {
         let data = {username: username, password: password};
 
         let login = this.talkService.post("token-auth", data);
