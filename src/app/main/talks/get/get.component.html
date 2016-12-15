@@ -48,7 +48,7 @@
     <div class="card box white">
       <div class="box-content-clear">
         <div class="row">
-          <form materialize class="col s12 m12 l12" (ngSubmit)="submit(f.value)">
+          <form materialize class="col s12 m12 l12" #f="ngForm" (ngSubmit)="submit(f.value)">
             <div class="row">
               <h3 class="title">Attend</h3>
               <div class="input-field col s12 m6 l3">
@@ -57,19 +57,19 @@
                 <label for="name">Name <font color="red">*</font></label>
               </div>
               <div class="input-field col s12 m6 l3">
-                <input id="email" type="email" class="validate" name="proponentEmail"
-                (ngModel)="proponentEmail" required="">
+                <input id="email" type="email" class="validate" name="email"
+                (ngModel)="email" required="">
                 <label for="email" data-error="Please insert a valid email"
                 data-success="Email seems valid">Email <font color="red">*</font></label>
               </div>
               <div class="input-field col s12 m6 l3">
-                <input type="checkbox" class="filled-in" id="snacks" checked="checked" (ngModel)="snacks"
+                <input type="checkbox" class="filled-in" id="isAttendingSnack" checked="checked" (ngModel)="isAttendingSnack"
                 required/>
                 <label for="snacks">I am going to attend the Coffee Break <font color="red">*</font>
                 </label>
               </div>
               <div class="input-field col s12 m6 l3">
-                <input type="checkbox" class="filled-in" id="notifications" checked="checked" (ngModel)="notifications"
+                <input type="checkbox" class="filled-in" id="wantsToReceiveNotifications" checked="checked" (ngModel)="wantsToReceiveNotifications"
                 required/>
                 <label for="snacks">I want to receive notifications via email <font color="red">*</font>
                 </label>
