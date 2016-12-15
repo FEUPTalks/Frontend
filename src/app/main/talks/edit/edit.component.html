@@ -1,29 +1,31 @@
 <div class="wrapper">
     <div class="card box white">
         <div class="box-header">
-            <span class="md stronger">Register a new Talk ({{ talkTitle.value }})</span>
-            <p class="sm grey-text text-darker-3">Please fill the fields below to submit a talk proposition</p>
+            <span class="md stronger">Editing Talk ({{ talk?.title }})</span>
+            <p class="sm grey-text text-darker-3">Please change the fields below as needed</p>
         </div>
         <div class="box-content-clear">
             <div class="row">
                 <form materialize class="col s12" #f="ngForm" (ngSubmit)="submit(f.value)">
                     <div class="row">
-                        <div class="input-field col s12 m6 l3">
+                        <div *ngIf="talk" class="input-field col s12 m6 l3">
                             <input materialize="characterCounter" id="title" type="text" class="validate" length="120"
-                                   name="title" (ngModel)="title" value="{{ talks?.title }}" #talkTitle>
+                                   name="title" [ngModel]="talk.title" #talkTitle>
                             <label for="title">Title <font color="red">*</font></label>
                         </div>
-                        <div class="input-field col s12 m6 l3">
+                        <div *ngIf="talk" class="input-field col s12 m6 l3">
                             <input materialize="characterCounter" id="proponent" type="text" class="validate" length="50"
-                                   name="proponent" (ngModel)="proponentName" required="">
+                                   name="proponent" [ngModel]="talk.proponentName" required="">
                             <label for="proponent">Proponent <font color="red">*</font></label>
                         </div>
-                        <div class="input-field col s12 m6 l3">
-                            <input id="email" type="email" class="validate" name="proponentEmail" (ngModel)="proponentEmail" required="">
+                        <div *ngIf="talk" class="input-field col s12 m6 l3">
+                            <input id="email" type="email" class="validate" name="proponentEmail"
+                                   [ngModel]="talk.proponentEmail" required="">
                             <label for="email" data-error="Please insert a valid email" data-success="Email seems valid">Email <font color="red">*</font></label>
                         </div>
-                        <div class="input-field col s10 m9 l3">
-                            <input type="checkbox" class="filled-in" id="snacks" checked="checked" (ngModel)="snacks" required/>
+                        <div *ngIf="talk" class="input-field col s10 m9 l3">
+                            <input *ngIf="talk" type="checkbox" class="filled-in" id="snacks" name="snacks"
+                                   [ngModel]="talk.snack"/>
                             <label for="snacks">Coffee Break <font color="red">*</font>
                                 <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
                                    data-tooltip="Does the talk include an interval for snacks?">(?)</a>
@@ -31,44 +33,44 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12 m6 l3">
+                        <div *ngIf="talk" class="input-field col s12 m6 l3">
                             <input materialize="characterCounter" id="speaker-name" type="text" class="validate" length="50"
-                                   name="speakerName" (ngModel)="speakerName" required="">
+                                   name="speakerName" [ngModel]="talk.speakerName" required="">
                             <label for="speaker-name">Speaker <font color="red">*</font></label>
                         </div>
-                        <div class="input-field col s12 m6 l3">
+                        <div *ngIf="talk" class="input-field col s12 m6 l3">
                             <input materialize="characterCounter" id="speaker-aff" type="text" class="validate" length="50"
-                                   name="speakerAffiliation" (ngModel)="speakerAffiliation">
+                                   name="speakerAffiliation" [ngModel]="talk.speakerAffiliation">
                             <label for="speaker-aff">Speaker Affiliation</label>
                         </div>
-                        <div class="input-field col s12 m6 l3">
+                        <div *ngIf="talk" class="input-field col s12 m6 l3">
                             <input materialize="characterCounter" id="hostname" type="text" class="validate" length="50"
-                                   name="hostName" (ngModel)="hostName">
+                                   name="hostName" [ngModel]="talk.hostName">
                             <label for="hostname">Moderator</label>
                         </div>
-                        <div class="input-field col s12 m6 l3">
+                        <div *ngIf="talk" class="input-field col s12 m6 l3">
                             <input materialize="characterCounter" id="hostemail" type="text" class="validate" length="50"
-                                   name="hostemail" (ngModel)="hostEmail">
+                                   name="hostemail" [ngModel]="talk.hostEmail">
                             <label for="hostEmail">Moderator Email</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12 m12 l12">
+                        <div *ngIf="talk" class="input-field col s12 m12 l12">
                 <textarea materialize="characterCounter" id="summary" class="materialize-textarea" length="2000"
-                          name="summary" (ngModel)="summary"></textarea>
+                          name="summary" [ngModel]="talk.summary"></textarea>
                             <label for="summary">Summary
                                 <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
                                    data-tooltip="A brief summary of what the talk is about">(?)</a>
                             </label>
                         </div>
-                        <div class="input-field col s12 m12 l12">
+                        <div *ngIf="talk" class="input-field col s12 m12 l12">
                 <textarea materialize="characterCounter" id="speaker-brief" class="materialize-textarea" length="1500"
-                          name="speakerBrief" (ngModel)="speakerBrief"></textarea>
+                          name="speakerBrief" [ngModel]="talk.speakerBrief"></textarea>
                             <label for="speaker-brief">Short Bio</label>
                         </div>
-                        <div class="input-field col s12 m12 l12">
+                        <div *ngIf="talk" class="input-field col s12 m12 l12">
                 <textarea materialize="characterCounter" id="addNeeds" type="text" class="materialize-textarea" length="300"
-                          name="addNeeds" (ngModel)="addNeeds"></textarea>
+                          name="addNeeds" [ngModel]="talk.addNeeds"></textarea>
                             <label for="title">Additional Needs
                                 <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
                                    data-tooltip="Date flexibility details (if days are before or after), lodging needs, food restrictions, etc">(?)</a>
@@ -76,24 +78,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12 m6 l3">
+                        <div *ngIf="talk" class="col s12 m6 l3">
                             <label for="start-date">Start Date <font color="red">*</font></label>
-                            <input id="start-date" materialize="pickadate" name="startDate" (ngModel)="proposedInitialDate"
+                            <input id="start-date" materialize="pickadate" name="startDate" [ngModel]="talk.date"
                                    [materializeParams]="[formDateOptions]" type="text" required>
                         </div>
-                        <div class="range-field col s12 m6 l3">
+                        <div *ngIf="talk" class="range-field col s12 m6 l3">
                             <label for="date-flex">Date Flexibility (days) <font color="red">*</font></label>
                             <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
                                data-tooltip="The amount of days your date will be able to change">(?)</a>
-                            <input type="range" name="dateflex" id="date-flex" value="1" min="0" max="5" (ngModel)="dateflex" required/>
+                            <input type="range" name="dateflex" id="date-flex" value="1" min="0" max="5" [ngModel]="talk.dateflex" required/>
                         </div>
                         <div class="col s12 m6 l3">
                             <label for="startTime">Start Time <font color="red">*</font></label>
                             <input id="startTime" class="timepicker" type="time" required="">
                         </div>
-                        <div class="range-field col s12 m6 l3">
+                        <div *ngIf="talk" class="range-field col s12 m6 l3">
                             <label for="duration">Duration (hours) <font color="red">*</font></label>
-                            <input type="range" name="duration" id="duration" step="0.5" min="1" max="5" value="1" (ngModel)="duration" required/>
+                            <input type="range" name="duration" id="duration" step="0.5" min="1" max="5" value="1" [ngModel]="talk.duration" required/>
                         </div>
                     </div>
                     <div class="row">
