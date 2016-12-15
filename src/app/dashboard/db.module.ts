@@ -7,13 +7,15 @@ import { UserService } from "../services/auth/user.service";
 import {AuthGuard} from "../services/auth/guard.service";
 import {PendingModule} from "./pending/pending.module";
 import {TalkGetModule} from "./talks/get/index";
+import {TalkEditModule} from "./talks/edit/edit.module";
 
 @NgModule({
     imports: [
         RouterModule.forRoot(routes),
         HomeModule,
         PendingModule,
-        TalkGetModule
+        TalkGetModule,
+        TalkEditModule
     ],
     declarations: [DashboardComponent],
     exports: [DashboardComponent],

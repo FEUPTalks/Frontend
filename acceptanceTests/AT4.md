@@ -1,6 +1,6 @@
 ##User Story
 
-<img src="https://github.com/FEUPTalks/Frontend/blob/develop/prototype/imagens/manage_talks_view.jpg" alt="Drawing" width="430px"/><br/>
+<img src="https://github.com/FEUPTalks/Frontend/blob/develop/prototype/imagens/waitngsTalks.png" alt="Drawing" width="430px"/><br/>
 
 I, as a system administrator, want to be able to leave in wait the talk, so that the proponent edits it.
 
