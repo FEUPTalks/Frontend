@@ -9,7 +9,7 @@ declare var Materialize: any;
 declare var $: any;
 
 @Component({
-    selector: 'talk-edit-cmp',
+    selector: 'db-talk-edit-cmp',
     templateUrl: './edit.component.html',
     styleUrls: ['./edit.component.css']
 })
