@@ -1,94 +1,100 @@
 <div class="wrapper">
-  <div class="row">
-    <div class="col s12 m12 l12">
-      <div class="card box white">
-        <div class="box-header cols">
-          <p class="grey-text"><i class="fa fa-arrow-left"></i>
-            <a routerLink="/home" href="">Back to Home</a></p>
-            <h5 class="stronger">{{ talk?.title }}</h5>
-            <p class="sm grey-text text-darker-3">by {{ talk?.speakerName}}</p>
-          </div>
-          <div class="box-content">
-            <div class="row">
-              <div class="col s12 m12 l12 talk-details">
-                <p class="value">{{ talk?.summary }}</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12 m6 l2">
-                <span class="talk-avatar"></span>
-                <p></p>
-              </div>
-              <div class="col s12 m6 l6 talk-details">
-                <span class="title">About the Host</span>
-                <p class="value">{{ talk?.speakerName }} ({{ talk?.speakerAffiliation }})</p>
-                <p class="value">{{ talk?.speakerBrief }}</p>
-              </div>
-              <div class="col s12 m12 l4 talk-details">
-                <span class="title">Date</span>
-                <p class="value">{{ talk?.date }}</p>
-                <span class="title">Duration</span>
-                <p class="value">{{ talk?.duration }} Hours</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12 m6 l6 offset-l2 talk-details">
-                <span class="title">Room</span>
-                <p class="value">{{ talk?.room }}</p>
-              </div>
-              <div class="col s12 m4 l4 talk-details">
-                <span class="title">Moderator</span>
-                <p class="value">{{ talk?.hostName }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card box white">
-      <div class="box-content-clear">
-        <div class="row">
-          <form materialize class="col s12 m12 l12" #f="ngForm" (ngSubmit)="submit(f.value)">
-            <div class="row">
-              <h3 class="title">Attend</h3>
-              <div class="input-field col s12 m6 l3">
-                <input materialize="characterCounter" id="name" type="text" class="validate" length="120"
-                name="name" (ngModel)="name" required="">
-                <label for="name">Name <font color="red">*</font></label>
-              </div>
-              <div class="input-field col s12 m6 l3">
-                <input id="email" type="email" class="validate" name="email"
-                (ngModel)="email" required="">
-                <label for="email" data-error="Please insert a valid email"
-                data-success="Email seems valid">Email <font color="red">*</font></label>
-              </div>
-              <div class="input-field col s12 m6 l3">
-                <input type="checkbox" class="filled-in" id="isAttendingSnack" checked="checked" (ngModel)="isAttendingSnack"
-                required/>
-                <label for="snacks">I am going to attend the Coffee Break <font color="red">*</font>
-                </label>
-              </div>
-              <div class="input-field col s12 m6 l3">
-                <input type="checkbox" class="filled-in" id="wantsToReceiveNotifications" checked="checked" (ngModel)="wantsToReceiveNotifications"
-                required/>
-                <label for="snacks">I want to receive notifications via email <font color="red">*</font>
-                </label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s12 m6 l3">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="fa fa-send"></i>
-                </button>
-                <br/><br/>
-                <div class="box-content-clear">
-                  <p class="sm grey-text text-darker-3"><b>Note:</b> All fields marked with <font
-                    color="red">*</font> must be completed. </p>
-                  </div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="card box white">
+                <div class="box-header cols">
+                    <p class="grey-text"><i class="fa fa-arrow-left"></i>
+                        <a routerLink="/home" href="">Back to Home</a></p>
+                    <h5 class="stronger">{{ talk?.title }}</h5>
+                    <p class="sm grey-text text-darker-3">by {{ talk?.speakerName}}</p>
                 </div>
-              </div>
-            </form>
-          </div>
+                <div class="box-content">
+                    <div class="row">
+                        <div class="col s12 m12 l12 talk-details">
+                            <p class="value">{{ talk?.summary }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l2">
+                            <span class="talk-avatar"></span>
+                            <p></p>
+                        </div>
+                        <div class="col s12 m6 l6 talk-details">
+                            <span class="title">About the Host</span>
+                            <p class="value">{{ talk?.speakerName }} ({{ talk?.speakerAffiliation }})</p>
+                            <p class="value">{{ talk?.speakerBrief }}</p>
+                        </div>
+                        <div class="col s12 m12 l4 talk-details">
+                            <span class="title">Date</span>
+                            <p class="value">{{ talk?.date }}</p>
+                            <span class="title">Duration</span>
+                            <p class="value">{{ talk?.duration }} Hours</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 m6 l6 offset-l2 talk-details">
+                            <span class="title">Room</span>
+                            <p class="value">{{ talk?.room }}</p>
+                        </div>
+                        <div class="col s12 m4 l4 talk-details">
+                            <span class="title">Moderator</span>
+                            <p class="value">{{ talk?.hostName }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
+    <div class="row">
+        <div class="col s12 m12 l12">
+            <div class="card box white">
+                <div class="box-content-clear">
+                    <form materialize #f="ngForm" (ngSubmit)="submit(f.value)">
+                        <div class="row">
+                            <h3 class="title">Attend</h3>
+                            <div class="input-field col s12 m6 l3">
+                                <input materialize="characterCounter" id="name" type="text" class="validate"
+                                       length="120"
+                                       name="name" (ngModel)="name" required="">
+                                <label for="name">Name <font color="red">*</font></label>
+                            </div>
+                            <div class="input-field col s12 m6 l3">
+                                <input id="email" type="email" class="validate" name="email"
+                                       (ngModel)="email" required="">
+                                <label for="email" data-error="Please insert a valid email"
+                                       data-success="Email seems valid">Email <font color="red">*</font></label>
+                            </div>
+                            <div class="input-field col s12 m6 l3">
+                                <input type="checkbox" class="filled-in" id="isAttendingSnack" checked="checked"
+                                       (ngModel)="isAttendingSnack"
+                                       required/>
+                                <label for="snacks">I am going to attend the Coffee Break <font color="red">*</font>
+                                </label>
+                            </div>
+                            <div class="input-field col s12 m6 l3">
+                                <input type="checkbox" class="filled-in" id="wantsToReceiveNotifications"
+                                       checked="checked"
+                                       (ngModel)="wantsToReceiveNotifications"
+                                       required/>
+                                <label for="snacks">I want to receive notifications via email <font color="red">*</font>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m6 l3">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="fa fa-send"></i>
+                                </button>
+                                <br/><br/>
+                                <div class="box-content-clear">
+                                    <p class="sm grey-text text-darker-3"><b>Note:</b> All fields marked with <font
+                                            color="red">*</font> must be completed. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
