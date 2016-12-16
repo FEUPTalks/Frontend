@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
         selectYears: 1,
         min: new Date((this.today.getMonth() + 1) + "-" + (this.today.getDate() + 5) + "-" + this.today.getFullYear())
     };
-    picture: string[] = [];
+    picture: string = "";
 
     constructor(private talkService: TalkService) {
 
@@ -52,9 +52,9 @@ export class RegisterComponent implements OnInit {
         data['dateflex'] = parseInt(data['dateflex']);
         data['duration'] = parseInt(data['duration']);
         data['date'] = date.toISOString();
-        data['speakerPicture'] = 1;
+        data['snack'] = data['snack'] ? 1 : 0;
+        data['speakerPicture'] = this.picture;
         data['room'] = "";
-        this.picture['speakerName'] = data['speakerName'];
         /* End of form params */
 
         console.log("Sending: " + JSON.stringify(data));
@@ -97,7 +97,7 @@ export class RegisterComponent implements OnInit {
         var submit = document.querySelectorAll("button[type=submit]")[0];
         submit.setAttribute("disabled", "true");
         this.readFile(input.files[0], (base64) => {
-            this.picture['picture'] = base64;
+            this.picture = base64;
             submit.removeAttribute("disabled");
         });
     }

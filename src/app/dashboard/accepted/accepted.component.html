@@ -1,0 +1,52 @@
+<div class="row row-flex row-flex-wrap">
+    <div class="col s12 m12 l8">
+        <div class="card box white">
+            <div class="box-header">
+                <span class="md stronger">Accepted Overview</span>
+                <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
+                   data-tooltip="You can change the room using the field,
+                               without needing to click the button. Use the button to confirm your action.">(?)</a>
+                <p class="sm grey-text text-darker-3">Overview of Talks waiting for a room</p>
+            </div>
+            <div class="box-content-clear">
+                <input type='text' class="right-align" placeholder='Type to search or filter an entry...'
+                       (keyup)='updateFilter($event)'/>
+                <div *ngIf="!talks" class="spinner">
+                    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+                </div>
+                <datatable *ngIf="talks"
+                        class="material"
+                        [rows]="rows"
+                        [columns]="columns"
+                        [columnMode]="'force'"
+                        [headerHeight]="50"
+                        [footerHeight]="50"
+                        [rowHeight]="'auto'"
+                        [limit]="10"
+                        [sortType]="'multi'">
+                    <datatable-column prop="title" name="Title">
+                        <template let-row="row" let-value="value" swui-datatable-cell-template>
+                            <a class="black-text lighten-1" [routerLink]="['/dashboard/talks/' + row.controls]" href="">{{ value }}</a>
+                        </template>
+                    </datatable-column>
+                    <datatable-column prop="date"></datatable-column>
+                    <datatable-column prop="speakerName" name="Speaker"></datatable-column>
+                    <datatable-column prop="proponent"></datatable-column>
+                    <datatable-column prop="controls" name="Approval">
+                        <template let-row="row" let-value="value" swui-datatable-cell-template>
+                            <div class="center row">
+                                <input (blur)="submitRoom(value, room.value)" materialize="characterCounter"
+                                       type="text" #room class="validate col s12 m6 l6" length="10" id="room" name="room"
+                                       (ngModel)="room" value="{{ talk?.room }}" required="">
+                                <a class="btn waves-effect waves-light blue col s12 m6 l6"
+                                   (click)="changeState(value, room.value)">
+                                    <i class="material-icons">create</i>
+                                </a>
+                            </div>
+                        </template>
+                    </datatable-column>
+                </datatable>
+            </div>
+        </div>
+    </div>
+</div>

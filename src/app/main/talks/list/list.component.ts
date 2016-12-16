@@ -55,7 +55,7 @@ export class TalkListComponent implements OnInit {
     }
 
     updateFilter(event) {
-        let val = event.target.value;
+        let val = event.target.value.toLowerCase();
 
         // filter our data
         let temp = this.temp.filter(function(d) {

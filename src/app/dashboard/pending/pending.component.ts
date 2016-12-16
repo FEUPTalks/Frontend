@@ -66,7 +66,7 @@ export class PendingComponent implements AfterViewInit {
         data['state'] = 3;
         this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
-                Materialize.toast('Success! The talk was accept.', 4000);
+                Materialize.toast('Success! The talk was accepted.', 4000);
                 this.removeTalk(id);
                 this.closeModal2();
             },
@@ -81,7 +81,7 @@ export class PendingComponent implements AfterViewInit {
         data['state'] = 2;
         this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
-                Materialize.toast('Success! The talk was reject.', 4000);
+                Materialize.toast('Success! The talk was rejected.', 4000);
                 this.removeTalk(id);
                 this.closeModal1();
             },
@@ -95,9 +95,24 @@ export class PendingComponent implements AfterViewInit {
         for(let i=0; i<this.talks.length; i++) {
             if(this.talks[i]['talkID'] == id) {
                 this.talks.splice(i, 1);
+                this.rows.splice(i, 1);
+                this.temp.splice(i, 1);
+                window.dispatchEvent(new Event('resize'));
                 return;
             }
         }
+    }
+
+    updateFilter(event) {
+        let val = event.target.value.toLowerCase();
+
+        // filter our data
+        let temp = this.temp.filter(function(d) {
+            return d.title.toLowerCase().indexOf(val) !== -1 || !val;
+        });
+
+        // update the rows
+        this.rows = temp;
     }
 
     openModal1(id : number) {

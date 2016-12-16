@@ -1,55 +1,128 @@
 <div class="row">
-    <div class="col s12 m12 l12">
-        <div class="card box white">
-            <div class="box-header cols">
-                <h5 class="stronger">{{ talk?.title }}</h5>
-                <p class="sm grey-text text-darker-3">by {{ talk?.speakerName }}</p>
-            </div>
-            <div class="box-content">
-                <div class="row">
-                    <div class="col s12 m12 l12 talk-details">
-                        <p class="value">{{ talk?.summary }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m6 l3">
-                        <span class="talk-avatar"></span>
-                        <p></p>
-                    </div>
-                    <div class="col s12 m6 l5 talk-details">
-                        <span class="title">About the Host</span>
-                        <p class="value">{{ talk?.speakerName }} ({{ talk?.speakerAffiliation }})</p>
-                        <p class="value">{{ talk?.speakerBrief }}</p>
-                    </div>
-                    <div class="col s12 m12 l4 talk-details">
-                        <span class="title">Scheduling</span>
-                        <p class="value">Date: {{ talk?.date }}</p>
-                        <p class="value">Date Flexibility: {{ talk?.dateFlex }}</p>
-                        <p class="value">Duration: {{ talk?.duration }} Hours</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m6 l5 offset-l3 talk-details">
-                        <span class="title">Room</span>
-                        <p class="value">{{ talk?.room ? talk.room : "Not set" }}</p>
-                    </div>
-                    <div class="col s12 m4 l4 talk-details">
-                        <span class="title">Moderator</span>
-                        <p class="value">Name: {{ talk?.hostName ? talk?.hostName : "Not set" }}</p>
-                        <p class="value">Email: {{ talk?.hostEmail ? talk?.hostEmail : "Not set" }}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 m6 l5 offset-l3 talk-details">
-                        <span class="title">Snack</span>
-                        <p class="value">{{ talk?.snack ? talk.snack : "Not set" }}</p>
-                    </div>
-                    <div class="col s12 m4 l4 talk-details">
-                        <span class="title">Other details</span>
-                        <p class="value">{{ talk?.other }}</p>
-                    </div>
-                </div>
-            </div>
+  <div class="col s12 m12 l12">
+    <div class="card box white">
+      <div class="box-header cols">
+        <div class="row">
+          <div class="col s8 m6 l3">
+            <h5 class="stronger">{{ talk?.title }}</h5>
+            <p class="sm grey-text text-darker-3">by {{ talk?.speakerName }}</p>
+          </div>
+          <div class="col s4 m6 l2 offset-l7">
+            <button routerLink="/dashboard/talks/edit/{{ talk?.talkID }}"
+            class="btn waves-effect waves-light">Edit <i class="fa fa-pencil"></i>
+          </button>
         </div>
+      </div>
     </div>
+    <div class="box-content">
+      <div class="row">
+        <div class="col s12 m12 l12 talk-details">
+          <p class="value">{{ talk?.summary }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6 l3">
+          <span class="talk-avatar"></span>
+          <p></p>
+        </div>
+        <div class="col s12 m6 l5 talk-details">
+          <span class="title">About the Host</span>
+          <p class="value">{{ talk?.speakerName }} ({{ talk?.speakerAffiliation }})</p>
+          <p class="value">{{ talk?.speakerBrief }}</p>
+        </div>
+        <div class="col s12 m12 l4 talk-details">
+          <span class="title">Scheduling</span>
+          <p class="value">Date: {{ talk?.date }}</p>
+          <p class="value">Date Flexibility: {{ talk?.dateFlex }}</p>
+          <p class="value">Duration: {{ talk?.duration }} Hours</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6 l5 offset-l3 talk-details">
+          <span class="title">Room</span>
+          <p class="value">{{ talk?.room ? talk.room : "Not set" }}</p>
+        </div>
+        <div class="col s12 m4 l4 talk-details">
+          <span class="title">Moderator</span>
+          <p class="value">Name: {{ talk?.hostName ? talk?.hostName : "Not set" }}</p>
+          <p class="value">Email: {{ talk?.hostEmail ? talk?.hostEmail : "Not set" }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 m6 l5 offset-l3 talk-details">
+          <span class="title">Snack</span>
+          <p class="value">{{ talk?.snack ? talk.snack : "Not set" }}</p>
+        </div>
+        <div class="col s12 m4 l4 talk-details">
+          <span class="title">Other details</span>
+          <p class="value">{{ talk?.other }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col s12 m6 l6">
+    <div class="card box white">
+      <div class="box-header cols">
+        <h5 class="stronger">Attendees</h5>
+        <p class="sm grey-text text-darker-3">People registered in the talk</p>
+      </div>
+      <div class="box-content-clear">
+        <table *ngIf="talkRegistrations" class="ms highlight">
+          <thead>
+            <tr>
+              <th data-field="name">Name</th>
+              <th data-field="email">Email</th>
+              <th data-field="isAttendingSnack">Snack</th>
+              <th data-field="wantsToReceiveNotifications">Notifications</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let talkRegistration of talkRegistrations">
+              <td>{{ talkRegistration?.name }}</td>
+              <td>{{ talkRegistration?.email}}</td>
+              <td>{{ talkRegistration?.isAttendingSnack}}</td>
+              <td>{{ talkRegistration?.wantsToReceiveNotifications}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6 l6">
+    <div class="card box white">
+      <div class="box-header cols">
+        <h5 class="stronger">Logs</h5>
+        <p class="sm grey-text text-darker-3">What's happening in this talk</p>
+      </div>
+      <div class="box-content-clear">
+        <table *ngIf="talkRegistrationLogs" class="ms highlight">
+          <thead>
+            <tr>
+              <th data-field="name">Name</th>
+              <th data-field="email">Email</th>
+              <th data-field="isAttendingSnack">Snack</th>
+              <th data-field="wantsToReceiveNotifications">Notifications</th>
+              <th data-field="transactionType">Type</th>
+              <th data-field="transactionDate">Date</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let talkRegistrationLog of talkRegistrationLogs">
+              <td>{{ talkRegistrationLog?.name }}</td>
+              <td>{{ talkRegistrationLog?.email}}</td>
+              <td>{{ talkRegistrationLog?.isAttendingSnack}}</td>
+              <td>{{ talkRegistrationLog?.wantsToReceiveNotifications}}</td>
+              <td>{{ talkRegistrationLog?.transactionType }}</td>
+              <td>{{ talkRegistrationLog?.transactionDate}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

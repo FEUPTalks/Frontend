@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import {UserService} from "../services/auth/user.service";
+import {Talk} from "../services/api/talk";
+import {TalkService} from "../services/api/talk.service";
 
 /**
  *	This class represents the dashboard
@@ -11,7 +13,44 @@ import {UserService} from "../services/auth/user.service";
     styleUrls: ['./db.component.css']
 })
 
-export class DashboardComponent {
+export class DashboardComponent implements AfterViewInit {
 
-    constructor(private auth: UserService) {}
+    public talks : Talk[];
+    public talksAccepted : Talk[];
+    public talksWaiting : Talk[];
+
+    constructor(private auth: UserService, private talkService : TalkService) {
+
+    }
+
+    ngAfterViewInit() {
+        this.getTalks();
+    }
+
+    getTalks() {
+        let send = { state : 1 };
+        this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
+            data => {
+                this.talks = data;
+                let send = { state : 3 };
+                this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
+                    data => {
+                        this.talksAccepted = data;
+                        let send = { state : 4 };
+                        this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
+                            data => {
+                                this.talksWaiting = data;
+                            },
+                            err => {
+                                console.log("Error: " + err);
+                            });
+                    },
+                    err => {
+                        console.log("Error: " + err);
+                    });
+            },
+            err => {
+                console.log("Error: " + err);
+            });
+    }
 }

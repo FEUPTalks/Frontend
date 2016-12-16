@@ -26,9 +26,9 @@
                                    data-success="Email seems valid">Email <font color="red">*</font></label>
                         </div>
                         <div class="input-field col s10 m9 l3">
-                            <input type="checkbox" class="filled-in" id="snacks" checked="checked" (ngModel)="snacks"
-                                   required/>
-                            <label for="snacks">Coffee Break <font color="red">*</font>
+                            <input type="checkbox" class="filled-in" id="snack" name="snack" checked="checked"
+                                   (ngModel)="snack" value="0"/>
+                            <label for="snack">Coffee Break <font color="red">*</font>
                                 <a materialize="tooltip" class="tooltipped" data-position="bottom" data-delay="0"
                                    data-tooltip="Does the talk include an interval for snacks?">(?)</a>
                             </label>
@@ -115,7 +115,7 @@
                                     <input type="file">
                                 </div>
                                 <div class="file-path-wrapper">
-                                    <font color="red">*</font> <input class="file-path validate" type="text">
+                                    <input class="file-path validate" type="text">
                                 </div>
                             </div>
                         </div>

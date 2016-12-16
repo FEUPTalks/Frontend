@@ -2,7 +2,7 @@
     <div class="col s12 m6 l3">
         <div class="card box blue">
             <div class="w-40 blue darken-4 rounded">
-                <i class="fa fa-facebook white-text valign"></i>
+                <i class="fa fa-calendar white-text valign"></i>
             </div>
             <div class="box-content box-content-right align-right valign">
                 <span class="md stronger blue-text text-lighten-5">{{ talks ? talks.length : 0 }}
@@ -25,11 +25,11 @@
     <div class="col s12 m6 l3">
         <div class="card box white">
             <div class="w-40 yellow darken-4 rounded">
-                <i class="fa fa-facebook white-text valign"></i>
+                <i class="fa fa-check white-text valign"></i>
             </div>
             <div class="box-content box-content-right align-right valign">
                 <span class="md stronger">{{ talksApproved ? talksApproved.length : 0 }}
-                    <span class="ms">Talks Accepted</span></span>
+                    <span class="ms">Accepted Talks</span></span>
                 <p class="sm grey-text text-darker-3">But currently waiting for room</p>
             </div>
         </div>
@@ -37,11 +37,12 @@
     <div class="col s12 m6 l3">
         <div class="card box white">
             <div class="w-40 indigo lighten-2 rounded">
-                <i class="fa fa-user white-text valign"></i>
+                <i class="fa fa-bullhorn white-text valign"></i>
             </div>
             <div class="box-content box-content-right align-right valign">
-                <span class="md stronger">0 <span class="ms">Users</span></span>
-                <p class="sm grey-text text-darker-3">Attending talks this month</p>
+                <span class="md stronger">{{ talksWaiting ? talksWaiting.length : 0 }}
+                    <span class="ms">Waiting Talks</span></span>
+                <p class="sm grey-text text-darker-3">Ready to be published</p>
             </div>
         </div>
     </div>
@@ -104,17 +105,6 @@
                 <p class="sm grey-text text-darker-3">(Total is the sum of Pending and Accepted)</p>
             </div>
             <pending-chart></pending-chart>
-        </div>
-    </div>
-</div>
-<div class="row row-flex">
-    <div class="col s12 m12 l12">
-        <div class="card box white center-align">
-            <div class="box-header">
-                <span class="md stronger">Attendees Growth</span>
-                <p class="sm grey-text text-darker-3">Overview of attendees throughout the months</p>
-            </div>
-            <attendees-chart></attendees-chart>
         </div>
     </div>
 </div>
