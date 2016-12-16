@@ -27,26 +27,28 @@
                 <a class="navigation-link" routerLink="/dashboard/pending">
                     <i class="ti ti-check-box"></i>
                     <span class="link">Pending</span>
-                    <span class="new badge">4</span>
+                    <span class="new badge">{{ talks?.length }}</span>
                 </a>
                 <div class="navigation-bar">Moderate</div>
+                <a class="navigation-link" routerLink="/dashboard/accepted">
+                    <i class="ti ti-check"></i>
+                    <span class="link">Accepted</span>
+                    <span class="new badge">{{ talksAccepted?.length }}</span>
+                </a>
+                <a class="navigation-link" routerLink="/dashboard/waiting">
+                    <i class="ti ti-calendar"></i>
+                    <span class="link">Waiting</span>
+                    <span class="new badge">{{ talksWaiting?.length }}</span>
+                </a>
                 <a class="navigation-link">
                     <i class="ti ti-comment"></i>
                     <span class="link">Comments</span>
-                    <span class="new badge">20</span>
+                    <span class="new badge">0</span>
                 </a>
                 <div class="navigation-bar">Configure</div>
-                <a class="navigation-link">
+                <a class="navigation-link" routerLink="/dashboard/archives">
                     <i class="ti ti-files"></i>
                     <span class="link">Archives</span>
-                </a>
-                <a class="navigation-link">
-                    <i class="ti ti-settings"></i>
-                    <span class="link">Options</span>
-                </a>
-                <a class="navigation-link">
-                    <i class="ti ti-harddrives"></i>
-                    <span class="link">Logs</span>
                 </a>
             </div>
         </div>

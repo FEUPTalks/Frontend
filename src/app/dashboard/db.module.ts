@@ -8,6 +8,8 @@ import {AuthGuard} from "../services/auth/guard.service";
 import {PendingModule} from "./pending/pending.module";
 import {TalkGetModule} from "./talks/get/index";
 import {TalkEditModule} from "./talks/edit/edit.module";
+import {ArchivesModule} from "./archives/archives.module";
+import {WaitingModule} from "./waiting/waiting.module";
 
 @NgModule({
     imports: [
@@ -15,7 +17,9 @@ import {TalkEditModule} from "./talks/edit/edit.module";
         HomeModule,
         PendingModule,
         TalkGetModule,
-        TalkEditModule
+        TalkEditModule,
+        ArchivesModule,
+        WaitingModule
     ],
     declarations: [DashboardComponent],
     exports: [DashboardComponent],

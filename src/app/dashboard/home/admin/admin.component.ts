@@ -60,7 +60,7 @@ export class AdminComponent implements OnInit {
         data['state'] = 3;
         this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
-                Materialize.toast('Success! The talk was accept.', 4000);
+                Materialize.toast('Success! The talk was accepted.', 4000);
                 this.removeTalk(id);
                 this.closeModal2();
             },
@@ -75,7 +75,7 @@ export class AdminComponent implements OnInit {
         data['state'] = 2;
         this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
-                Materialize.toast('Success! The talk was reject.', 4000);
+                Materialize.toast('Success! The talk was rejected.', 4000);
                 this.removeTalk(id);
                 this.closeModal1();
             },

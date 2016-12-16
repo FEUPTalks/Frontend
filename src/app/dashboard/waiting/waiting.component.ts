@@ -1,4 +1,4 @@
-import {Component, AfterViewInit, EventEmitter} from '@angular/core';
+import {Component, AfterViewInit, EventEmitter, ViewChild} from '@angular/core';
 import {MaterializeAction} from '../../shared/materialize';
 
 import {TalkService}       from '../../services/api/talk.service';
@@ -8,11 +8,11 @@ import {UserService} from "../../services/auth/user.service";
 declare var Materialize: any;
 
 @Component({
-    selector: 'db-pending-cmp',
-    templateUrl: './pending.component.html',
+    selector: 'db-waiting-cmp',
+    templateUrl: './waiting.component.html',
 })
 
-export class PendingComponent implements AfterViewInit {
+export class WaitingComponent implements AfterViewInit {
 
     public talks: Talk[] = null;
 
@@ -24,18 +24,19 @@ export class PendingComponent implements AfterViewInit {
         { prop: 'date' },
         { prop: 'speakerName' },
         { prop: 'proponent' },
+        { prop: 'room' },
         { prop: 'controls' }
     ];
 
+    @ViewChild('datatable') table;
     /* These actions belong to materializeCSS and allow us to call modals & stuff */
     modalActions1 = new EventEmitter<string|MaterializeAction>();
     modalActions2 = new EventEmitter<string|MaterializeAction>();
-    globalActions = new EventEmitter<string|MaterializeAction>();
 
     constructor(private auth: UserService, private talkService: TalkService) { }
 
     ngAfterViewInit() {
-        let send = { state : 1 };
+        let send = { state : 4 };
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
             data => {
                 this.talks = data;
@@ -46,6 +47,7 @@ export class PendingComponent implements AfterViewInit {
                             date: this.talks[i].date,
                             speakerName: this.talks[i].speakerName,
                             proponent: this.talks[i].proponentName,
+                            room: this.talks[i].room,
                             controls: this.talks[i].talkID
                         }
                     );
@@ -63,16 +65,16 @@ export class PendingComponent implements AfterViewInit {
 
     acceptTalk(id: number) {
         var data = {};
-        data['state'] = 3;
+        data['state'] = 5;
         this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
-                Materialize.toast('Success! The talk was accepted.', 4000);
+                Materialize.toast('Success! The talk was published.', 4000);
                 this.removeTalk(id);
                 this.closeModal2();
             },
             err => {
                 console.log("Error: " + err);
-                Materialize.toast('Error! Not possible to accept this talk.', 4000);
+                Materialize.toast('Error! Not possible to publish this talk.', 4000);
             });
     }
 
@@ -81,13 +83,13 @@ export class PendingComponent implements AfterViewInit {
         data['state'] = 2;
         this.talkService.put("talks/" + id + "/SetState", this.auth.getToken(), data).subscribe(
             data => {
-                Materialize.toast('Success! The talk was rejected.', 4000);
+                Materialize.toast('Success! The talk was cancelled.', 4000);
                 this.removeTalk(id);
                 this.closeModal1();
             },
             err => {
                 console.log("Error: " + err);
-                Materialize.toast('Error! Not possible to reject this talk.', 4000);
+                Materialize.toast('Error! Not possible to cancel this talk.', 4000);
             });
     }
 

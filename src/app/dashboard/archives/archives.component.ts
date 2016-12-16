@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, AfterViewInit, EventEmitter} from '@angular/core';
+import {MaterializeAction} from '../../shared/materialize';
 
-import "rxjs/add/operator/map";
+import {TalkService}       from '../../services/api/talk.service';
+import {Talk}              from '../../services/api/talk';
+import {UserService} from "../../services/auth/user.service";
 
-import {Talk} from "../../../services/api/talk";
-import {TalkService} from "../../../services/api/talk.service";
+declare var Materialize: any;
 
 @Component({
-    selector: 'talk-list-cmp',
-    templateUrl: './list.component.html',
+    selector: 'db-archives-cmp',
+    templateUrl: './archives.component.html',
 })
 
-export class TalkListComponent implements OnInit {
+export class ArchivesComponent implements AfterViewInit {
 
-    public talks : Talk[] = null;
+    public talks: Talk[] = null;
+
     rows : any[] = [];
     temp : any[] = [];
 
@@ -20,20 +23,15 @@ export class TalkListComponent implements OnInit {
         { prop: 'title' },
         { prop: 'date' },
         { prop: 'speakerName' },
-        { prop: 'room' },
+        { prop: 'proponent' },
         { prop: 'controls' }
     ];
 
-    constructor(private talkService: TalkService) {
+    constructor(private auth: UserService, private talkService: TalkService) { }
 
-    }
-
-    ngOnInit() {
-        this.getTalks();
-    }
-
-    getTalks() {
-        this.talkService.get("talks").subscribe(
+    ngAfterViewInit() {
+        let send = { state : 6 };
+        this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
             data => {
                 this.talks = data;
                 for(var i = 0; i<this.talks.length; i++) {
@@ -42,7 +40,7 @@ export class TalkListComponent implements OnInit {
                             title: this.talks[i].title,
                             date: this.talks[i].date,
                             speakerName: this.talks[i].speakerName,
-                            room: this.talks[i].room,
+                            proponent: this.talks[i].proponentName,
                             controls: this.talks[i].talkID
                         }
                     );
@@ -50,12 +48,16 @@ export class TalkListComponent implements OnInit {
                 this.temp = [...this.rows];
             },
             err => {
-                console.log(err);
+                console.log("Error: " + err);
             });
     }
 
+    public parse(date: string) {
+        return new Date(Date.parse(date));
+    }
+
     updateFilter(event) {
-        let val = event.target.value.toLowerCase();
+        let val = event.target.value;
 
         // filter our data
         let temp = this.temp.filter(function(d) {
