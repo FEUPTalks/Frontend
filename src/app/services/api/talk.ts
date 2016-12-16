@@ -11,7 +11,7 @@ export class Talk {
         public speakerName: string,
         public speakerBrief: string,
         public speakerAffiliation: string,
-        public speakerPicture: number,
+        public speakerPicture: string,
         public hostName: string,
         public hostEmail: string,
         public snack: number,

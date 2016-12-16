@@ -41,6 +41,11 @@ export class TalkGetComponent implements OnInit {
         this.talkService.getPrivate("talks/" + this.id, this.auth.getToken(), {}).subscribe(
             data => {
                 this.talk = data;
+                var image = new Image();
+                image.src = this.talk['speakerPicture'];
+                image.style.width = "auto";
+                image.style.height = "120px";
+                document.getElementById("talk-avatar").appendChild(image);
             },
             err => {
                 console.log(err);

@@ -1,9 +1,3 @@
-.talk-avatar {
-    height: 120px;
-    width: auto;
-    content: url('../../../../assets/img/talkavatar.jpg');
-}
-
 .talk-details > .title {
     font-size: 18px;
     font-weight: 400;
