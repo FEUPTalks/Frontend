@@ -64,19 +64,19 @@
                                 <label for="email" data-error="Please insert a valid email"
                                        data-success="Email seems valid">Email <font color="red">*</font></label>
                             </div>
-                            <div class="input-field col s12 m6 l3">
-                                <input type="checkbox" class="filled-in" id="isAttendingSnack" checked="checked"
-                                       (ngModel)="isAttendingSnack"
+                            <div *ngIf="talk?.snack" class="input-field col s12 m6 l3">
+                                <input type="checkbox" class="filled-in" id="isAttendingSnack"
+                                       checked="true"
                                        required/>
-                                <label for="snacks">I am going to attend the Coffee Break <font color="red">*</font>
+                                <label for="isAttendingSnack">I am going to attend the Coffee Break <font color="red">*</font>
                                 </label>
                             </div>
                             <div class="input-field col s12 m6 l3">
                                 <input type="checkbox" class="filled-in" id="wantsToReceiveNotifications"
-                                       checked="checked"
-                                       (ngModel)="wantsToReceiveNotifications"
+                                       checked="true"
                                        required/>
-                                <label for="snacks">I want to receive notifications via email <font color="red">*</font>
+                                <label for="wantsToReceiveNotifications">
+                                    I want to receive notifications via email <font color="red">*</font>
                                 </label>
                             </div>
                         </div>

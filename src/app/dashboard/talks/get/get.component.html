@@ -2,8 +2,17 @@
     <div class="col s12 m12 l12">
         <div class="card box white">
             <div class="box-header cols">
-                <h5 class="stronger">{{ talk?.title }}</h5>
-                <p class="sm grey-text text-darker-3">by {{ talk?.speakerName }}</p>
+                <div class="row">
+                    <div class="col s8 m6 l3">
+                        <h5 class="stronger">{{ talk?.title }}</h5>
+                        <p class="sm grey-text text-darker-3">by {{ talk?.speakerName }}</p>
+                    </div>
+                    <div class="col s4 m6 l2 offset-l7">
+                        <button routerLink="/dashboard/talks/edit/{{ talk?.talkID }}"
+                                class="btn waves-effect waves-light">Edit <i class="fa fa-pencil"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="box-content">
                 <div class="row">

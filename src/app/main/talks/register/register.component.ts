@@ -52,6 +52,7 @@ export class RegisterComponent implements OnInit {
         data['dateflex'] = parseInt(data['dateflex']);
         data['duration'] = parseInt(data['duration']);
         data['date'] = date.toISOString();
+        data['snack'] = data['snack'] ? 1 : 0;
         data['speakerPicture'] = 1;
         data['room'] = "";
         this.picture['speakerName'] = data['speakerName'];
