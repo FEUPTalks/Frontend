@@ -27,13 +27,24 @@ export class TalkGetComponent implements OnInit {
     ngOnInit() {
         // + converts string 'id' to a number
         this.id = +this.route.snapshot.params['id'];
-        this.getTalks();
+        this.getTalk();
     }
 
-    getTalks() {
+    getTalk() {
         this.talkService.getOne("talks/" + this.id).subscribe(
             data => {
                 this.talk = data;
+                this.talkService.getOne("picture/" + this.id).subscribe(
+                    data => {
+                        var image = new Image();
+                        image.src = data['speakerPicture'];
+                        image.style.width = "auto";
+                        image.style.height = "120px";
+                        document.getElementById("talk-avatar").appendChild(image);
+                    },
+                    err => {
+                        console.log(err);
+                    });
             },
             err => {
                 console.log(err);

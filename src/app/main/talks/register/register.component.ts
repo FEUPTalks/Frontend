@@ -57,8 +57,6 @@ export class RegisterComponent implements OnInit {
         data['room'] = "";
         /* End of form params */
 
-        console.log("Sending: " + JSON.stringify(data));
-
         this.talkService.post("talks", data).subscribe(
             (res) => {
                 if (res.status === 201 || res.status === 200) {
