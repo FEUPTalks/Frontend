@@ -17,6 +17,7 @@ export class AdminComponent implements OnInit {
 
     public talks: Talk[] = null;
     public talksApproved: Talk[] = null;
+    public talksWaiting : Talk[] = null;
 
     /* Get the child component -> pendingChart, in order to update the pecentage */
     @ViewChild(PendingChartComponent) pendingChart : PendingChartComponent;
@@ -33,17 +34,25 @@ export class AdminComponent implements OnInit {
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
             data => {
                 this.talks = data;
-                send['state'] = 3;
+                send['state'] = 4;
                 this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
                     data => {
-                        this.talksApproved = data;
-                        /* Update the chart percentage -> Approved talks over Total Talks */
-                        let percentage = 0;
-                        let total = this.talks.length + this.talksApproved.length;
-                        if(this.talksApproved && this.talks)
-                            percentage = this.talksApproved.length / (total == 0 ? 1 : total);
+                        this.talksWaiting = data;
+                        send['state'] = 3;
+                        this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
+                            data => {
+                                this.talksApproved = data;
+                                /* Update the chart percentage -> Approved talks over Total Talks */
+                                let percentage = 0;
+                                let total = this.talks.length + this.talksApproved.length;
+                                if(this.talksApproved && this.talks)
+                                    percentage = this.talksApproved.length / (total == 0 ? 1 : total);
 
-                        this.pendingChart.updateChart(percentage*100);
+                                this.pendingChart.updateChart(percentage*100);
+                            });
+                    },
+                    err => {
+                        console.log("Error: " + err);
                     });
             },
             err => {

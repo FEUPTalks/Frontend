@@ -10,16 +10,20 @@ import {TalkGetModule} from "./talks/get/index";
 import {TalkEditModule} from "./talks/edit/edit.module";
 import {ArchivesModule} from "./archives/archives.module";
 import {WaitingModule} from "./waiting/waiting.module";
+import {AcceptedModule} from "./accepted/accepted.module";
+import {SharedModule} from "../shared/shared/shared.module";
 
 @NgModule({
     imports: [
+        SharedModule,
         RouterModule.forRoot(routes),
         HomeModule,
         PendingModule,
         TalkGetModule,
         TalkEditModule,
         ArchivesModule,
-        WaitingModule
+        WaitingModule,
+        AcceptedModule
     ],
     declarations: [DashboardComponent],
     exports: [DashboardComponent],
