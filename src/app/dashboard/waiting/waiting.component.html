@@ -51,6 +51,12 @@
         <div class="modal-content">
             <h4>Publish a Talk</h4>
             <p>Are you sure you want to publish this talk?</p>
+            <p class="red-text" *ngIf="checkAttributes(accept.getAttribute('data-id'))">
+                Please notice not all the fields from this talk are filled! The proponent did not fill everything.
+            </p>
+            <p class="green-text" *ngIf="!checkAttributes(accept.getAttribute('data-id'))">
+                All fields are filled. The talk is ready to go live.
+            </p>
         </div>
         <div class="modal-footer">
             <a class="waves-effect waves-green btn-flat" (click)="closeModal2()">No</a>

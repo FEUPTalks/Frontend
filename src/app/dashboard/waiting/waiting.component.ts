@@ -117,6 +117,23 @@ export class WaitingComponent implements AfterViewInit {
         this.rows = temp;
     }
 
+    checkAttributes(id : number) : boolean {
+        let talkid = null;
+        for(let talk in this.talks) {
+            if(this.talks[talk].talkID == id) {
+                talkid = talk;
+                break;
+            }
+        }
+        if(!talkid) return false;
+        for(let key in this.talks[talkid]) {
+            if(this.talks[talkid][key] === "") {
+                return true;
+            }
+        }
+        return false;
+    }
+
     openModal1(id : number) {
         document.getElementById("modal1").setAttribute("data-id", id.toString());
         this.modalActions1.emit({action: "modal", params: ['open']});

@@ -14,6 +14,7 @@ declare var Materialize: any;
 export class EmployeeComponent implements OnInit {
 
     public talksApproved: Talk[] = null;
+    public talksLive: Talk[] = null;
 
     constructor(private auth: UserService, private talkService: TalkService) { }
 
@@ -22,6 +23,14 @@ export class EmployeeComponent implements OnInit {
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
             data => {
                 this.talksApproved = data;
+                let send = { state : 5 };
+                this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
+                    data => {
+                        this.talksLive = data;
+                    },
+                    err => {
+                        console.log("Error: " + err);
+                    });
             },
             err => {
                 console.log("Error: " + err);
