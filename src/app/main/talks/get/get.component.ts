@@ -34,11 +34,17 @@ export class TalkGetComponent implements OnInit {
         this.talkService.getOne("talks/" + this.id).subscribe(
             data => {
                 this.talk = data;
-                var image = new Image();
-                image.src = this.talk['speakerPicture'];
-                image.style.width = "auto";
-                image.style.height = "120px";
-                document.getElementById("talk-avatar").appendChild(image);
+                this.talkService.getOne("picture/" + this.id).subscribe(
+                    data => {
+                        var image = new Image();
+                        image.src = data['speakerPicture'];
+                        image.style.width = "auto";
+                        image.style.height = "120px";
+                        document.getElementById("talk-avatar").appendChild(image);
+                    },
+                    err => {
+                        console.log(err);
+                    });
             },
             err => {
                 console.log(err);
