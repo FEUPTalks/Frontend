@@ -76,6 +76,21 @@ export class AcceptedComponent implements AfterViewInit {
             });
     }
 
+    public submitAddNeeds(id : number, addNeeds : string) {
+        if(!addNeeds)
+            return;
+        var data = {};
+        data['other'] = addNeeds;
+        this.talkService.put("talks/" + id + "/SetOther", this.auth.getToken(), data).subscribe(
+            data => {
+                Materialize.toast('Success! The additional needs were changed.', 4000);
+            },
+            err => {
+                console.log("Error: " + err);
+                Materialize.toast('Error! Not possible to change the additional needs.', 4000);
+            });
+    }
+
     public changeState(id : number, room : string) {
         if(!room) {
             Materialize.toast('Error! There is no room set.', 4000);

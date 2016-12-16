@@ -32,16 +32,20 @@
                     <datatable-column prop="date"></datatable-column>
                     <datatable-column prop="speakerName" name="Speaker"></datatable-column>
                     <datatable-column prop="proponent"></datatable-column>
-                    <datatable-column prop="controls" name="Approval">
+                    <datatable-column prop="controls" name="Room & Needs">
                         <template let-row="row" let-value="value" swui-datatable-cell-template>
                             <div class="center row">
                                 <input (blur)="submitRoom(value, room.value)" materialize="characterCounter"
                                        type="text" #room class="validate col s12 m6 l6" length="10" id="room" name="room"
-                                       (ngModel)="room" value="{{ talk?.room }}" required="">
+                                       placeholder="Room" (ngModel)="room" value="{{ talk?.room }}" required="">
                                 <a class="btn waves-effect waves-light blue col s12 m6 l6"
                                    (click)="changeState(value, room.value)">
                                     <i class="material-icons">create</i>
                                 </a>
+                                <textarea materialize="characterCounter" (blur)="submitAddNeeds(value, addNeeds.value)"
+                                          id="addNeeds" type="text" #addNeeds class="materialize-textarea col s12 m12 l12"
+                                          placeholder="Additional Needs" length="300" name="addNeeds"
+                                          (ngModel)="addNeeds"></textarea>
                             </div>
                         </template>
                     </datatable-column>
