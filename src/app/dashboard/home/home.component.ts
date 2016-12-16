@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from "../../services/auth/user.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'db-home-cmp',
@@ -8,5 +9,7 @@ import { UserService } from "../../services/auth/user.service";
 
 export class HomeComponent {
 
-    constructor(private auth : UserService) {}
+    constructor(private auth : UserService) {
+
+    }
 }
