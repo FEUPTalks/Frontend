@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
         selectYears: 1,
         min: new Date((this.today.getMonth() + 1) + "-" + (this.today.getDate() + 5) + "-" + this.today.getFullYear())
     };
-    picture: string = "";
+    picture = {};
 
     constructor(private talkService: TalkService) {
 
@@ -53,31 +53,32 @@ export class RegisterComponent implements OnInit {
         data['duration'] = parseInt(data['duration']);
         data['date'] = date.toISOString();
         data['snack'] = data['snack'] ? 1 : 0;
-        data['speakerPicture'] = this.picture;
         data['room'] = "";
         /* End of form params */
 
-        this.talkService.post("talks", data).subscribe(
+        console.log(this.picture);
+
+        this.talkService.postImg("picture", this.picture).subscribe(
             (res) => {
                 if (res.status === 201 || res.status === 200) {
-                    document.querySelectorAll("button[type=submit]")[0].setAttribute("disabled", "true");
-                    Materialize.toast('Success! A new talk was proposed.', 4000);
+                    console.log(res);
+                    data['speakerPicture'] = parseInt(res._body);
+                    this.talkService.post("talks", data).subscribe(
+                        (res) => {
+                            if (res.status === 201 || res.status === 200) {
+                                document.querySelectorAll("button[type=submit]")[0].setAttribute("disabled", "true");
+                                Materialize.toast('Success! A new talk was proposed.', 4000);
+                            }
+                        },
+                        (err) => {
+                            console.log("Error: " + err);
+                            Materialize.toast('Error! Not possible to submit a new talk.', 4000);
+                        });
                 }
             },
             (err) => {
                 console.log("Error: " + err);
-                Materialize.toast('Error! Not possible to submit a new talk.', 4000);
             });
-
-        /*this.talkService.postImg("picture", this.picture).subscribe(
-         (res) => {
-         if (res.status === 201 || res.status === 200) {
-         console.log("Image sent!")
-         }
-         },
-         (err) => {
-         console.log("Error: " + err);
-         });*/
     }
 
     readFile(file, callback) {
@@ -95,7 +96,7 @@ export class RegisterComponent implements OnInit {
         var submit = document.querySelectorAll("button[type=submit]")[0];
         submit.setAttribute("disabled", "true");
         this.readFile(input.files[0], (base64) => {
-            this.picture = base64;
+            this.picture['speakerPicture'] = base64;
             submit.removeAttribute("disabled");
         });
     }
