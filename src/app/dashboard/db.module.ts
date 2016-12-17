@@ -12,6 +12,7 @@ import {ArchivesModule} from "./archives/archives.module";
 import {WaitingModule} from "./waiting/waiting.module";
 import {AcceptedModule} from "./accepted/accepted.module";
 import {SharedModule} from "../shared/shared/shared.module";
+import {LiveModule} from "./live/live.module";
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import {SharedModule} from "../shared/shared/shared.module";
         TalkEditModule,
         ArchivesModule,
         WaitingModule,
-        AcceptedModule
+        AcceptedModule,
+        LiveModule
     ],
     declarations: [DashboardComponent],
     exports: [DashboardComponent],
