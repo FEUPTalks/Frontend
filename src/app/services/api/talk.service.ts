@@ -45,6 +45,12 @@ export class TalkService {
             .catch((error:any) => Observable.throw(error || 'Server error'));
     }
 
+    getImg(path : string) : Observable<string> {
+        return this.http.get(this.baseUrl + path)
+            .map((res:Response) => res.json())
+            .catch((error:any) => Observable.throw(error || 'Server error'));
+    }
+
     postImg(path : string, vals : any) : Observable<Response> {
         return this.http.post(this.baseUrl + path, JSON.stringify(vals))
             .map((res:Response) => res)

@@ -34,7 +34,7 @@ export class TalkGetComponent implements OnInit {
         this.talkService.getOne("talks/" + this.id).subscribe(
             data => {
                 this.talk = data;
-                this.talkService.getOne("picture/" + this.id).subscribe(
+                this.talkService.getImg("picture/" + this.id).subscribe(
                     data => {
                         var image = new Image();
                         image.src = data;

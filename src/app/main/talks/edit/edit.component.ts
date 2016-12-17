@@ -71,7 +71,7 @@ export class TalkEditComponent implements OnInit {
 
         this.talkService.postImg("picture/edit", this.picture).subscribe(
             (res) => {
-                data['speakerPicture'] = parseInt(res._body);
+                data['speakerPicture'] = parseInt(res['_body']);
                 this.talkService.put("talks/" + id, token, data).subscribe(
                     (res) => {
                         if (res.status === 201 || res.status === 200) {
