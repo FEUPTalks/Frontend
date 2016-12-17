@@ -4,6 +4,7 @@ import "rxjs/add/operator/map";
 import {Talk} from "../../../services/api/talk";
 import {TalkService} from "../../../services/api/talk.service";
 import {Router, ActivatedRoute} from "@angular/router";
+import {TalkRegistration} from "../../../services/api/talkRegistration";
 
 declare var Materialize: any;
 
@@ -55,8 +56,6 @@ export class TalkGetComponent implements OnInit {
         /* Update form params, because angular doesn't fetch them */
         data['talkID'] = this.id;
         /* End of form params */
-
-        console.log("Sending: " + JSON.stringify(data));
 
         this.talkService.post("talkRegistration", data).subscribe(
             (res) => {

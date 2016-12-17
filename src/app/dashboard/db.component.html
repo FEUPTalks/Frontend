@@ -40,6 +40,10 @@
                     <span class="link">Waiting</span>
                     <span class="new badge">{{ talksWaiting?.length }}</span>
                 </a>
+                <a *ngIf="auth.getProfile()['role'] == 1" class="navigation-link" routerLink="/dashboard/live">
+                    <i class="ti ti-alarm-clock"></i>
+                    <span class="link">Live</span>
+                </a>
                 <a *ngIf="auth.getProfile()['role'] == 1" class="navigation-link">
                     <i class="ti ti-comment"></i>
                     <span class="link">Comments</span>

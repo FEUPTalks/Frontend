@@ -67,7 +67,6 @@ export class TalkEditComponent implements OnInit {
 
         let token = this.auth.loggedIn() ? this.auth.getToken() : this.route.snapshot.queryParams["token"];
         this.picture['pictureID'] = this.talk.speakerPicture;
-        console.log("Sending: " + JSON.stringify(data));
 
         this.talkService.postImg("picture/edit", this.picture).subscribe(
             (res) => {

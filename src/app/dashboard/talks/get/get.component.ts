@@ -62,7 +62,6 @@ export class TalkGetComponent implements OnInit {
         this.talkService.getPrivate("talkRegistration/" + this.id, this.auth.getToken(), {}).subscribe(
             data => {
                 this.talkRegistrations = data;
-                console.log(this.talkRegistrations);
             },
             err => {
                 console.log(err);

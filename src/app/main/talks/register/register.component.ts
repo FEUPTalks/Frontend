@@ -56,12 +56,9 @@ export class RegisterComponent implements OnInit {
         data['room'] = "";
         /* End of form params */
 
-        console.log(this.picture);
-
         this.talkService.postImg("picture", this.picture).subscribe(
             (res) => {
                 if (res.status === 201 || res.status === 200) {
-                    console.log(res);
                     data['speakerPicture'] = parseInt(res['_body']);
                     this.talkService.post("talks", data).subscribe(
                         (res) => {
