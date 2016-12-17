@@ -24,7 +24,7 @@ export class TalkEditComponent implements OnInit {
         min: new Date((this.today.getMonth() + 1) + "-" + (this.today.getDate() + 5) + "-" + this.today.getFullYear()),
         format: 'mm-dd-yyyy'
     };
-    picture: string[] = [];
+    picture = {};
 
     constructor(private auth : UserService, private route : ActivatedRoute, private talkService: TalkService) {
 
@@ -66,29 +66,27 @@ export class TalkEditComponent implements OnInit {
         /* End of form params */
 
         let token = this.auth.loggedIn() ? this.auth.getToken() : this.route.snapshot.queryParams["token"];
+        this.picture['pictureID'] = this.talk.speakerPicture;
         console.log("Sending: " + JSON.stringify(data));
 
-        this.talkService.put("talks/" + id, token, data).subscribe(
+        this.talkService.postImg("picture/edit", this.picture).subscribe(
             (res) => {
-                if (res.status === 201 || res.status === 200) {
-                    document.querySelectorAll("button[type=submit]")[0].setAttribute("disabled", "true");
-                    Materialize.toast('Success! The talk was edited.', 4000);
-                }
+                data['speakerPicture'] = parseInt(res._body);
+                this.talkService.put("talks/" + id, token, data).subscribe(
+                    (res) => {
+                        if (res.status === 201 || res.status === 200) {
+                            document.querySelectorAll("button[type=submit]")[0].setAttribute("disabled", "true");
+                            Materialize.toast('Success! The talk was edited.', 4000);
+                        }
+                    },
+                    (err) => {
+                        console.log("Error: " + err);
+                        Materialize.toast('Error! Not possible to edit the talk.', 4000);
+                    });
             },
             (err) => {
                 console.log("Error: " + err);
-                Materialize.toast('Error! Not possible to edit the talk.', 4000);
             });
-
-        /*this.talkService.postImg("picture", this.picture).subscribe(
-         (res) => {
-         if (res.status === 201 || res.status === 200) {
-         console.log("Image sent!")
-         }
-         },
-         (err) => {
-         console.log("Error: " + err);
-         });*/
     }
 
     readFile(file, callback) {
@@ -106,7 +104,7 @@ export class TalkEditComponent implements OnInit {
         var submit = document.querySelectorAll("button[type=submit]")[0];
         submit.setAttribute("disabled", "true");
         this.readFile(input.files[0], (base64) => {
-            this.picture['picture'] = base64;
+            this.picture['speakerPicture'] = base64;
             submit.removeAttribute("disabled");
         });
     }

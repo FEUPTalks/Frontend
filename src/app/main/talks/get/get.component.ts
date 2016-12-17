@@ -37,7 +37,7 @@ export class TalkGetComponent implements OnInit {
                 this.talkService.getOne("picture/" + this.id).subscribe(
                     data => {
                         var image = new Image();
-                        image.src = data['speakerPicture'];
+                        image.src = data;
                         image.style.width = "auto";
                         image.style.height = "120px";
                         document.getElementById("talk-avatar").appendChild(image);

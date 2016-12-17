@@ -102,7 +102,7 @@
                         <div class="file-field input-field">
                             <div class="btn">
                                 <span>Speaker Picture </span>
-                                <input type="file">
+                                <input #file type="file" (change)="fileChange(file)">
                             </div>
                             <div class="file-path-wrapper">
                                 <font color="red">*</font> <input class="file-path validate" type="text">
