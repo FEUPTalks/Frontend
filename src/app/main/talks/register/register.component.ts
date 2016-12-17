@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
             (res) => {
                 if (res.status === 201 || res.status === 200) {
                     console.log(res);
-                    data['speakerPicture'] = parseInt(res._body);
+                    data['speakerPicture'] = parseInt(res['_body']);
                     this.talkService.post("talks", data).subscribe(
                         (res) => {
                             if (res.status === 201 || res.status === 200) {
