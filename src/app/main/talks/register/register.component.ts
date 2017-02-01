@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
     }
 
     submit(data?: any) {
-        /* Update form params, because angular doesn't fetch them */
+        /* Update form params, because angular doesn't fetch these ones automatically */
         var date = new Date(data['startDate']);
         var time = (<any>$("#startTime")).val();
         date.setHours(time.split(":")[0]);

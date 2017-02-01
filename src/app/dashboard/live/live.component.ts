@@ -32,6 +32,9 @@ export class LiveComponent implements AfterViewInit {
 
     constructor(private auth: UserService, private talkService: TalkService) { }
 
+    /**
+     * After view initializing, let's fetch the talks
+     */
     ngAfterViewInit() {
         let send = { state : 5 };
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
@@ -56,10 +59,19 @@ export class LiveComponent implements AfterViewInit {
             });
     }
 
+    /**
+     * Helper function to parse a date string into date object
+     * @param date
+     * @returns {Date}
+     */
     public parse(date: string) {
         return new Date(Date.parse(date));
     }
 
+    /**
+     * Belongs to datatables search function
+     * @param event
+     */
     updateFilter(event) {
         let val = event.target.value.toLowerCase();
 
@@ -72,6 +84,11 @@ export class LiveComponent implements AfterViewInit {
         this.rows = temp;
     }
 
+    /**
+     * Helper function to check if all attributes in a talk are set
+     * @param id
+     * @returns {boolean}
+     */
     checkAttributes(id : number) : boolean {
         let talkid = null;
         for(let talk in this.talks) {

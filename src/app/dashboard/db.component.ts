@@ -23,10 +23,16 @@ export class DashboardComponent implements AfterViewInit {
 
     }
 
+    /**
+     * After view initializing, let's fetch the talks
+     */
     ngAfterViewInit() {
         this.getTalks();
     }
 
+    /**
+     * Get needed talks from the database, multiple states
+     */
     getTalks() {
         let send = { state : 1 };
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(

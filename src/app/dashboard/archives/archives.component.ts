@@ -29,6 +29,9 @@ export class ArchivesComponent implements AfterViewInit {
 
     constructor(private auth: UserService, private talkService: TalkService) { }
 
+    /**
+     * After view initializing, let's fetch the talks
+     */
     ngAfterViewInit() {
         let send = { state : 6 };
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
@@ -52,10 +55,19 @@ export class ArchivesComponent implements AfterViewInit {
             });
     }
 
+    /**
+     * Helper function to parse a date string into date object
+     * @param date
+     * @returns {Date}
+     */
     public parse(date: string) {
         return new Date(Date.parse(date));
     }
 
+    /**
+     * Belongs to datatables search function
+     * @param event
+     */
     updateFilter(event) {
         let val = event.target.value;
 
