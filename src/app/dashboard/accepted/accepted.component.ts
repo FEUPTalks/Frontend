@@ -34,6 +34,9 @@ export class AcceptedComponent implements AfterViewInit {
 
     constructor(private auth: UserService, private talkService: TalkService) { }
 
+    /**
+     * After view initializing, let's fetch the talks
+     */
     ngAfterViewInit() {
         let send = { state : 3 };
         this.talkService.getPrivate("talks/all", this.auth.getToken(), send).subscribe(
@@ -57,10 +60,20 @@ export class AcceptedComponent implements AfterViewInit {
             });
     }
 
+    /**
+     * Helper function to parse a date string into date object
+     * @param date
+     * @returns {Date}
+     */
     public parse(date: string) {
         return new Date(Date.parse(date));
     }
 
+    /**
+     * Helper function to update the room in the database for a certain talk (id)
+     * @param id
+     * @param room
+     */
     public submitRoom(id : number, room : string) {
         if(!room)
             return;
@@ -76,6 +89,11 @@ export class AcceptedComponent implements AfterViewInit {
             });
     }
 
+    /**
+     * Helper function to update the additionalNeeds in the database for a certain talk (id)
+     * @param id
+     * @param addNeeds
+     */
     public submitAddNeeds(id : number, addNeeds : string) {
         if(!addNeeds)
             return;
@@ -91,6 +109,12 @@ export class AcceptedComponent implements AfterViewInit {
             });
     }
 
+    /**
+     * Helper function to proceed to the next state
+     * @param id
+     * @param room This parameter is required because without room, a function cannot proceed to the next state
+     * The room parameter is just what the user has in the input box, if null, this can't proceed
+     */
     public changeState(id : number, room : string) {
         if(!room) {
             Materialize.toast('Error! There is no room set.', 4000);
@@ -109,6 +133,11 @@ export class AcceptedComponent implements AfterViewInit {
             });
     }
 
+    /**
+     * Helper function that bundles everything needed to remove a talk from the View, which means the table
+     * It doesn't include removing from the database
+     * @param id
+     */
     removeTalk(id : number) {
         for(let i=0; i<this.talks.length; i++) {
             if(this.talks[i]['talkID'] == id) {
@@ -121,6 +150,10 @@ export class AcceptedComponent implements AfterViewInit {
         }
     }
 
+    /**
+     * Belongs to datatables search function
+     * @param event
+     */
     updateFilter(event) {
         let val = event.target.value.toLowerCase();
 

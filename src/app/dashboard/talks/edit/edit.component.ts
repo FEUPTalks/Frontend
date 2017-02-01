@@ -30,6 +30,9 @@ export class TalkEditComponent implements OnInit {
 
     }
 
+    /**
+     * When view is initializing, let's fetch the talks (only happens once)
+     */
     ngOnInit() {
         let id = this.route.snapshot.params['id'];
         this.talkService.getOne("talks/" + id).subscribe(
@@ -48,6 +51,10 @@ export class TalkEditComponent implements OnInit {
             });
     }
 
+    /**
+     * When something is submited in the form, this function is called
+     * @param data this variable contains the inputs of the form (according to name) fetched automatically by angular
+     */
     submit(data?: any) {
         /* Update form params, because angular doesn't fetch them */
         let id = this.route.snapshot.params['id'];
@@ -86,6 +93,11 @@ export class TalkEditComponent implements OnInit {
             });
     }
 
+    /**
+     * Read a file, in this case, the photo
+     * @param file
+     * @param callback
+     */
     readFile(file, callback) {
         var reader = new FileReader();
         reader.onload = () => {
@@ -97,6 +109,10 @@ export class TalkEditComponent implements OnInit {
         reader.readAsDataURL(file);
     }
 
+    /**
+     * In case the user changes the submited photo
+     * @param input
+     */
     fileChange(input) {
         var submit = document.querySelectorAll("button[type=submit]")[0];
         submit.setAttribute("disabled", "true");
@@ -106,6 +122,13 @@ export class TalkEditComponent implements OnInit {
         });
     }
 
+    /**
+     * Example:
+     * Having a number like 9 or 09
+     * This function makes sure 9 is like 09
+     * @param n
+     * @returns {number}
+     */
     pad(n : number) : number {
         return n<10 ? parseInt('0'+n) : n;
     }

@@ -9,6 +9,35 @@ import {WaitingComponent} from "./waiting/waiting.component";
 import {AcceptedComponent} from "./accepted/accepted.component";
 import {LiveComponent} from "./live/live.component";
 
+/**
+ * So, how do routes work?
+ *
+ * Routes are divided into categories, for example:
+ * Everything inside /home will go into HomeComponent
+ *
+ * What about everything inside /home/me?
+ * In that case, you would have to create a new routes file inside the "home" folder that contains:
+ * { path: 'me', component: <any>MeComponent }
+ * So basically, this main routing file would redirect /home to HomeComponent
+ * and then (in the other file) /home/me to MeComponent
+ *
+ * Want an example?
+ * Check app/app.routes.ts where is says "dashboard" redirects to DashboardComponent
+ * Now check app/dashboard/db.routes.ts where is says "home" redirects to HomeComponent (/dashboard/home)
+ *
+ * What means canActivate?
+ * CanActivate is the service which tells if the user can access a page (has permissions)
+ * Check services/auth/guard.service.ts
+ *
+ * What means data: { role: 2 }?
+ * Since there are two users, we lacked a way of telling the system which permissions a user must have to access
+ * a page. So we created this data role, where we tell the MINIMUM role required to access the page
+ *
+ * Why some have components and other have redirectTo?
+ * Redirect to is a "helper" to make a certain path do something that is already defined
+ * Ex: path: 'hello', redirectTo: 'home'
+ * Whenever they type /dashboard/hello they will go to home
+ */
 export const routes = [
     {
         path: 'dashboard',

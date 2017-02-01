@@ -29,15 +29,21 @@ export class TalkGetComponent implements OnInit {
 
     }
 
+    /**
+     * When view is initializing, let's fetch the talks (only happens once)
+     */
     ngOnInit() {
         // + converts string 'id' to a number
         this.id = +this.route.snapshot.params['id'];
-        this.getTalks();
+        this.getTalk();
         this.getTalkRegistrations();
         this.getTalkRegistrationLogs();
     }
 
-    getTalks() {
+    /**
+     * Helper function to get a specific talk by id (routing)
+     */
+    getTalk() {
         this.talkService.getPrivate("talks/" + this.id, this.auth.getToken(), {}).subscribe(
             data => {
                 this.talk = data;
@@ -58,6 +64,9 @@ export class TalkGetComponent implements OnInit {
             });
     }
 
+    /**
+     * Helper function to get the talk registrations
+     */
     getTalkRegistrations() {
         this.talkService.getPrivate("talkRegistration/" + this.id, this.auth.getToken(), {}).subscribe(
             data => {
@@ -68,6 +77,9 @@ export class TalkGetComponent implements OnInit {
             });
     }
 
+    /**
+     * Helper function to get the talk logs
+     */
     getTalkRegistrationLogs() {
         this.talkService.getPrivate("talkRegistrationLog/" + this.id, this.auth.getToken(), {}).subscribe(
             data => {
